@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && node ./copyfile",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "prop-types": "^15.6.2",
@@ -26,6 +27,8 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
-    "eslit": "^5.0.0"
-  }
+    "eslit": "^5.0.0",
+    "gh-pages": "^2.0.0"
+  },
+  "homepage": "http://shoonia.github.io/meme/"
 }

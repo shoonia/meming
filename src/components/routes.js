@@ -1,14 +1,16 @@
 import Home from './pages/Home';
 import NotFound from './not-found/NotFound';
 
+import { ROOT_URL } from '../constants';
+
 export default [
   {
-    path: '/',
+    path: `${ROOT_URL}/`,
     exact: true,
     component: Home,
   },
   {
-    path: '/page/:number',
+    path: `${ROOT_URL}/page/:number`,
     exact: true,
     component: Home,
   },

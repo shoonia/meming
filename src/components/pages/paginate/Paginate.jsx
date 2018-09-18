@@ -2,6 +2,8 @@ import React from 'react';
 import ReactPaginate from 'react-paginate';
 import PropTypes from 'prop-types';
 
+import { ROOT_URL } from '../../../constants';
+
 class Paginate extends React.PureComponent {
   static propTypes = {
     pageCount: PropTypes.number.isRequired,
@@ -15,7 +17,7 @@ class Paginate extends React.PureComponent {
     const pageNumber = selected + 1;
 
     onPageChange(pageNumber);
-    historyPush(`/page/${pageNumber}`);
+    historyPush(`${ROOT_URL}/page/${pageNumber}`);
   }
 
   render() {
