@@ -13,7 +13,7 @@ const MemeItem = (props) => {
 
   return (
     <article className="container box" style={style}>
-      <h3 className="title is-4">
+      <h3 className="title is-4 has-text-centered">
         { title || '***' }
       </h3>
       <figure className="image">
