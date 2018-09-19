@@ -1,12 +1,12 @@
 import { RECEIVE_PAGE } from '../constants';
 
 const initialState = {
-  totalCount: 0,
-  pageCount: 0,
-  pageNumber: 0,
-  limit: 0,
-  length: 0,
   items: [],
+  length: 0,
+  limit: 0,
+  pageNumber: 0,
+  pageCount: 0,
+  totalCount: 0,
 };
 
 export default (state = initialState, action) => {

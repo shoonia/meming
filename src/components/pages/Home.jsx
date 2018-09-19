@@ -33,7 +33,7 @@ class Home extends React.PureComponent {
       <React.Fragment>
         <Paginate
           pageCount={pageCount}
-          initialPage={pageNumber}
+          pageNumber={pageNumber}
           historyPush={history.push}
           onPageChange={getPage}
         />

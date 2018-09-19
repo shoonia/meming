@@ -30,5 +30,7 @@
     "eslit": "^5.0.0",
     "gh-pages": "^2.0.0"
   },
-  "homepage": "http://shoonia.github.io/meme/"
+  "homepage": "http://shoonia.github.io/meme/",
+  "description": "Memes about programming",
+  "license": "MIT"
 }
