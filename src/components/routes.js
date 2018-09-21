@@ -1,8 +1,23 @@
-import Home from './pages/Home';
-import Meme from './pages/Meme';
-import NotFound from './not-found/NotFound';
+import Loadable from 'react-loadable';
 
 import { ROOT_URL } from '../constants';
+
+const loading = () => null;
+
+const Home = Loadable({
+  loader: () => import('./pages/Home' /* webpackChunkName: "Home" */),
+  loading,
+});
+
+const Meme = Loadable({
+  loader: () => import('./pages/Meme' /* webpackChunkName: "Meme" */),
+  loading,
+});
+
+const NotFound = Loadable({
+  loader: () => import('./not-found/NotFound' /* webpackChunkName: "NotFound" */),
+  loading,
+});
 
 export default [
   {
