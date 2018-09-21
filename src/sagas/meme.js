@@ -9,19 +9,7 @@ import { GET_MEME_BY_ID } from '../constants';
 import { getCache } from '../selectors';
 import { receiveMeme } from '../actions/meme';
 import { fetchMemeById } from '../api';
-
-/* eslint-disable */
-
-function findMemeById(cache, id) {
-  for (const key in cache) {
-    const { items } = cache[key];
-    const meme = items.find(item => item.id === id);
-
-    if (meme !== undefined) {
-      return meme;
-    }
-  }
-}
+import { findMemeById } from '../utils/meme';
 
 export function* getMemeByIdSaga({ id }) {
   const cache = yield select(getCache);
@@ -36,7 +24,7 @@ export function* getMemeByIdSaga({ id }) {
     const newMeme = yield call(fetchMemeById, id);
     yield put(receiveMeme(newMeme));
   } catch (error) {
-    // error
+    // console.log(error.message);
   }
 }
 

@@ -19,9 +19,13 @@ export function* getPageByNumberSaga({ pageNumber }) {
     return;
   }
 
-  const newPage = yield call(fetchPageByNumber, pageNumber);
-  yield put(receivePage(newPage));
-  yield put(cachePage({ [newPage.pageNumber]: newPage }));
+  try {
+    const newPage = yield call(fetchPageByNumber, pageNumber);
+    yield put(receivePage(newPage));
+    yield put(cachePage({ [newPage.pageNumber]: newPage }));
+  } catch (error) {
+    // error
+  }
 }
 
 export default function* () {

@@ -1,12 +1,14 @@
 const getUrl = path => `https://shoonia.wixsite.com/meme-api/_functions${path}`;
 
-// const handleErrors = (response) => {
-//   if (!response.ok) throw Error();
-//   return response;
-// };
+const handleErrors = (response) => {
+  if (response.status > 399) {
+    throw new Error(response.statusText);
+  }
+  return response;
+};
 
 const request = url => fetch(url)
-  // .then(handleErrors)
+  .then(handleErrors)
   .then(response => response.json());
 
 export const fetchPageByNumber = pageNumber => request(getUrl(`/page/${pageNumber}`));
