@@ -1,0 +1,19 @@
+.pagination__item > a {
+  background-color: #FFF;
+}
+
+.pagination__active > a,
+.pagination__active > a:focus,
+.pagination__active > a:hover {
+  border-color:hsl(217, 71%, 53%);
+  background-color: hsl(217, 71%, 53%);
+  color: #FFF;
+}
+
+.pagination__item.pagination__disabled > a {
+  cursor: default;
+  pointer-events: none;
+  background-color: transparent;
+  color: lightgray;
+  border-color: lightgray;
+}

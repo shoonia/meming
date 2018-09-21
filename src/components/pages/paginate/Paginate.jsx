@@ -2,6 +2,7 @@ import React from 'react';
 import ReactPaginate from 'react-paginate';
 import PropTypes from 'prop-types';
 
+import './paginate.css';
 import { ROOT_URL } from '../../../constants';
 
 class Paginate extends React.PureComponent {
@@ -12,9 +13,13 @@ class Paginate extends React.PureComponent {
     onPageChange: PropTypes.func.isRequired,
   };
 
+  /* eslint no-nested-ternary: off */
   onPageChange = ({ selected }) => {
-    const { historyPush, onPageChange } = this.props;
-    const nextPage = selected + 1;
+    const { historyPush, onPageChange, pageCount } = this.props;
+    const page = selected + 1;
+    const nextPage = (pageCount > 0)
+      ? (page > pageCount) ? pageCount : page
+      : page;
 
     onPageChange(nextPage);
     historyPush(`${ROOT_URL}/page/${nextPage}`);
@@ -37,12 +42,13 @@ class Paginate extends React.PureComponent {
 
           containerClassName="pagination-list"
           pageLinkClassName="pagination-link"
-          // pageClassName=""
-          // activeClassName=""
-          // disabledClassName=""
 
-          // previousClassName=""
-          // nextClassName=""
+          pageClassName="pagination__item"
+          activeClassName="pagination__active"
+          disabledClassName="pagination__disabled"
+
+          previousClassName="pagination__item"
+          nextClassName="pagination__item"
 
           previousLabel="&laquo;"
           nextLabel="&raquo;"
