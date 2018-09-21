@@ -1,15 +1,21 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { ROOT_URL } from '../../constants';
+import image from './error-404.gif';
 
 const NotFound = () => (
-  <div className="has-text-centered" role="alert">
-    <h1 className="title is-1">
-      404: Not Found!
-    </h1>
-    <NavLink to={`${ROOT_URL}/`}>Home</NavLink>
-  </div>
+  <section className="has-text-centered" role="alert">
+    <figure>
+      <h1 aria-label="Error 404 not found">
+        <span />
+      </h1>
+      <img src={image} alt="Error 404 not found" />
+    </figure>
+    <Link className="is-size-4" to={`${ROOT_URL}/`}>
+      Home
+    </Link>
+  </section>
 );
 
 export default NotFound;
