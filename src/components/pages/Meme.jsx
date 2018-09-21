@@ -2,13 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { getIdOfMeme } from '../../selectors';
+import { getIdOfMeme, isMemeExist, getMeme } from '../../selectors';
 import { getMemeById } from '../../actions/meme';
+import MemeView from './meme/MemeView';
 
 class Meme extends React.PureComponent {
   static propTypes = {
     id: PropTypes.string.isRequired,
     pageMount: PropTypes.func.isRequired,
+    isExist: PropTypes.bool.isRequired,
+    item: PropTypes.shape().isRequired,
   };
 
   componentDidMount() {
@@ -17,14 +20,19 @@ class Meme extends React.PureComponent {
   }
 
   render() {
-    const { id } = this.props;
+    const { isExist, item } = this.props;
 
-    return `Meme's id is ${id}`;
+    if (isExist) {
+      return <MemeView {...item} />;
+    }
+    return null;
   }
 }
 
 const mapStateToProps = (state, ownProps) => ({
   id: getIdOfMeme(ownProps),
+  item: getMeme(state),
+  isExist: isMemeExist(state),
 });
 
 const mapDispatchToProps = {
