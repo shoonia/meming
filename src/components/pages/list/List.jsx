@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import MemeItem from './MemeItem';
+import ListItem from './ListItem';
 
-const Memes = ({ items }) => (
+const List = ({ items }) => (
   <main className="section">
     {items.map(meme => (
-      <MemeItem key={meme.id} {...meme} />
+      <ListItem key={meme.id} {...meme} />
     ))}
   </main>
 );
 
-Memes.propTypes = {
+List.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default Memes;
+export default List;

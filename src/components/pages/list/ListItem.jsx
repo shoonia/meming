@@ -1,10 +1,14 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
+import { ROOT_URL } from '../../../constants';
 
 const style = { maxWidth: '600px' };
 
-const MemeItem = (props) => {
+const ListItem = (props) => {
   const {
+    id,
     title,
     body,
     image,
@@ -14,7 +18,9 @@ const MemeItem = (props) => {
   return (
     <article className="container box" style={style}>
       <h3 className="title is-4 has-text-centered">
-        { title || '***' }
+        <NavLink to={`${ROOT_URL}/meme/${id}`}>
+          { title || '***' }
+        </NavLink>
       </h3>
       <figure className="image">
         <img src={image} alt={title} />
@@ -27,11 +33,12 @@ const MemeItem = (props) => {
   );
 };
 
-MemeItem.propTypes = {
+ListItem.propTypes = {
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
 };
 
-export default MemeItem;
+export default ListItem;

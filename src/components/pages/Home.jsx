@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { getItems, getNumberOfPage, getPageCount } from '../../selectors';
 import { getPageByNumber } from '../../actions/page';
 import Paginate from './paginate/Paginate';
-import Memes from './memes/Memes';
+import List from './list/List';
 
 class Home extends React.PureComponent {
   static defaultProps = {
@@ -37,7 +37,7 @@ class Home extends React.PureComponent {
           historyPush={history.push}
           onPageChange={getPage}
         />
-        <Memes items={items} />
+        <List items={items} />
       </React.Fragment>
     );
   }

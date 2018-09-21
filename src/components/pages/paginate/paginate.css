@@ -5,8 +5,8 @@
 .pagination__active > a,
 .pagination__active > a:focus,
 .pagination__active > a:hover {
-  border-color:hsl(217, 71%, 53%);
-  background-color: hsl(217, 71%, 53%);
+  border-color: #4AB3F4;
+  background-color: #4AB3F4;
   color: #FFF;
 }
 

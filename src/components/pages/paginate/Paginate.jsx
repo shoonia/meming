@@ -14,7 +14,7 @@ class Paginate extends React.PureComponent {
   };
 
   /* eslint no-nested-ternary: off */
-  onPageChange = ({ selected }) => {
+  onPageChangeHandler = ({ selected }) => {
     const { historyPush, onPageChange, pageCount } = this.props;
     const page = selected + 1;
     const nextPage = (pageCount > 0)
@@ -35,7 +35,7 @@ class Paginate extends React.PureComponent {
           pageCount={pageCount}
           forcePage={initialPage}
           initialPage={initialPage}
-          onPageChange={this.onPageChange}
+          onPageChange={this.onPageChangeHandler}
 
           pageRangeDisplayed={1}
           marginPagesDisplayed={1}
