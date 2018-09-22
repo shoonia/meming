@@ -4,14 +4,7 @@ import PropTypes from 'prop-types';
 
 import { ROOT_URL } from '../../../constants';
 import Time from '../../helpers/Time';
-
-export const styleWrapper = {
-  maxWidth: '600px',
-};
-
-export const styleImg = {
-  maxHeight: '40vh',
-};
+import { ArticleFadeIn, Img } from './list-styled';
 
 const ListItem = (props) => {
   const {
@@ -23,18 +16,18 @@ const ListItem = (props) => {
   } = props;
 
   return (
-    <article className="container box" style={styleWrapper}>
+    <ArticleFadeIn className="container box">
       <h3 className="title is-4 has-text-centered">
         <NavLink to={`${ROOT_URL}/post/${id}`}>
           {title || '***'}
         </NavLink>
       </h3>
       <figure className="has-text-centered">
-        <img src={image} alt={title} style={styleImg} />
+        <Img src={image} alt={title} />
         <p>{body}</p>
       </figure>
       <Time date={date} />
-    </article>
+    </ArticleFadeIn>
   );
 };
 
