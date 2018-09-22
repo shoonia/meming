@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const style = {
+  width: '88vw',
+  maxWidth: '600px',
+};
+
 const MemeView = (props) => {
   const {
     title,
@@ -10,10 +15,10 @@ const MemeView = (props) => {
   } = props;
 
   return (
-    <main className="hero has-text-centered">
-      <h1 className="title is-1">{title || '***'}</h1>
-      <figure className="hero-body">
-        <img src={image} alt={title} />
+    <main className="has-text-centered">
+      <h1 className="title is-4">{title || '***'}</h1>
+      <figure>
+        <img src={image} alt={title} style={style} />
         <p>{body}</p>
       </figure>
       <time dateTime={date}>

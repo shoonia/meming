@@ -4,7 +4,13 @@ import PropTypes from 'prop-types';
 
 import { ROOT_URL } from '../../../constants';
 
-const style = { maxWidth: '600px' };
+const styleWrapper = {
+  maxWidth: '600px',
+};
+
+const styleImg = {
+  maxHeight: '50vh',
+};
 
 const ListItem = (props) => {
   const {
@@ -16,18 +22,18 @@ const ListItem = (props) => {
   } = props;
 
   return (
-    <article className="container box" style={style}>
+    <article className="container box" style={styleWrapper}>
       <h3 className="title is-4 has-text-centered">
-        <NavLink to={`${ROOT_URL}/meme/${id}`}>
-          { title || '***' }
+        <NavLink to={`${ROOT_URL}/post/${id}`}>
+          {title || '***'}
         </NavLink>
       </h3>
-      <figure className="image">
-        <img src={image} alt={title} />
-        <p>{ body }</p>
+      <figure className="has-text-centered">
+        <img src={image} alt={title} style={styleImg} />
+        <p>{body}</p>
       </figure>
       <time dateTime={date}>
-        { new Date(date).toLocaleDateString() }
+        {new Date(date).toLocaleDateString()}
       </time>
     </article>
   );

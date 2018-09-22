@@ -17,6 +17,7 @@ class Meme extends React.PureComponent {
   componentDidMount() {
     const { id, pageMount } = this.props;
     pageMount(id);
+    window.scrollTo({ top: 0 });
   }
 
   render() {

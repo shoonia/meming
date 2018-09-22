@@ -31,7 +31,7 @@ export default [
     component: Home,
   },
   {
-    path: `${ROOT_URL}/meme/:id`,
+    path: `${ROOT_URL}/post/:id`,
     exact: true,
     component: Meme,
   },
