@@ -7,7 +7,7 @@ import {
 
 import { GET_PAGE_BY_NUMBER } from '../constants';
 import { fetchPageByNumber } from '../api';
-import { receivePage } from '../actions/page';
+import { receivePage, pageLoading } from '../actions/page';
 import { getCachePage } from '../selectors';
 import { cachePage } from '../actions/cache';
 
@@ -20,6 +20,7 @@ export function* getPageByNumberSaga({ pageNumber }) {
   }
 
   try {
+    yield put(pageLoading());
     const newPage = yield call(fetchPageByNumber, pageNumber);
     yield put(receivePage(newPage));
     yield put(cachePage({ [newPage.pageNumber]: newPage }));

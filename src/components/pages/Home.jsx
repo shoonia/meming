@@ -2,7 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { getItems, getNumberOfPage, getPageCount } from '../../selectors';
+import {
+  getItems,
+  getNumberOfPage,
+  getPageCount,
+  isPageLoading,
+} from '../../selectors';
 import { getPageByNumber } from '../../actions/page';
 import Paginate from './paginate/Paginate';
 import List from './list/List';
@@ -18,6 +23,7 @@ class Home extends React.PureComponent {
     pageCount: PropTypes.number.isRequired,
     getPage: PropTypes.func.isRequired,
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
+    isLoading: PropTypes.bool.isRequired,
   };
 
   render() {
@@ -27,6 +33,7 @@ class Home extends React.PureComponent {
       pageCount,
       getPage,
       items,
+      isLoading,
     } = this.props;
 
     return (
@@ -37,7 +44,10 @@ class Home extends React.PureComponent {
           historyPush={history.push}
           onPageChange={getPage}
         />
-        <List items={items} />
+        <List
+          items={items}
+          isLoading={isLoading}
+        />
       </React.Fragment>
     );
   }
@@ -47,6 +57,7 @@ const mapStateToProps = (state, ownProps) => ({
   items: getItems(state),
   pageCount: getPageCount(state),
   pageNumber: getNumberOfPage(ownProps),
+  isLoading: isPageLoading(state),
 });
 
 const mapDispatchToProps = {

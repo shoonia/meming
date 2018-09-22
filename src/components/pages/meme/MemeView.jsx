@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Time from '../../helpers/Time';
+
 const style = {
-  width: '88vw',
+  minWidth: '10px',
   maxWidth: '600px',
+  marginLeft: 'auto',
+  marginRight: 'auto',
 };
 
 const MemeView = (props) => {
@@ -17,13 +21,11 @@ const MemeView = (props) => {
   return (
     <main className="has-text-centered">
       <h1 className="title is-4">{title || '***'}</h1>
-      <figure>
-        <img src={image} alt={title} style={style} />
+      <figure style={style}>
+        <img src={image} alt={title} />
         <p>{body}</p>
       </figure>
-      <time dateTime={date}>
-        {new Date(date).toLocaleDateString()}
-      </time>
+      <Time date={date} />
     </main>
   );
 };

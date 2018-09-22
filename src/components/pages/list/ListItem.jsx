@@ -3,13 +3,14 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { ROOT_URL } from '../../../constants';
+import Time from '../../helpers/Time';
 
-const styleWrapper = {
+export const styleWrapper = {
   maxWidth: '600px',
 };
 
-const styleImg = {
-  maxHeight: '50vh',
+export const styleImg = {
+  maxHeight: '40vh',
 };
 
 const ListItem = (props) => {
@@ -32,9 +33,7 @@ const ListItem = (props) => {
         <img src={image} alt={title} style={styleImg} />
         <p>{body}</p>
       </figure>
-      <time dateTime={date}>
-        {new Date(date).toLocaleDateString()}
-      </time>
+      <Time date={date} />
     </article>
   );
 };
