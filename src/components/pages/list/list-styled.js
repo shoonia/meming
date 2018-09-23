@@ -16,3 +16,10 @@ export const Img = styled.img`
 export const Wrapper = styled.div`
   max-width: 600px;
 `;
+
+export const WrapperButton = styled.button`
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+`;

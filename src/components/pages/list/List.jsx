@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import ListItem from './ListItem';
 import ListLoader from './ListLoader';
 
-const List = ({ items, isLoading }) => {
+const List = ({ items, isLoading, openModal }) => {
   if (isLoading) {
     return <ListLoader />;
   }
@@ -12,7 +12,11 @@ const List = ({ items, isLoading }) => {
   return (
     <main className="section">
       {items.map(meme => (
-        <ListItem key={meme.id} {...meme} />
+        <ListItem
+          {...meme}
+          key={meme.id}
+          openModal={openModal}
+        />
       ))}
     </main>
   );
@@ -21,6 +25,7 @@ const List = ({ items, isLoading }) => {
 List.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
   isLoading: PropTypes.bool.isRequired,
+  openModal: PropTypes.func.isRequired,
 };
 
 export default List;

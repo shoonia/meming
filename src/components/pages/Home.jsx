@@ -12,6 +12,7 @@ import { getPageByNumber } from '../../actions/page';
 import Paginate from './paginate/Paginate';
 import List from './list/List';
 import GoBackButton from './helpers/GoBackButton';
+import Modal from './modal/Modal';
 
 class Home extends React.PureComponent {
   static defaultProps = {
@@ -27,10 +28,29 @@ class Home extends React.PureComponent {
     isLoading: PropTypes.bool.isRequired,
   };
 
+  state = {
+    showModal: false,
+    image: '',
+  };
+
   backToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
+    });
+  };
+
+  handleCloseModal = () => {
+    this.setState({
+      showModal: false,
+      image: '',
+    });
+  };
+
+  handleOpenModal = (image) => {
+    this.setState({
+      showModal: true,
+      image,
     });
   };
 
@@ -43,6 +63,7 @@ class Home extends React.PureComponent {
       items,
       isLoading,
     } = this.props;
+    const { showModal, image } = this.state;
 
     return (
       <React.Fragment>
@@ -55,10 +76,16 @@ class Home extends React.PureComponent {
         <List
           items={items}
           isLoading={isLoading}
+          openModal={this.handleOpenModal}
         />
         <GoBackButton
           onClick={this.backToTop}
           hidden={isLoading || items.length <= 1}
+        />
+        <Modal
+          isOpen={showModal}
+          colseModal={this.handleCloseModal}
+          image={image}
         />
       </React.Fragment>
     );
