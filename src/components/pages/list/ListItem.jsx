@@ -2,9 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { ROOT_URL } from '../../../constants';
 import Time from '../../helpers/Time';
 import { ArticleFadeIn, Img } from './list-styled';
+
+const { PUBLIC_URL } = process.env;
 
 const ListItem = (props) => {
   const {
@@ -18,7 +19,7 @@ const ListItem = (props) => {
   return (
     <ArticleFadeIn className="container box">
       <h3 className="title is-4 has-text-centered">
-        <NavLink to={`${ROOT_URL}/post/${id}`}>
+        <NavLink to={`${PUBLIC_URL}/post/${id}`}>
           {title || '***'}
         </NavLink>
       </h3>

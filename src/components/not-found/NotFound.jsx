@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { ROOT_URL } from '../../constants';
 import image from './error-404.gif';
+
+const { PUBLIC_URL } = process.env;
 
 const NotFound = () => (
   <section className="has-text-centered" role="alert">
@@ -12,7 +13,7 @@ const NotFound = () => (
       </h1>
       <img src={image} alt="Error 404 not found" />
     </figure>
-    <Link className="is-size-4" to={`${ROOT_URL}/`}>
+    <Link className="is-size-4" to={`${PUBLIC_URL}/`}>
       Home
     </Link>
   </section>

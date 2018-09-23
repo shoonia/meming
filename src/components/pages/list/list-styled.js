@@ -6,6 +6,7 @@ const animationFadeIn = keyframes`${fadeIn}`;
 export const ArticleFadeIn = styled.article`
   animation: .5s ${animationFadeIn};
   max-width: 600px;
+  min-height: 200px;
 `;
 
 export const Img = styled.img`

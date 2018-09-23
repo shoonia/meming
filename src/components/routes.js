@@ -1,8 +1,7 @@
 import Loadable from 'react-loadable';
 
-import { ROOT_URL } from '../constants';
-
 const loading = () => null;
+const { PUBLIC_URL } = process.env;
 
 const Home = Loadable({
   loader: () => import('./pages/Home' /* webpackChunkName: "Home" */),
@@ -21,17 +20,17 @@ const NotFound = Loadable({
 
 export default [
   {
-    path: `${ROOT_URL}/`,
+    path: `${PUBLIC_URL}/`,
     exact: true,
     component: Home,
   },
   {
-    path: `${ROOT_URL}/page/:number`,
+    path: `${PUBLIC_URL}/page/:number`,
     exact: true,
     component: Home,
   },
   {
-    path: `${ROOT_URL}/post/:id`,
+    path: `${PUBLIC_URL}/post/:id`,
     exact: true,
     component: Meme,
   },

@@ -3,7 +3,8 @@ import ReactPaginate from 'react-paginate';
 import PropTypes from 'prop-types';
 
 import './paginate.css';
-import { ROOT_URL } from '../../../constants';
+
+const { PUBLIC_URL } = process.env;
 
 class Paginate extends React.PureComponent {
   static propTypes = {
@@ -22,7 +23,7 @@ class Paginate extends React.PureComponent {
       : page;
 
     onPageChange(nextPage);
-    historyPush(`${ROOT_URL}/page/${nextPage}`);
+    historyPush(`${PUBLIC_URL}/page/${nextPage}`);
   }
 
   render() {
