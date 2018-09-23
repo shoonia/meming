@@ -13,7 +13,10 @@ const NotFound = () => (
       </h1>
       <img src={image} alt="Error 404 not found" />
     </figure>
-    <Link className="is-size-4" to={`${PUBLIC_URL}/`}>
+    <Link
+      to={`${PUBLIC_URL}/`}
+      className="button is-info is-rounded is-outlined"
+    >
       Home
     </Link>
   </section>

@@ -7,8 +7,7 @@ export const Figure = styled.figure`
   animation: .5s ${animationFadeIn};
   min-width: 10px;
   max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto auto 10px auto;
 `;
 
 export default undefined;

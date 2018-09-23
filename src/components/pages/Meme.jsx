@@ -6,8 +6,11 @@ import { getIdOfMeme, isMemeExist, getMeme } from '../../selectors';
 import { getMemeById } from '../../actions/meme';
 import MemeView from './meme/MemeView';
 
+const { PUBLIC_URL } = process.env;
+
 class Meme extends React.PureComponent {
   static propTypes = {
+    history: PropTypes.shape().isRequired,
     id: PropTypes.string.isRequired,
     pageMount: PropTypes.func.isRequired,
     isExist: PropTypes.bool.isRequired,
@@ -20,11 +23,21 @@ class Meme extends React.PureComponent {
     window.scrollTo({ top: 0 });
   }
 
+  goBack = () => {
+    const { history } = this.props;
+
+    if (history.action === 'PUSH') {
+      history.goBack();
+    } else {
+      history.push(`${PUBLIC_URL}/`);
+    }
+  }
+
   render() {
     const { isExist, item } = this.props;
 
     if (isExist) {
-      return <MemeView {...item} />;
+      return <MemeView onClick={this.goBack} {...item} />;
     }
     return null;
   }
