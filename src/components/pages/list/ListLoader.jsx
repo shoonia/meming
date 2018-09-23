@@ -5,14 +5,18 @@ import { Wrapper } from './list-styled';
 
 const ListLoader = () => (
   <div className="section">
-    <Wrapper className="container has-text-centered" role="presentation">
+    <Wrapper
+      className="container box has-text-centered has-background-white-ter"
+      role="presentation"
+    >
       <ContentLoader
-        speed={1}
-        height="160"
-        primaryColor="#f3f3f3"
-        secondaryColor="#ebebeb"
+        speed={2}
+        height="220"
+        primaryColor="#ecebeb"
+        secondaryColor="#DADADA"
       >
-        <rect x="0" y="0" rx="5" ry="5" width="100%" height="150" />
+        <rect x="25%" y="0" rx="5" ry="5" width="50%" height="1.1rem" />
+        <rect x="0" y="2.8rem" rx="5" ry="5" width="100%" height="10rem" />
       </ContentLoader>
     </Wrapper>
   </div>
