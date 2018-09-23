@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Time from '../../helpers/Time';
-import Button from '../../helpers/Button';
+import Time from '../helpers/Time';
+import Button from '../helpers/Button';
 import { Figure } from './meme-styled';
 
 const MemeView = (props) => {

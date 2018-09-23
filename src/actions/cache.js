@@ -5,4 +5,4 @@ export const cachePage = pages => ({
   pages,
 });
 
-export default '';
+export default undefined;

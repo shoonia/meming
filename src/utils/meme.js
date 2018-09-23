@@ -16,4 +16,4 @@ export const findMemeById = (cache, id) => {
   return undefined;
 };
 
-export default '';
+export default undefined;

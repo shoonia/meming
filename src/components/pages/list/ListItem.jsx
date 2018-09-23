@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import Time from '../../helpers/Time';
+import Time from '../helpers/Time';
 import { ArticleFadeIn, Img } from './list-styled';
 
 const { PUBLIC_URL } = process.env;

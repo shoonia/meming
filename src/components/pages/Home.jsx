@@ -11,6 +11,7 @@ import {
 import { getPageByNumber } from '../../actions/page';
 import Paginate from './paginate/Paginate';
 import List from './list/List';
+import GoBackButton from './helpers/GoBackButton';
 
 class Home extends React.PureComponent {
   static defaultProps = {
@@ -24,6 +25,13 @@ class Home extends React.PureComponent {
     getPage: PropTypes.func.isRequired,
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
     isLoading: PropTypes.bool.isRequired,
+  };
+
+  backToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   };
 
   render() {
@@ -47,6 +55,10 @@ class Home extends React.PureComponent {
         <List
           items={items}
           isLoading={isLoading}
+        />
+        <GoBackButton
+          onClick={this.backToTop}
+          hidden={isLoading || items.length <= 1}
         />
       </React.Fragment>
     );

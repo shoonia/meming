@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({ children, onClick }) => (
+const Button = ({ children, ...rest }) => (
   <button
-    onClick={onClick}
+    {...rest}
     type="button"
     className="button is-info is-rounded is-outlined"
   >
