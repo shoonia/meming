@@ -33,6 +33,25 @@ class Home extends React.PureComponent {
     image: '',
   };
 
+  componentDidMount() {
+    window.addEventListener('popstate', this.onPopstate);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('popstate', this.onPopstate);
+  }
+
+  onPopstate = () => {
+    // Close modal window on `popstate` event
+    // ("back" button on the mobile)
+    const { history } = this.props;
+    const { showModal } = this.state;
+    if (showModal) {
+      history.go(1);
+      this.handleCloseModal();
+    }
+  };
+
   backToTop = () => {
     window.scrollTo({
       top: 0,
