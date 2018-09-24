@@ -19,7 +19,7 @@ const Modal = ({ isOpen, colseModal, image }) => (
           aria-label="close"
           onClick={colseModal}
         >
-          <ModalImage src={image} alt="" />
+          <ModalImage src={image} alt="meme" />
         </WrapperButton>
       </figure>
       <button

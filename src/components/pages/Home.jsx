@@ -41,6 +41,7 @@ class Home extends React.PureComponent {
   };
 
   handleCloseModal = () => {
+    document.documentElement.style.overflow = 'auto';
     this.setState({
       showModal: false,
       image: '',
@@ -48,6 +49,7 @@ class Home extends React.PureComponent {
   };
 
   handleOpenModal = (image) => {
+    document.documentElement.style.overflow = 'hidden';
     this.setState({
       showModal: true,
       image,
