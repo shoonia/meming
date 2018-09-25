@@ -1,7 +1,15 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import {
+  getItems,
+  getNumberOfPage,
+  getPageCount,
+} from '../../../selectors';
+import { getPageByNumber } from '../../../actions/page';
 import './paginate.css';
 
 const { PUBLIC_URL } = process.env;
@@ -10,20 +18,33 @@ class Paginate extends React.PureComponent {
   static propTypes = {
     pageCount: PropTypes.number.isRequired,
     pageNumber: PropTypes.number.isRequired,
-    historyPush: PropTypes.func.isRequired,
+    history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
     onPageChange: PropTypes.func.isRequired,
+  };
+
+  componentDidMount() {
+    window.addEventListener('popstate', this.goNextPage);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('popstate', this.goNextPage);
+  }
+
+  goNextPage = () => {
+    const { pageNumber, onPageChange } = this.props;
+    onPageChange(pageNumber);
   };
 
   /* eslint no-nested-ternary: off */
   onPageChangeHandler = ({ selected }) => {
-    const { historyPush, onPageChange, pageCount } = this.props;
+    const { history, onPageChange, pageCount } = this.props;
     const page = selected + 1;
     const nextPage = (pageCount > 0)
       ? (page > pageCount) ? pageCount : page
       : page;
 
     onPageChange(nextPage);
-    historyPush(`${PUBLIC_URL}/page/${nextPage}`);
+    history.push(`${PUBLIC_URL}/page/${nextPage}`);
   }
 
   render() {
@@ -64,4 +85,14 @@ class Paginate extends React.PureComponent {
   }
 }
 
-export default Paginate;
+const mapStateToProps = (state, ownProps) => ({
+  items: getItems(state),
+  pageCount: getPageCount(state),
+  pageNumber: getNumberOfPage(ownProps),
+});
+
+const mapDispatchToProps = {
+  onPageChange: getPageByNumber,
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Paginate));

@@ -12,5 +12,5 @@ export const getMeme = state => state.meme.item;
 export const isMemeExist = state => state.meme.isExist;
 
 // react-router:
-export const getNumberOfPage = props => (parseInt(props.match.params.number, 10) || 0);
+export const getNumberOfPage = props => (parseInt(props.match.params.number, 10) || 1);
 export const getIdOfMeme = props => props.match.params.id;
