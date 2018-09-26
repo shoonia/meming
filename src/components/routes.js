@@ -25,6 +25,11 @@ export default [
     component: Home,
   },
   {
+    path: `${PUBLIC_URL}/index.html`,
+    exact: true,
+    component: Home,
+  },
+  {
     path: `${PUBLIC_URL}/page/:number`,
     exact: true,
     component: Home,
