@@ -64,7 +64,7 @@ class Home extends React.PureComponent {
     const { image, showModal } = this.state;
 
     return (
-      <React.Fragment>
+      <>
         <Paginate />
         <List
           items={items}
@@ -80,7 +80,7 @@ class Home extends React.PureComponent {
           colseModal={this.handleCloseModal}
           image={image}
         />
-      </React.Fragment>
+      </>
     );
   }
 }
