@@ -6,7 +6,11 @@ import ListLoader from './ListLoader';
 
 const List = ({ items, isLoading, openModal }) => {
   if (isLoading) {
-    return <ListLoader />;
+    return (
+      <div className="section">
+        <ListLoader />
+      </div>
+    );
   }
 
   return (

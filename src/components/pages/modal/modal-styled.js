@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const ModalImage = styled.img`
+export const ModalImage = styled.img.attrs({
+  alt: 'meme',
+})`
   max-height: 90vh;
 `;
 

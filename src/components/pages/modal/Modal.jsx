@@ -15,11 +15,10 @@ const Modal = ({ isOpen, colseModal, image }) => (
     >
       <figure className="has-text-centered">
         <WrapperButton
-          type="button"
           aria-label="close"
           onClick={colseModal}
         >
-          <ModalImage src={image} alt="meme" />
+          <ModalImage src={image} />
         </WrapperButton>
       </figure>
       <button

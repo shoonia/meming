@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Time from '../helpers/Time';
-import { ArticleFadeIn, Img, WrapperButton } from './list-styled';
+import { ArticleFadeIn, ImgItem, WrapperButton } from './list-styled';
 
 const { PUBLIC_URL } = process.env;
 
@@ -19,7 +19,7 @@ const ListItem = (props) => {
   const openFunc = () => openModal(image);
 
   return (
-    <ArticleFadeIn className="container box">
+    <ArticleFadeIn>
       <h3 className="title is-4 has-text-centered">
         <NavLink to={`${PUBLIC_URL}/post/${id}`}>
           {title || '***'}
@@ -27,11 +27,10 @@ const ListItem = (props) => {
       </h3>
       <figure className="has-text-centered">
         <WrapperButton
-          type="button"
           aria-label="Show image"
           onClick={openFunc}
         >
-          <Img src={image} alt={title} />
+          <ImgItem src={image} alt={title} />
         </WrapperButton>
         <p>{body}</p>
       </figure>

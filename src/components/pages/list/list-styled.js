@@ -3,21 +3,28 @@ import fadeIn from 'react-animations/lib/fade-in';
 
 const animationFadeIn = keyframes`${fadeIn}`;
 
-export const ArticleFadeIn = styled.article`
+export const ArticleFadeIn = styled.article.attrs({
+  className: 'container box',
+})`
   animation: .5s ${animationFadeIn};
   max-width: 600px;
   min-height: 200px;
 `;
 
-export const Img = styled.img`
+export const ImgItem = styled.img`
   max-height: 40vh;
 `;
 
-export const Wrapper = styled.div`
+export const WrapperLoader = styled.div.attrs({
+  className: 'container box has-text-centered has-background-white-ter',
+  role: 'presentation',
+})`
   max-width: 600px;
 `;
 
-export const WrapperButton = styled.button`
+export const WrapperButton = styled.button.attrs({
+  type: 'button',
+})`
   border: none;
   background: none;
   padding: 0;
