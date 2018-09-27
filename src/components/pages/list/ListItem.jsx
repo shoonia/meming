@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Time from '../helpers/Time';
-import { ArticleFadeIn, ImgItem, WrapperButton } from './list-styled';
+import WrapperButton from '../helpers/WrapperButton';
+import { ArticleFadeIn, ImgItem } from './list-styled';
 
 const { PUBLIC_URL } = process.env;
 

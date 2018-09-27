@@ -2,33 +2,30 @@ import React from 'react';
 import ReactModal from 'react-modal';
 import PropTypes from 'prop-types';
 
-import { WrapperButton } from '../list/list-styled';
+import WrapperButton from '../helpers/WrapperButton';
 import { modalStyle, ModalImage } from './modal-styled';
 
 const Modal = ({ isOpen, colseModal, image }) => (
-  <div tabIndex="-1" className="modal">
-    <ReactModal
-      isOpen={isOpen}
-      style={modalStyle}
-      onRequestClose={colseModal}
-      role="document"
-    >
-      <figure className="has-text-centered">
-        <WrapperButton
-          aria-label="close"
-          onClick={colseModal}
-        >
-          <ModalImage src={image} />
-        </WrapperButton>
-      </figure>
-      <button
-        type="button"
-        className="modal-close is-large"
+  <ReactModal
+    isOpen={isOpen}
+    style={modalStyle}
+    onRequestClose={colseModal}
+  >
+    <figure className="has-text-centered">
+      <WrapperButton
         aria-label="close"
         onClick={colseModal}
-      />
-    </ReactModal>
-  </div>
+      >
+        <ModalImage src={image} />
+      </WrapperButton>
+    </figure>
+    <button
+      type="button"
+      className="modal-close is-large"
+      aria-label="close"
+      onClick={colseModal}
+    />
+  </ReactModal>
 );
 
 Modal.propTypes = {

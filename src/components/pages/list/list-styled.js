@@ -21,12 +21,3 @@ export const WrapperLoader = styled.div.attrs({
 })`
   max-width: 600px;
 `;
-
-export const WrapperButton = styled.button.attrs({
-  type: 'button',
-})`
-  border: none;
-  background: none;
-  padding: 0;
-  margin: 0;
-`;
