@@ -10,6 +10,7 @@ import { fetchPageByNumber } from '../api';
 import { receivePage, pageLoading } from '../actions/page';
 import { getCachePage } from '../selectors';
 import { cachePage } from '../actions/cache';
+import { errorMessage } from '../actions/messages';
 
 export function* getPageByNumberSaga({ pageNumber }) {
   const page = yield select(getCachePage(pageNumber));
@@ -25,7 +26,7 @@ export function* getPageByNumberSaga({ pageNumber }) {
     yield put(receivePage(newPage));
     yield put(cachePage({ [newPage.pageNumber]: newPage }));
   } catch (error) {
-    // error
+    yield put(errorMessage(error));
   }
 }
 

@@ -9,7 +9,7 @@ export const ModalImage = styled.img.attrs({
 export const modalStyle = {
   overlay: {
     backgroundColor: 'rgba(0,0,0, .6)',
-    zIndex: '99',
+    zIndex: '100',
     position: 'fixed',
     top: 0,
     left: 0,

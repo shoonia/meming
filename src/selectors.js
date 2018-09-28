@@ -11,6 +11,9 @@ export const getCachePage = pageNumber => state => state.cachePages[pageNumber];
 export const getMeme = state => state.meme.item;
 export const isMemeExist = state => state.meme.isExist;
 
+// redux store: messages
+export const getMessages = state => state.messages.items;
+
 // react-router:
 export const getNumberOfPage = props => (parseInt(props.match.params.number, 10) || 1);
 export const getIdOfMeme = props => props.match.params.id;

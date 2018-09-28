@@ -10,6 +10,7 @@ import { getCache } from '../selectors';
 import { receiveMeme } from '../actions/meme';
 import { fetchMemeById } from '../api';
 import { findMemeById } from '../utils/meme';
+import { errorMessage } from '../actions/messages';
 
 export function* getMemeByIdSaga({ id }) {
   const cache = yield select(getCache);
@@ -24,7 +25,7 @@ export function* getMemeByIdSaga({ id }) {
     const newMeme = yield call(fetchMemeById, id);
     yield put(receiveMeme(newMeme));
   } catch (error) {
-    // console.log(error.message);
+    yield put(errorMessage(error));
   }
 }
 
