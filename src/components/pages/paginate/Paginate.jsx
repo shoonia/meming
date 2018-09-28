@@ -10,7 +10,7 @@ import {
   getPageCount,
 } from '../../../selectors';
 import { getPageByNumber } from '../../../actions/page';
-import './paginate.css';
+import './paginate.scss';
 
 const { PUBLIC_URL } = process.env;
 

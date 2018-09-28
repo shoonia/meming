@@ -11,6 +11,7 @@ import registerServiceWorker from './registerServiceWorker';
 import devToolsExtension from './utils/devToolsExtension';
 import rootReducer from './reducers';
 import rootSaga from './sagas';
+import './styles/index.scss';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
