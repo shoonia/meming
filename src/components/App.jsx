@@ -1,9 +1,14 @@
 import React from 'react';
+import Loadable from 'react-loadable';
 
 import Navbar from './navbar/Navbar';
-import FlashMessenger from './aside/FlashMessenger';
 import Router from './Router';
-import routes from './routes';
+import routes, { loading } from './routes';
+
+const FlashMessenger = Loadable({
+  loader: () => import('./aside/FlashMessenger' /* webpackChunkName: "FlashMessenger" */),
+  loading,
+});
 
 const App = () => (
   <>

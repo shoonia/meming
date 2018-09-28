@@ -1,13 +1,12 @@
 {
   "name": "meme",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && node ./copyfile",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build"
+    "deploy": "surge ./build"
   },
   "dependencies": {
     "bulma": "^0.7.1",
@@ -33,16 +32,27 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
-    "gh-pages": "^2.0.0",
     "node-sass": "^4.9.3"
   },
-  "homepage": "http://shoonia.github.io/meme/",
-  "description": "Memes about programming",
-  "license": "THE HUGWARE LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shoonia/meme.git"
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "keywords": [
+    "meme"
+  ],
+  "author": {
+    "name": "Alexander Zaytsev",
+    "email": "zaytsev126@gmail.com",
+    "url": "https://twitter.com/_shoonia"
+  },
+  "homepage": "https://shoonia.surge.sh",
+  "description": "Memes about programming",
+  "license": "THE HUGWARE LICENSE"
 }

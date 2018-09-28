@@ -5,7 +5,7 @@ const reset = '\x1b[0m';
 const redColor = '\x1b[31m';
 const greenColor = '\x1b[32m';
 
-fs.copyFile('./build/index.html', './build/404.html', (error) => {
+fs.copyFile('./build/index.html', './build/200.html', (error) => {
   if (error) {
     console.error(
       redColor,

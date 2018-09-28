@@ -1,7 +1,7 @@
 import Loadable from 'react-loadable';
 
-const loading = () => null;
 const { PUBLIC_URL } = process.env;
+export const loading = () => null;
 
 const Home = Loadable({
   loader: () => import('./pages/Home' /* webpackChunkName: "Home" */),
