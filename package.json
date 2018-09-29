@@ -1,12 +1,12 @@
 {
-  "name": "meme",
+  "name": "meming",
   "version": "0.1.0",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && node ./copyfile",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "surge ./build"
+    "gh-pages": "gh-pages -d ./build"
   },
   "dependencies": {
     "bulma": "^0.7.1",
@@ -32,11 +32,12 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
+    "gh-pages": "^2.0.0",
     "node-sass": "^4.9.3"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shoonia/meme.git"
+    "url": "https://github.com/shoonia/meming.git"
   },
   "browserslist": [
     ">0.2%",
@@ -45,14 +46,15 @@
     "not op_mini all"
   ],
   "keywords": [
-    "meme"
+    "meme",
+    "meming"
   ],
   "author": {
     "name": "Alexander Zaytsev",
     "email": "zaytsev126@gmail.com",
     "url": "https://twitter.com/_shoonia"
   },
-  "homepage": "https://shoonia.surge.sh",
+  "homepage": "https://meming.netlify.com",
   "description": "Memes about programming",
   "license": "THE HUGWARE LICENSE"
 }
