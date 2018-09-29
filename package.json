@@ -1,12 +1,15 @@
 {
   "name": "meming",
   "version": "0.1.0",
+  "description": "Memes about programming",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d ./build"
+    "gh-pages": "gh-pages -d ./build",
+    "surge": "surge ./build shoonia.surge.sh",
+    "deploy": "yarn gh-pages && yarn surge"
   },
   "dependencies": {
     "bulma": "^0.7.1",
@@ -50,12 +53,17 @@
     "memes",
     "meming"
   ],
+  "engines": {
+    "vscode": "^1.22.0",
+    "yarn": "^1.5.1",
+    "node": ">=8.11.1",
+    "surge": "^0.20.1"
+  },
   "author": {
     "name": "Alexander Zaytsev",
     "email": "zaytsev126@gmail.com",
     "url": "https://twitter.com/_shoonia"
   },
   "homepage": "https://meming.netlify.com",
-  "description": "Memes about programming",
   "license": "THE HUGWARE LICENSE"
 }
