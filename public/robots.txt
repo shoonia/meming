@@ -1,3 +1,4 @@
 User-agent: *
 Disallow:
 Host: meming.netlify.com
+Sitemap: https://meming.netlify.com/sitemap.xml

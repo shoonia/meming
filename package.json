@@ -6,7 +6,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "gh-pages": "gh-pages -d ./build"
+    "deploy": "gh-pages -d ./build"
   },
   "dependencies": {
     "bulma": "^0.7.1",
@@ -47,6 +47,7 @@
   ],
   "keywords": [
     "meme",
+    "memes",
     "meming"
   ],
   "author": {
