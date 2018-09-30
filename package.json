@@ -9,7 +9,7 @@
     "eject": "react-scripts eject",
     "gh-pages": "gh-pages -d ./build",
     "surge": "surge ./build shoonia.surge.sh",
-    "deploy": "yarn gh-pages && yarn surge"
+    "deploy": "node ./sitemap && yarn gh-pages && yarn surge"
   },
   "dependencies": {
     "bulma": "^0.7.1",
