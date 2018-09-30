@@ -6,6 +6,7 @@ import { getItems, isPageLoading } from '../../selectors';
 import Paginate from './paginate/Paginate';
 import List from './list/List';
 import GoBackButton from './helpers/GoBackButton';
+import { hideScroll } from '../../utils/home';
 import Modal from './modal/Modal';
 
 class Home extends React.PureComponent {
@@ -44,7 +45,7 @@ class Home extends React.PureComponent {
   };
 
   handleCloseModal = () => {
-    document.documentElement.style.overflow = 'auto';
+    hideScroll(false);
     this.setState({
       showModal: false,
       image: '',
@@ -52,7 +53,7 @@ class Home extends React.PureComponent {
   };
 
   handleOpenModal = (image) => {
-    document.documentElement.style.overflow = 'hidden';
+    hideScroll(true);
     this.setState({
       showModal: true,
       image,
