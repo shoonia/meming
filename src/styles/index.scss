@@ -1,10 +1,11 @@
 @charset "utf-8";
 // my:
 @import "variables";
-@import "loading";
+@import "links";
 
 // bulma:
 $link: $link-color;
+$info: $link-color;
 
 @import "~bulma/sass/utilities/all";
 @import "~bulma/sass/base/all";
