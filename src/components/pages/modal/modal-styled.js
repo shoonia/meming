@@ -4,6 +4,7 @@ export const ModalImage = styled.img.attrs({
   alt: 'meme',
 })`
   max-height: 90vh;
+  background-color: white;
 `;
 
 export const modalStyle = {

@@ -11,6 +11,7 @@ import Modal from './modal/Modal';
 
 class Home extends React.PureComponent {
   static propTypes = {
+    history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
     isLoading: PropTypes.bool.isRequired,
   };
@@ -53,6 +54,9 @@ class Home extends React.PureComponent {
   };
 
   handleOpenModal = (image) => {
+    const { history } = this.props;
+
+    history.push(1);
     hideScroll(true);
     this.setState({
       showModal: true,

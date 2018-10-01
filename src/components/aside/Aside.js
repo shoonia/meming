@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export default styled.aside`
   position: fixed;
-  top: 65px;
+  bottom: 15px;
   right: 15px;
   margin-left: 15px;
   display: flex;
