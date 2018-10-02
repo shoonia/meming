@@ -5,11 +5,11 @@ export const hideScroll = (flag) => {
   if (flag) {
     rootStyle.overflow = 'hidden';
     if (!isMobile()) {
-      rootStyle.paddingRight = '17px';
+      rootStyle.paddingRight = '13px';
     }
   } else {
     rootStyle.overflow = 'auto';
-    rootStyle.paddingRight = 'inherit';
+    rootStyle.paddingRight = '0';
   }
 };
 

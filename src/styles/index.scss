@@ -24,3 +24,13 @@ $info: $link-color;
 .app {
   min-height: 70vh;
 }
+
+::-webkit-scrollbar {
+  width: 13px;
+  height: 13px;
+  background-color: #F1F1F1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #C1C1C1;
+}
