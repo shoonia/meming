@@ -5,7 +5,7 @@ const Button = ({ children, ...rest }) => (
   <button
     {...rest}
     type="button"
-    className="button is-info is-rounded is-outlined"
+    className="button is-info is-rounded"
   >
     {children}
   </button>

@@ -26,11 +26,16 @@ $info: $link-color;
 }
 
 ::-webkit-scrollbar {
-  width: 13px;
-  height: 13px;
-  background-color: #F1F1F1;
+  width: 17px;
+  height: 17px;
+  background-color: $grey-lighter;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #C1C1C1;
+  background-color: $grey-light;
+  border: 1px solid $grey-lighter;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: darken($grey-light, 10%);
 }
