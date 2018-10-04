@@ -1,5 +1,11 @@
 const getUrl = path => `https://shoonia.wixsite.com/meme-api/_functions${path}`;
 
+const init = {
+  method: 'POST',
+  mode: 'cors',
+  credentials: 'omit',
+};
+
 const handleErrors = (response) => {
   if (response.status > 399) {
     throw new Error(response.statusText);
@@ -7,7 +13,7 @@ const handleErrors = (response) => {
   return response;
 };
 
-const request = url => fetch(url)
+const request = url => fetch(url, init)
   .then(handleErrors)
   .then(response => response.json());
 

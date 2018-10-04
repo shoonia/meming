@@ -13,6 +13,11 @@ const Meme = Loadable({
   loading,
 });
 
+const Grid = Loadable({
+  loader: () => import('./pages/Grid' /* webpackChunkName: "Grid" */),
+  loading,
+});
+
 const NotFound = Loadable({
   loader: () => import('./not-found/NotFound' /* webpackChunkName: "NotFound" */),
   loading,
@@ -38,6 +43,11 @@ export default [
     path: `${PUBLIC_URL}/post/:id`,
     exact: true,
     component: Meme,
+  },
+  {
+    path: `${PUBLIC_URL}/grid`,
+    exact: true,
+    component: Grid,
   },
   {
     path: '*',

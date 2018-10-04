@@ -15,7 +15,7 @@ const NotFound = () => (
     </figure>
     <Link
       to={`${PUBLIC_URL}/`}
-      className="button is-info is-rounded is-outlined"
+      className="button is-info is-rounded"
     >
       Home
     </Link>
