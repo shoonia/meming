@@ -3,9 +3,15 @@ import Masonry from 'react-masonry-component';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { getItems } from '../../selectors';
+import {
+  getItems,
+  getPageNumber,
+  getPageCount,
+  isPageLoading,
+} from '../../selectors';
 import { getPageByNumber } from '../../actions/page';
-import GridItem from './grid/GridItem';
+import GridList from './grid/GridList';
+import GridButton from './grid/GridButton';
 
 const masonryOptions = {
   gutter: 10,
@@ -13,43 +19,75 @@ const masonryOptions = {
 
 class Grid extends React.PureComponent {
   static propTypes = {
-    items: PropTypes.arrayOf(PropTypes.object).isRequired,
+    // items: PropTypes.arrayOf(PropTypes.object).isRequired,
     getPage: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool.isRequired,
+    pageCount: PropTypes.number.isRequired,
+    pageNumber: PropTypes.number.isRequired,
+  };
+
+  static getDerivedStateFromProps(props, state) {
+    if (props.isLoading || state.isFirst) {
+      return null;
+    }
+
+    return {
+      items: [...state.items, ...props.items],
+    };
+  }
+
+  state = {
+    isFirst: true, // eslint-disable-line
+    items: [],
   };
 
   componentDidMount() {
     const { getPage } = this.props;
+
+    this.setState({ isFirst: false }); // eslint-disable-line
     getPage(1);
   }
 
-  renderItems = () => {
-    const { items } = this.props;
+  loadMore = () => {
+    const { pageCount, pageNumber, getPage } = this.props;
 
-    return items.map(item => (
-      <GridItem key={item.id}>
-        <img src={item.image} alt={item.title} />
-      </GridItem>
-    ));
+    if (pageNumber < pageCount) {
+      getPage(pageNumber + 1);
+    }
   };
 
   render() {
+    const { items } = this.state;
+    const { isLoading, pageCount, pageNumber } = this.props;
+    const disabled = isLoading || (pageNumber + 1 > pageCount);
+
     return (
-      <Masonry
-        elementType="main"
-        options={masonryOptions}
-      // className=""
-      // disableImagesLoaded={false} // default false
-      // updateOnEachImageLoad={false}
-      // imagesLoadedOptions={imagesLoadedOptions} // default {}
-      >
-        {this.renderItems()}
-      </Masonry>
+      <>
+        <Masonry
+          elementType="main"
+          options={masonryOptions}
+        // className=""
+        // disableImagesLoaded={false} // default false
+        // updateOnEachImageLoad={false}
+        // imagesLoadedOptions={imagesLoadedOptions} // default {}
+        >
+          <GridList items={items} />
+        </Masonry>
+        <GridButton
+          onClick={this.loadMore}
+          loading={isLoading}
+          disabled={disabled}
+        />
+      </>
     );
   }
 }
 
 const mapStateToProps = state => ({
   items: getItems(state),
+  pageNumber: getPageNumber(state),
+  pageCount: getPageCount(state),
+  isLoading: isPageLoading(state),
 });
 
 const mapDispatchToProps = {
