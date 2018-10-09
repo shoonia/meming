@@ -7,7 +7,7 @@ const { PUBLIC_URL } = process.env;
 
 const Navbar = ({ root }) => createPortal(
   <>
-    <NavLink to={`${PUBLIC_URL}/page/1`} className="navbar-item">
+    <NavLink to={`${PUBLIC_URL}/`} className="navbar-item">
       Home
     </NavLink>
     <NavLink to={`${PUBLIC_URL}/grid`} className="navbar-item">

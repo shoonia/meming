@@ -13,7 +13,7 @@ const GridButton = ({ onClick, loading, disabled }) => {
         className={className}
         disabled={disabled}
       >
-      See More
+        See More
       </button>
     </div>
   );

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default styled.div.attrs({
+export default styled.article.attrs({
   className: 'box has-text-centered',
 })`
   padding: 15px;
