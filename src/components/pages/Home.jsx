@@ -5,9 +5,10 @@ import PropTypes from 'prop-types';
 import { getItems, isPageLoading } from '../../selectors';
 import Paginate from './paginate/Paginate';
 import List from './list/List';
-import GoBackButton from './helpers/GoBackButton';
+// import GoBackButton from './helpers/GoBackButton';
 import { hideScroll } from '../../utils/home';
 import Modal from './modal/Modal';
+import NavigationBar from './navigation-bar/NavigationBar';
 
 class Home extends React.PureComponent {
   static propTypes = {
@@ -36,13 +37,6 @@ class Home extends React.PureComponent {
     if (showModal) {
       this.handleCloseModal();
     }
-  };
-
-  backToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
   };
 
   handleCloseModal = () => {
@@ -76,10 +70,7 @@ class Home extends React.PureComponent {
           isLoading={isLoading}
           openModal={this.handleOpenModal}
         />
-        <GoBackButton
-          onClick={this.backToTop}
-          hidden={isLoading || items.length <= 1}
-        />
+        <NavigationBar />
         <Modal
           isOpen={showModal}
           colseModal={this.handleCloseModal}

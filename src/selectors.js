@@ -3,6 +3,7 @@ export const getItems = state => state.page.items;
 export const getPageCount = state => state.page.pageCount;
 export const isPageLoading = state => state.page.isLoading;
 export const getPageNumber = state => state.page.pageNumber;
+export const getPageLength = state => state.page.length;
 
 // redux store: cache
 export const getCache = state => state.cachePages;

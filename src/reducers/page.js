@@ -2,7 +2,7 @@ import { RECEIVE_PAGE, PAGE_LOADING } from '../constants';
 
 const initialState = {
   items: [],
-  // length: 0,
+  length: 0,
   // limit: 0,
   pageNumber: 0,
   pageCount: 0,
