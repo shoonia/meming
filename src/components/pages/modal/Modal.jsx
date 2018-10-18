@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import WrapperButton from '../helpers/WrapperButton';
 import { modalStyle, ModalImage } from './modal-styled';
 
-const Modal = ({ isOpen, colseModal, image }) => (
+const Modal = ({ isOpen, colseModal, src }) => (
   <ReactModal
     isOpen={isOpen}
     style={modalStyle}
@@ -16,7 +16,7 @@ const Modal = ({ isOpen, colseModal, image }) => (
         aria-label="close"
         onClick={colseModal}
       >
-        <ModalImage src={image} />
+        <ModalImage src={src} />
       </WrapperButton>
     </figure>
     <button
@@ -31,7 +31,7 @@ const Modal = ({ isOpen, colseModal, image }) => (
 Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   colseModal: PropTypes.func.isRequired,
-  image: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
 };
 
 ReactModal.setAppElement('#root');

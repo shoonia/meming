@@ -31,7 +31,7 @@ const ListItem = (props) => {
           aria-label="Show image"
           onClick={openFunc}
         >
-          <ImgItem src={image} alt={title} />
+          <ImgItem src={image.src} alt={title} />
         </WrapperButton>
         <p>{body}</p>
       </figure>
@@ -44,7 +44,9 @@ ListItem.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  image: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+  }).isRequired,
   date: PropTypes.string.isRequired,
   openModal: PropTypes.func.isRequired,
 };

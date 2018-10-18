@@ -19,7 +19,7 @@ class Home extends React.PureComponent {
 
   state = {
     showModal: false,
-    image: '',
+    src: '',
   };
 
   componentDidMount() {
@@ -43,24 +43,24 @@ class Home extends React.PureComponent {
     hideScroll(false);
     this.setState({
       showModal: false,
-      image: '',
+      src: '',
     });
   };
 
-  handleOpenModal = (image) => {
+  handleOpenModal = ({ src }) => {
     const { history } = this.props;
 
     history.push(1);
     hideScroll(true);
     this.setState({
       showModal: true,
-      image,
+      src,
     });
   };
 
   render() {
     const { items, isLoading } = this.props;
-    const { image, showModal } = this.state;
+    const { src, showModal } = this.state;
 
     return (
       <>
@@ -74,7 +74,7 @@ class Home extends React.PureComponent {
         <Modal
           isOpen={showModal}
           colseModal={this.handleCloseModal}
-          image={image}
+          src={src}
         />
       </>
     );

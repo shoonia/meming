@@ -21,7 +21,7 @@ const MemeView = (props) => {
     <main className="has-text-centered">
       <h1 className="title is-4">{$title}</h1>
       <Figure>
-        <img src={image} alt={title} />
+        <img {...image} alt={title} />
         <p>{body}</p>
         <Time date={date} />
       </Figure>
@@ -35,7 +35,11 @@ const MemeView = (props) => {
 
 MemeView.propTypes = {
   title: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  image: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
+  }).isRequired,
   body: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
