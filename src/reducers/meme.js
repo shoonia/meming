@@ -1,4 +1,4 @@
-import { RECEIVE_MEME } from '../constants';
+import { RECEIVE_MEME, MEME_LOADING } from '../constants';
 
 const initialState = {
   isExist: false,
@@ -15,6 +15,12 @@ export default (state = initialState, action) => {
         error: false,
         loading: false,
         item: action.meme,
+      };
+
+    case MEME_LOADING:
+      return {
+        ...state,
+        loading: true,
       };
 
     default:

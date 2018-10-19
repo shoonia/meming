@@ -7,7 +7,7 @@ import {
 
 import { GET_MEME_BY_ID } from '../constants';
 import { getCache } from '../selectors';
-import { receiveMeme } from '../actions/meme';
+import { receiveMeme, memeLoading } from '../actions/meme';
 import { fetchMemeById } from '../api';
 import { findMemeById } from '../utils/meme';
 import { errorMessage } from '../actions/messages';
@@ -22,6 +22,7 @@ export function* getMemeByIdSaga({ id }) {
   }
 
   try {
+    yield put(memeLoading());
     const newMeme = yield call(fetchMemeById, id);
     yield put(receiveMeme(newMeme));
   } catch (error) {

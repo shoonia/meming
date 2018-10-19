@@ -10,4 +10,9 @@ export const Figure = styled.figure`
   margin: auto auto 10px auto;
 `;
 
-export default undefined;
+export const Wrapper = styled.div`
+  max-width: 600px;
+  padding-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+`;

@@ -12,6 +12,7 @@ export const getCachePage = pageNumber => state => state.cachePages[pageNumber];
 // redux store: meme
 export const getMeme = state => state.meme.item;
 export const isMemeExist = state => state.meme.isExist;
+export const isMemeLoading = state => state.meme.loading;
 
 // redux store: messages
 export const getMessages = state => state.messages.items;
