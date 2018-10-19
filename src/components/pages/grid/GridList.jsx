@@ -10,7 +10,7 @@ const GridList = ({ items }) => items.map(item => (
       {item.title}
     </h3>
     <figure>
-      <img src={item.image} alt={item.title} />
+      <img {...item.image} alt={item.title} />
       <p>{item.body}</p>
     </figure>
     <Time date={item.date} />
@@ -22,7 +22,11 @@ GridList.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     body: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
+    image: PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      width: PropTypes.number.isRequired,
+      height: PropTypes.number.isRequired,
+    }).isRequired,
     date: PropTypes.string.isRequired,
   })).isRequired,
 };
