@@ -1,9 +1,13 @@
-import { RECEIVE_MEME, MEME_LOADING } from '../constants';
+import {
+  RECEIVE_MEME,
+  MEME_LOADING,
+  MEME_LOAD_END,
+  CLEAR_MEME,
+} from '../constants';
 
 const initialState = {
   isExist: false,
-  error: false,
-  loading: false,
+  isLoading: false,
   item: {},
 };
 
@@ -11,16 +15,26 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_MEME:
       return {
+        ...state,
         isExist: true,
-        error: false,
-        loading: false,
         item: action.meme,
+      };
+
+    case CLEAR_MEME:
+      return {
+        ...initialState,
       };
 
     case MEME_LOADING:
       return {
         ...state,
-        loading: true,
+        isLoading: true,
+      };
+
+    case MEME_LOAD_END:
+      return {
+        ...state,
+        isLoading: false,
       };
 
     default:

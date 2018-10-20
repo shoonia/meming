@@ -8,17 +8,23 @@ import {
   getMeme,
   isMemeLoading,
 } from '../../selectors';
-import { getMemeById } from '../../actions/meme';
+import { getMemeById, clearMeme } from '../../actions/meme';
 import MemeView from './meme/MemeView';
 import MemeLoader from './meme/MemeLoader';
+import NotFound from '../not-found/NotFound';
 
 const { PUBLIC_URL } = process.env;
 
 class Meme extends React.PureComponent {
   static propTypes = {
-    history: PropTypes.shape().isRequired,
+    history: PropTypes.shape({
+      action: PropTypes.string.isRequired,
+      push: PropTypes.func.isRequired,
+      goBack: PropTypes.func.isRequired,
+    }).isRequired,
     id: PropTypes.string.isRequired,
     pageMount: PropTypes.func.isRequired,
+    pageUnmount: PropTypes.func.isRequired,
     isExist: PropTypes.bool.isRequired,
     isLoading: PropTypes.bool.isRequired,
     item: PropTypes.shape().isRequired,
@@ -28,6 +34,11 @@ class Meme extends React.PureComponent {
     const { id, pageMount } = this.props;
     pageMount(id);
     window.scrollTo({ top: 0 });
+  }
+
+  componentWillUnmount() {
+    const { pageUnmount } = this.props;
+    pageUnmount();
   }
 
   goBack = () => {
@@ -51,7 +62,7 @@ class Meme extends React.PureComponent {
       return <MemeView onClick={this.goBack} {...item} />;
     }
 
-    return null;
+    return <NotFound />;
   }
 }
 
@@ -64,6 +75,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = {
   pageMount: getMemeById,
+  pageUnmount: clearMeme,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Meme);

@@ -1,8 +1,9 @@
 const getUrl = path => `https://shoonia.wixsite.com/meme-api/_functions${path}`;
 
 const init = {
-  method: 'POST',
+  method: 'GET',
   mode: 'cors',
+  cache: 'default',
   credentials: 'omit',
 };
 
