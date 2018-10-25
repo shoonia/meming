@@ -14,12 +14,11 @@ const MemeView = (props) => {
     date,
     onClick,
   } = props;
-  const $title = title || '***';
-  const desc = `${title || 'Meming'}.\n${body}`.trim();
+  const desc = `${title.trim() || 'Meming'}.\n${body}`.trim();
 
   return (
     <main className="has-text-centered">
-      <h1 className="title is-4">{$title}</h1>
+      <h1 className="title is-4">{title}</h1>
       <Figure>
         <img {...image} alt={title} />
         <p>{body}</p>
