@@ -23,7 +23,7 @@ const ListItem = (props) => {
     <ArticleFadeIn>
       <h3 className="title is-4 has-text-centered">
         <NavLink to={`${PUBLIC_URL}/post/${id}`}>
-          {title || '***'}
+          {title.trim() || '***'}
         </NavLink>
       </h3>
       <figure className="has-text-centered">
