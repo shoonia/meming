@@ -51,4 +51,4 @@ ListItem.propTypes = {
   openModal: PropTypes.func.isRequired,
 };
 
-export default ListItem;
+export default React.memo(ListItem);

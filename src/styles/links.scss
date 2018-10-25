@@ -3,9 +3,8 @@
 @font-face {
   font-family: '#{$icomoon-font-family}';
   src:
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?sekga7') format('truetype'),
     url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?sekga7') format('woff'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?sekga7##{$icomoon-font-family}') format('svg');
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?sekga7') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

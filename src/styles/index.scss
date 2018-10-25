@@ -7,6 +7,8 @@
 $link: $link-color;
 $info: $link-color;
 
+$navbar-height: 3.25rem; // hot fix bulma bug
+
 @import "~bulma/sass/utilities/all";
 @import "~bulma/sass/base/all";
 @import "~bulma/sass/layout/all";
