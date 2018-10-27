@@ -69,16 +69,20 @@ class Paginate extends React.PureComponent {
           activeClassName="pagination__active"
           disabledClassName="pagination__disabled"
 
-          previousClassName="pagination__item"
-          nextClassName="pagination__item"
+          // previousClassName=""
+          previousLinkClassName="pagination__icon"
+          previousLabel={
+            <span className="icomoon icon-chevron-left" role="presentation" />
+          }
 
-          previousLabel="&laquo;"
-          nextLabel="&raquo;"
-          breakLabel="&hellip;"
+          // nextClassName=""
+          nextLinkClassName="pagination__icon"
+          nextLabel={
+            <span className="icomoon icon-chevron-right" role="presentation" />
+          }
 
-          previousLinkClassName="pagination-previous"
-          nextLinkClassName="pagination-next"
           breakClassName="pagination-ellipsis"
+          breakLabel="&hellip;"
         />
       </nav>
     );

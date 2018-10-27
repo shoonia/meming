@@ -3,13 +3,13 @@
 @font-face {
   font-family: '#{$icomoon-font-family}';
   src:
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?sekga7') format('woff'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?sekga7') format('truetype');
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?6rzcjz') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?6rzcjz') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
-.icon {
+.icomoon {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: '#{$icomoon-font-family}' !important;
   speak: none;
@@ -22,6 +22,37 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-back {
+  &:before {
+    content: $icon-arrow-back; 
+  }
+}
+.icon-chevron-up {
+  &:before {
+    content: $icon-chevron-up; 
+  }
+}
+.icon-chevron-left {
+  &:before {
+    content: $icon-chevron-left; 
+  }
+}
+.icon-chevron-right {
+  &:before {
+    content: $icon-chevron-right; 
+  }
+}
+.icon-refresh {
+  &:before {
+    content: $icon-refresh; 
+  }
+}
+.icon-calendar {
+  &:before {
+    content: $icon-calendar; 
+  }
 }
 
 .icon-twitter {

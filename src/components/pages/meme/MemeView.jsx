@@ -26,7 +26,8 @@ const MemeView = (props) => {
       </Figure>
       <ShareButtons title={desc} />
       <Button onClick={onClick}>
-        Go Back
+        <span className="icomoon icon-arrow-back" role="presentation" />
+        &nbsp;Go Back
       </Button>
     </main>
   );

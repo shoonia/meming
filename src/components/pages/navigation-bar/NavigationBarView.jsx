@@ -24,11 +24,11 @@ const NavigationBarView = (props) => {
         aria-label="previous page"
         aria-disabled={prevDisabled}
       >
-        &laquo;
+        <span className="icomoon icon-chevron-left" role="presentation" />
       </Button>
       &nbsp;&nbsp;
-      <Button onClick={goTop}>
-        Back to Top
+      <Button onClick={goTop} aria-label="Back to Top">
+        <span className="icomoon icon-chevron-up" role="presentation" />
       </Button>
       &nbsp;&nbsp;
       <Button
@@ -37,7 +37,7 @@ const NavigationBarView = (props) => {
         aria-label="next page"
         aria-disabled={nextDisabled}
       >
-        &raquo;
+        <span className="icomoon icon-chevron-right" role="presentation" />
       </Button>
     </nav>
   );

@@ -14,7 +14,8 @@ const options = {
 
 const Time = ({ date }) => (
   <time dateTime={date} className="has-text-grey-dark is-size-7">
-    {new Date(date).toLocaleString(languages, options)}
+    <span className="icomoon icon-calendar" role="presentation" />
+    &nbsp;{new Date(date).toLocaleString(languages, options)}
   </time>
 );
 

@@ -12,10 +12,16 @@
   color: #FFF;
 }
 
-.pagination__item.pagination__disabled > a {
+.pagination__disabled > a {
   cursor: default;
   pointer-events: none;
   background-color: transparent;
   color: $disabled-color;
   border-color: $disabled-color;
+}
+
+.pagination__icon {
+  background-color: transparent;
+  padding: 10px;
+  outline: none;
 }
