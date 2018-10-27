@@ -14,16 +14,25 @@ import './paginate.scss';
 
 const { PUBLIC_URL } = process.env;
 
-class Paginate extends React.PureComponent {
+class Paginate extends React.Component {
   static propTypes = {
     pageCount: PropTypes.number.isRequired,
     pageNumber: PropTypes.number.isRequired,
-    history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired,
+    }).isRequired,
     onPageChange: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
     window.addEventListener('popstate', this.goNextPage);
+  }
+
+  shouldComponentUpdate(nextProps) {
+    const { pageCount, pageNumber } = this.props;
+
+    return nextProps.pageCount !== pageCount
+      || nextProps.pageNumber !== pageNumber;
   }
 
   componentWillUnmount() {
@@ -35,6 +44,8 @@ class Paginate extends React.PureComponent {
     onPageChange(pageNumber);
   };
 
+  hrefBuilder = pageNumber => `${PUBLIC_URL}/page/${pageNumber}`;
+
   /* eslint no-nested-ternary: off */
   onPageChangeHandler = ({ selected }) => {
     const { history, onPageChange, pageCount } = this.props;
@@ -44,7 +55,7 @@ class Paginate extends React.PureComponent {
       : page;
 
     onPageChange(nextPage);
-    history.push(`${PUBLIC_URL}/page/${nextPage}`);
+    history.push(this.hrefBuilder(nextPage));
   }
 
   render() {
@@ -52,37 +63,49 @@ class Paginate extends React.PureComponent {
     const initialPage = (pageNumber < 1) ? 0 : (pageNumber - 1);
 
     return (
-      <nav className="pagination is-rounded is-centered">
+      <nav className="pagin" aria-label="page navigation">
         <ReactPaginate
           pageCount={pageCount}
           forcePage={initialPage}
           initialPage={initialPage}
           onPageChange={this.onPageChangeHandler}
+          hrefBuilder={this.hrefBuilder}
 
-          pageRangeDisplayed={1}
+          pageRangeDisplayed={2}
           marginPagesDisplayed={1}
+          // extraAriaContext={`of ${pageCount}`}
 
-          containerClassName="pagination-list"
-          pageLinkClassName="pagination-link"
+          containerClassName="pagin__list"
+          pageLinkClassName="pagin__link"
 
-          pageClassName="pagination__item"
-          activeClassName="pagination__active"
-          disabledClassName="pagination__disabled"
+          pageClassName="pagin__item"
+          activeClassName="pagin__active"
+          disabledClassName="pagin__disabled"
 
-          // previousClassName=""
-          previousLinkClassName="pagination__icon"
-          previousLabel={
-            <span className="icomoon icon-chevron-left" role="presentation" />
-          }
+          previousClassName="pagin__arrow"
+          previousLinkClassName="pagin__link"
+          previousLabel={(
+            <span
+              className="icomoon icon-chevron-left"
+              aria-label="previous page"
+            />
+          )}
 
-          // nextClassName=""
-          nextLinkClassName="pagination__icon"
-          nextLabel={
-            <span className="icomoon icon-chevron-right" role="presentation" />
-          }
+          nextClassName="pagin__arrow"
+          nextLinkClassName="pagin__link"
+          nextLabel={(
+            <span
+              className="icomoon icon-chevron-right"
+              aria-label="next page"
+            />
+          )}
 
-          breakClassName="pagination-ellipsis"
-          breakLabel="&hellip;"
+          breakClassName="pagin__break"
+          breakLabel={(
+            <span role="presentation">
+              &hellip;
+            </span>
+          )}
         />
       </nav>
     );
