@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -51,4 +51,4 @@ ListItem.propTypes = {
   openModal: PropTypes.func.isRequired,
 };
 
-export default React.memo(ListItem);
+export default memo(ListItem);

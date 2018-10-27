@@ -1,20 +1,18 @@
-import React from 'react';
-import Loadable from 'react-loadable';
+import React, { Suspense, lazy } from 'react';
 
 import Navbar from './navbar/Navbar';
 import Router from './Router';
-import routes, { loading } from './routes';
+import routes from './routes';
 
-const FlashMessenger = Loadable({
-  loader: () => import('./aside/FlashMessenger' /* webpackChunkName: "FlashMessenger" */),
-  loading,
-});
+const FlashMessenger = lazy(() => import('./aside/FlashMessenger' /* webpackChunkName: "FlashMessenger" */));
 
 const App = () => (
   <>
     <Navbar root="navbar" />
     <Router routes={routes} />
-    <FlashMessenger />
+    <Suspense fallback={null}>
+      <FlashMessenger />
+    </Suspense>
   </>
 );
 

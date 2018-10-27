@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import ListItem from './ListItem';
 import ListLoader from './ListLoader';
-import NotFound from '../../not-found/NotFound';
 
 const List = ({ items, isLoading, openModal }) => {
   if (isLoading) {
@@ -12,10 +11,6 @@ const List = ({ items, isLoading, openModal }) => {
         <ListLoader />
       </div>
     );
-  }
-
-  if (items.length < 1) {
-    return <NotFound />;
   }
 
   return (

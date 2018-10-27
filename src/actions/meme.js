@@ -4,6 +4,7 @@ import {
   MEME_LOADING,
   MEME_LOAD_END,
   CLEAR_MEME,
+  MEME_HAS_ERROR,
 } from '../constants';
 
 export const getMemeById = id => ({
@@ -26,4 +27,8 @@ export const memeLoading = () => ({
 
 export const memeLoadEnd = () => ({
   type: MEME_LOAD_END,
+});
+
+export const memeHasError = () => ({
+  type: MEME_HAS_ERROR,
 });

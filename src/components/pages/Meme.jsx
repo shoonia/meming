@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -7,12 +7,13 @@ import {
   isMemeExist,
   getMeme,
   isMemeLoading,
+  hasMemeError,
 } from '../../selectors';
 import { getMemeById, clearMeme } from '../../actions/meme';
 import MemeView from './meme/MemeView';
 import MemeLoader from './meme/MemeLoader';
-import NotFound from '../not-found/NotFound';
 
+const NotFound = lazy(() => import('../not-found/NotFound' /* webpackChunkName: "NotFound" */));
 const { PUBLIC_URL } = process.env;
 
 class Meme extends React.PureComponent {
@@ -27,6 +28,7 @@ class Meme extends React.PureComponent {
     pageUnmount: PropTypes.func.isRequired,
     isExist: PropTypes.bool.isRequired,
     isLoading: PropTypes.bool.isRequired,
+    hasError: PropTypes.bool.isRequired,
     item: PropTypes.shape().isRequired,
   };
 
@@ -52,7 +54,12 @@ class Meme extends React.PureComponent {
   }
 
   render() {
-    const { isExist, isLoading, item } = this.props;
+    const {
+      isExist,
+      isLoading,
+      hasError,
+      item,
+    } = this.props;
 
     if (isLoading) {
       return <MemeLoader />;
@@ -62,7 +69,15 @@ class Meme extends React.PureComponent {
       return <MemeView onClick={this.goBack} {...item} />;
     }
 
-    return <NotFound />;
+    if (hasError) {
+      return (
+        <Suspense fallback={null}>
+          <NotFound />
+        </Suspense>
+      );
+    }
+
+    return null;
   }
 }
 
@@ -71,6 +86,7 @@ const mapStateToProps = (state, ownProps) => ({
   item: getMeme(state),
   isExist: isMemeExist(state),
   isLoading: isMemeLoading(state),
+  hasError: hasMemeError(state),
 });
 
 const mapDispatchToProps = {

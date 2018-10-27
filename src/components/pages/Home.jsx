@@ -3,16 +3,17 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { getItems, isPageLoading } from '../../selectors';
+import { hideScroll } from '../../utils/home';
 import Paginate from './paginate/Paginate';
 import List from './list/List';
-// import GoBackButton from './helpers/GoBackButton';
-import { hideScroll } from '../../utils/home';
 import Modal from './modal/Modal';
 import NavigationBar from './navigation-bar/NavigationBar';
 
 class Home extends React.PureComponent {
   static propTypes = {
-    history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired,
+    }).isRequired,
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
     isLoading: PropTypes.bool.isRequired,
   };

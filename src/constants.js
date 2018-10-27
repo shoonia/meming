@@ -9,6 +9,7 @@ export const RECEIVE_MEME = 'RECEIVE_MEME';
 export const CLEAR_MEME = 'CLEAR_MEME';
 export const MEME_LOADING = 'MEME_LOADING';
 export const MEME_LOAD_END = 'MEME_LOAD_END';
+export const MEME_HAS_ERROR = 'MEME_HAS_ERROR';
 
 export const ADD_MESSAGE = 'ADD_MESSAGE';
 export const REMOVE_MESSAGE = 'REMOVE_MESSAGE';

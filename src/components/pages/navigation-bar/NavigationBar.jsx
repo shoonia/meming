@@ -16,7 +16,9 @@ const { PUBLIC_URL } = process.env;
 
 class NavigationBar extends React.PureComponent {
   static propTypes = {
-    history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired,
+    }).isRequired,
     onPageChange: PropTypes.func.isRequired,
     pageNumber: PropTypes.number.isRequired,
     pageCount: PropTypes.number.isRequired,
@@ -29,7 +31,7 @@ class NavigationBar extends React.PureComponent {
     const nextPage = pageNumber + page;
 
     onPageChange(nextPage);
-    window.scroll(0, 0);
+    window.scrollTo({ top: 0 });
     history.push(`${PUBLIC_URL}/page/${nextPage}`);
   };
 
