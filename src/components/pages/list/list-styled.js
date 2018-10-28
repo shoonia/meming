@@ -15,6 +15,7 @@ export const ArticleFadeIn = styled.article.attrs({
 
 export const ImgItem = styled.img`
   max-height: 40vh;
+  object-fit: cover; 
 `;
 
 export const WrapperLoader = styled.div.attrs({

@@ -5,6 +5,7 @@ export const ModalImage = styled.img.attrs({
 })`
   max-height: 90vh;
   background-color: white;
+  object-fit: cover; 
 `;
 
 export const modalStyle = {
