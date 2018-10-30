@@ -31,8 +31,8 @@ class Paginate extends React.Component {
   shouldComponentUpdate(nextProps) {
     const { pageCount, pageNumber } = this.props;
 
-    return nextProps.pageCount !== pageCount
-      || nextProps.pageNumber !== pageNumber;
+    return nextProps.pageNumber !== pageNumber
+      || nextProps.pageCount !== pageCount;
   }
 
   componentWillUnmount() {
@@ -46,16 +46,19 @@ class Paginate extends React.Component {
 
   hrefBuilder = pageNumber => `${PUBLIC_URL}/page/${pageNumber}`;
 
-  /* eslint no-nested-ternary: off */
   onPageChangeHandler = ({ selected }) => {
     const { history, onPageChange, pageCount } = this.props;
-    const page = selected + 1;
-    const nextPage = (pageCount > 0)
-      ? (page > pageCount) ? pageCount : page
-      : page;
+    const nextPage = this.calculateNextPage((selected + 1), pageCount);
 
     onPageChange(nextPage);
     history.push(this.hrefBuilder(nextPage));
+  }
+
+  calculateNextPage = (selected, count) => {
+    if (count > 0) {
+      return (selected > count) ? count : selected;
+    }
+    return selected;
   }
 
   render() {
