@@ -4,14 +4,18 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-dns-prefetch-control" content="on">
-  <link rel="preconnect" href="https://shoonia.wixsite.com" crossorigin="anonymous">
-  <link rel="preconnect" href="https://static.wixstatic.com" crossorigin="anonymous">
+  <meta http-equiv="Content-Security-Policy" content="
+    script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://storage.googleapis.com;
+    style-src 'self' 'unsafe-inline';
+    connect-src 'self' %REACT_APP_WS_URL% https://shoonia.wixsite.com;
+    img-src 'self' https://static.wixstatic.com https://www.google-analytics.com;">
+  <link href="https://shoonia.wixsite.com" rel="preconnect" crossorigin="anonymous">
+  <link href="https://static.wixstatic.com" rel="preconnect" crossorigin="anonymous">
+  <base href="%REACT_APP_BASE_URL%">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="theme-color" content="#ffffff">
   <meta name="msapplication-TileColor" content="#2b5797">
   <meta name="description" content="Memes about programming">
-  <meta name="keywords" content="meme,memes,meming,programming">
-  <meta name="author" content="Alexander Zaytsev zaytsev126@gmail.com">
   <meta name="google-site-verification" content="r9IQYersVVRdg00VhqCTt8yTNmuCdgC-fLFsTiCrk4M">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="twitter:card" content="summary">
@@ -21,12 +25,12 @@
   <meta name="twitter:description" content="Memes about programming">
   <meta property="og:title" content="Meming">
   <meta property="og:description" content="Memes about programming">
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/logo/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/logo/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/logo/favicon-16x16.png">
-  <link rel="mask-icon" href="%PUBLIC_URL%/logo/safari-pinned-tab.svg" color="#5bbad5">
+  <link href="%PUBLIC_URL%/manifest.json" rel="manifest">
+  <link href="%PUBLIC_URL%/favicon.ico" rel="shortcut icon">
+  <link href="%PUBLIC_URL%/logo/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+  <link href="%PUBLIC_URL%/logo/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32">
+  <link href="%PUBLIC_URL%/logo/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16">
+  <link href="%PUBLIC_URL%/logo/safari-pinned-tab.svg" rel="mask-icon" color="#5bbad5">
   <title>Meming</title>
 </head>
 
@@ -34,7 +38,7 @@
   <header>
     <nav class="navbar is-dark is-fixed-top" aria-label="website navigation">
       <div id="navbar" class="navbar-brand">
-        <a class="navbar-item" href="%PUBLIC_URL%/" aria-label="refresh site">
+        <a href="%PUBLIC_URL%/" class="navbar-item" aria-label="refresh site">
           <span class="icomoon icon-refresh" role="presentation"></span>
         </a>
         <!-- React Navbar Portal -->
@@ -66,13 +70,13 @@
   <footer class="section" role="contentinfo">
     <hr class="has-background-grey-lighter" />
     <div class="content has-text-centered">
-      <a href="https://twitter.com/_shoonia" class="link link--twitter" title="author" aria-label="twitter">
+      <a href="https://twitter.com/_shoonia" rel="me" class="link link--twitter" title="author" aria-label="twitter">
         <span class="icomoon icon-twitter" role="presentation"></span>
       </a>
-      <a href="https://github.com/shoonia" class="link link--github" title="author" aria-label="github">
+      <a href="https://github.com/shoonia" rel="me" class="link link--github" title="author" aria-label="github">
         <span class="icomoon icon-github" role="presentation"></span>
       </a>
-      <a href="https://www.linkedin.com/in/shoonia" class="link link--linkedin" title="author" aria-label="linkedin">
+      <a href="https://www.linkedin.com/in/shoonia" rel="me" class="link link--linkedin" title="author" aria-label="linkedin">
         <span class="icomoon icon-linkedin" role="presentation"></span>
       </a>
     </div>

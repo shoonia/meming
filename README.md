@@ -1,8 +1,7 @@
 # Meming
 Memes about programming
 
-* Site (main): https://meming.netlify.com
-* Site (alternative): https://shoonia.surge.sh
+* Site: https://meming.netlify.com
 * API: https://shoonia.wixsite.com/meme-api
 
 ## License

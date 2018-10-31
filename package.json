@@ -1,16 +1,16 @@
 {
   "name": "meming",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Memes about programming",
   "main": "./src/index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-app-env --env-file=development.env start",
+    "build": "react-app-env --env-file=production.env build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "gh-pages": "gh-pages -d ./build",
     "surge": "surge ./build shoonia.surge.sh",
-    "deploy": "node ./predeploy && yarn gh-pages && yarn surge"
+    "deploy": "node ./predeploy && yarn gh-pages"
   },
   "dependencies": {
     "bulma": "^0.7.2",
@@ -26,11 +26,11 @@
     "react-redux": "^5.1.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.0.5",
+    "react-scripts": "^2.1.0",
     "react-share": "^2.3.1",
     "redux": "^4.0.1",
     "redux-saga": "^0.16.2",
-    "styled-components": "^4.0.2"
+    "styled-components": "^4.0.3"
   },
   "devDependencies": {
     "eslint-config-airbnb": "^17.1.0",
@@ -38,7 +38,8 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "gh-pages": "^2.0.1",
-    "node-sass": "^4.9.4"
+    "node-sass": "^4.9.4",
+    "react-app-env": "^1.2.3"
   },
   "repository": {
     "type": "git",
@@ -56,10 +57,9 @@
     "meming"
   ],
   "engines": {
-    "vscode": "^1.28.2",
-    "yarn": "^1.10.1",
-    "node": ">=8.11.1",
-    "surge": "^0.20.1"
+    "vscode": "1.28.2",
+    "yarn": "1.12.1",
+    "node": "10.13.0"
   },
   "author": {
     "name": "Alexander Zaytsev",
