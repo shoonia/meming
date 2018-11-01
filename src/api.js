@@ -1,4 +1,7 @@
-const getUrl = path => `https://shoonia.wixsite.com/meme-api/_functions${path}`;
+const getUrl = (path) => {
+  const query = `?w=${window.outerWidth}&h=${window.outerHeight}`;
+  return `https://shoonia.wixsite.com/meme-api/_functions${path}${query}`;
+};
 
 const init = {
   method: 'GET',
