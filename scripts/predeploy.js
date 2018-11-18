@@ -1,11 +1,12 @@
 /* eslint no-console: off */
 const fs = require('fs');
+const path = require('path');
 const https = require('https');
 const { minify } = require('html-minifier'); // eslint-disable-line
 
 const api = 'https://shoonia.wixsite.com/meme-api/_functions/sitemap';
-const index = './build/index.html';
-const sitemap = './build/sitemap.xml';
+const index = path.resolve(__dirname, '../build/index.html');
+const sitemap = path.resolve(__dirname, '../build/sitemap.xml');
 
 const errorLog = error => console.error(
   '\x1b[31m', // red color
@@ -56,5 +57,5 @@ const getDate = (res) => {
 
 https.get(api, getDate).on('error', error => errorLog(`Oops! ${error}`));
 
-copyTo('./build/200.html');
-copyTo('./build/404.html');
+copyTo(path.resolve(__dirname, '../build/200.html'));
+copyTo(path.resolve(__dirname, '../build/404.html'));
