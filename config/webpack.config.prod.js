@@ -1,9 +1,7 @@
 'use strict';
 
-const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
-const resolve = require('resolve');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
@@ -19,9 +17,6 @@ const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent')
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin-alt');
-const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
-
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -46,9 +41,6 @@ const env = getClientEnvironment(publicUrl);
 if (env.stringified['process.env'].NODE_ENV !== '"production"') {
   throw new Error('Production builds must have NODE_ENV=production.');
 }
-
-// Check if TypeScript is setup
-const useTypeScript = fs.existsSync(paths.appTsConfig);
 
 // style files regexes
 const cssRegex = /\.css$/;
@@ -180,13 +172,13 @@ module.exports = {
           parser: safePostCssParser,
           map: shouldUseSourceMap
             ? {
-                // `inline: false` forces the sourcemap to be output into a
-                // separate file
-                inline: false,
-                // `annotation: true` appends the sourceMappingURL to the end of
-                // the css file, helping the browser find the sourcemap
-                annotation: true,
-              }
+              // `inline: false` forces the sourcemap to be output into a
+              // separate file
+              inline: false,
+              // `annotation: true` appends the sourceMappingURL to the end of
+              // the css file, helping the browser find the sourcemap
+              annotation: true,
+            }
             : false,
         },
       }),
@@ -218,8 +210,7 @@ module.exports = {
     // `web` extension prefixes have been added for better support
     // for React Native Web.
     extensions: paths.moduleFileExtensions
-      .map(ext => `.${ext}`)
-      .filter(ext => useTypeScript || !ext.includes('ts')),
+      .map(ext => `.${ext}`),
     alias: {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
@@ -249,7 +240,6 @@ module.exports = {
     rules: [
       // Disable require.ensure as it's not a standard language feature.
       { parser: { requireEnsure: false } },
-
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
       {
@@ -260,7 +250,6 @@ module.exports = {
             options: {
               formatter: require.resolve('react-dev-utils/eslintFormatter'),
               eslintPath: require.resolve('eslint'),
-              
             },
             loader: require.resolve('eslint-loader'),
           },
@@ -283,17 +272,15 @@ module.exports = {
             },
           },
           // Process application JS with Babel.
-          // The preset includes JSX, Flow, TypeScript and some ESnext features.
+          // The preset includes JSX, Flow, and some ESnext features.
           {
-            test: /\.(js|mjs|jsx|ts|tsx)$/,
+            test: /\.(js|mjs|jsx)$/,
             include: paths.appSrc,
-
             loader: require.resolve('babel-loader'),
             options: {
               customize: require.resolve(
                 'babel-preset-react-app/webpack-overrides'
               ),
-              
               plugins: [
                 [
                   require.resolve('babel-plugin-named-asset-import'),
@@ -331,7 +318,6 @@ module.exports = {
               cacheDirectory: true,
               // Save disk space when time isn't as important
               cacheCompression: true,
-              
               // If an error happens in a package, it's possible to be
               // because it was compiled. Thus, we don't want the browser
               // debugger to show the original code. Instead, the code
@@ -413,7 +399,7 @@ module.exports = {
             // it's runtime that would otherwise be processed through "file" loader.
             // Also exclude `html` and `json` extensions so they get processed
             // by webpacks internal loaders.
-            exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
+            exclude: [/\.(js|mjs|jsx)$/, /\.html$/, /\.json$/],
             options: {
               name: 'static/media/[name].[hash:8].[ext]',
             },
@@ -445,7 +431,7 @@ module.exports = {
     // Inlines the webpack runtime script. This script is too small to warrant
     // a network request.
     shouldInlineRuntimeChunk &&
-      new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
+    new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
@@ -494,35 +480,6 @@ module.exports = {
         new RegExp('/[^/]+\\.[^/]+$'),
       ],
     }),
-    // TypeScript type checking
-    fs.existsSync(paths.appTsConfig) &&
-      new ForkTsCheckerWebpackPlugin({
-        typescript: resolve.sync('typescript', {
-          basedir: paths.appNodeModules,
-        }),
-        async: false,
-        checkSyntacticErrors: true,
-        tsconfig: paths.appTsConfig,
-        compilerOptions: {
-          module: 'esnext',
-          moduleResolution: 'node',
-          resolveJsonModule: true,
-          isolatedModules: true,
-          noEmit: true,
-          jsx: 'preserve',
-        },
-        reportFiles: [
-          '**',
-          '!**/*.json',
-          '!**/__tests__/**',
-          '!**/?(*.)(spec|test).*',
-          '!src/setupProxy.js',
-          '!src/setupTests.*',
-        ],
-        watch: paths.appSrc,
-        silent: true,
-        formatter: typescriptFormatter,
-      }),
   ].filter(Boolean),
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
