@@ -79,6 +79,9 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
             },
             stage: 3,
           }),
+          require('css-mqpacker')({
+            sort: true,
+          }),
         ],
         sourceMap: shouldUseSourceMap,
       },
@@ -180,6 +183,17 @@ module.exports = {
               annotation: true,
             }
             : false,
+        },
+        cssProcessorPluginOptions: {
+          preset: [
+            'default',
+            {
+              discardComments: {
+                removeAll: true,
+                removeAllButFirst: true,
+              },
+            },
+          ],
         },
       }),
     ],
@@ -393,6 +407,16 @@ module.exports = {
           // When you `import` an asset, you get its filename.
           // This loader doesn't use a "test" so it will catch all modules
           // that fall through the other loaders.
+          {
+            test: /\.woff2?(\?v=\d+\.\d+\.\d+)?$/,
+            use: [{
+              loader: require.resolve('url-loader'),
+              options: {
+                mimetype: 'application/font-woff',
+                limit: 10000,
+              },
+            }],
+          },
           {
             loader: require.resolve('file-loader'),
             // Exclude `js` files to keep "css" loader working as it injects

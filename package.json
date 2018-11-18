@@ -1,6 +1,6 @@
 {
   "name": "meming",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Memes about programming",
   "main": "./src/index.js",
   "scripts": {
@@ -41,6 +41,7 @@
     "case-sensitive-paths-webpack-plugin": "2.1.2",
     "chalk": "2.4.1",
     "css-loader": "1.0.0",
+    "css-mqpacker": "^7.0.0",
     "dotenv": "6.0.0",
     "dotenv-expand": "4.2.0",
     "eslint": "5.6.0",
