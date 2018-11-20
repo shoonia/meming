@@ -1,24 +1,15 @@
-/* eslint no-console: off */
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
-const { minify } = require('html-minifier'); // eslint-disable-line
+const { minify } = require('html-minifier');
+const chalk = require('chalk');
 
 const api = 'https://shoonia.wixsite.com/meme-api/_functions/sitemap';
 const index = path.resolve(__dirname, '../build/index.html');
 const sitemap = path.resolve(__dirname, '../build/sitemap.xml');
 
-const errorLog = error => console.error(
-  '\x1b[31m', // red color
-  error,
-  '\x1b[0m', // reset color
-);
-
-const infoLog = info => console.info(
-  '\x1b[32m', // green color
-  info,
-  '\x1b[0m', // reset color
-);
+const errorLog = error => console.log(chalk.red(error));
+const infoLog = info => console.log(chalk.green(info));
 
 const copyTo = dest => fs.copyFile(index, dest, (error) => {
   if (error) {

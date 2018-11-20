@@ -64,7 +64,6 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
   }
   return loaders;
 };
-
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
@@ -135,8 +134,7 @@ module.exports = {
     // https://github.com/facebook/create-react-app/issues/290
     // `web` extension prefixes have been added for better support
     // for React Native Web.
-    extensions: paths.moduleFileExtensions
-      .map(ext => `.${ext}`),
+    extensions: paths.moduleFileExtensions.map(ext => `.${ext}`),
     alias: {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
@@ -205,9 +203,7 @@ module.exports = {
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
             options: {
-              customize: require.resolve(
-                'babel-preset-react-app/webpack-overrides'
-              ),
+              customize: require.resolve('babel-preset-react-app/webpack-overrides'),
               plugins: [
                 [
                   require.resolve('babel-plugin-named-asset-import'),

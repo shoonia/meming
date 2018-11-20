@@ -78,6 +78,7 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
+  homepage: require('../package.json').homepage,
 };
 
 module.exports.moduleFileExtensions = moduleFileExtensions;
