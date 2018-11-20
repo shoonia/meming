@@ -10,4 +10,5 @@
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
     Content-Security-Policy = "script-src 'self' https://www.google-analytics.com https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; connect-src 'self' https://shoonia.wixsite.com; img-src 'self' https://static.wixstatic.com https://www.google-analytics.com;"
