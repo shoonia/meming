@@ -13,8 +13,6 @@ const App = () => (
     <Router routes={routes} />
     <Suspense fallback={null}>
       <FlashMessenger />
-    </Suspense>
-    <Suspense fallback={null}>
       <GoogleAnalytics trackingId="UA-128241641-1" />
     </Suspense>
   </>

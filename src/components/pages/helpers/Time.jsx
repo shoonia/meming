@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const { languages } = navigator;
 const options = {
   year: 'numeric',
   month: 'short',
@@ -15,7 +14,7 @@ const options = {
 const Time = ({ date }) => (
   <time dateTime={date} className="has-text-grey-dark is-size-7">
     <span className="icomoon icon-calendar" role="presentation" />
-    &nbsp;{new Date(date).toLocaleString(languages, options)}
+    &nbsp;{new Date(date).toLocaleString([], options)}
   </time>
 );
 

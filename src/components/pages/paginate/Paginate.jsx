@@ -10,7 +10,7 @@ import {
   getPageCount,
 } from '../../../selectors';
 import { getPageByNumber } from '../../../actions/page';
-import './paginate.scss';
+import css from './paginate.module.scss';
 
 const { PUBLIC_URL } = process.env;
 
@@ -66,7 +66,7 @@ class Paginate extends React.Component {
     const initialPage = (pageNumber < 1) ? 0 : (pageNumber - 1);
 
     return (
-      <nav className="pagin" aria-label="page navigation">
+      <nav aria-label="page navigation">
         <ReactPaginate
           pageCount={pageCount}
           forcePage={initialPage}
@@ -78,15 +78,15 @@ class Paginate extends React.Component {
           marginPagesDisplayed={1}
           // extraAriaContext={`of ${pageCount}`}
 
-          containerClassName="pagin__list"
-          pageLinkClassName="pagin__link"
+          containerClassName={css.list}
+          pageLinkClassName={css.link}
 
-          pageClassName="pagin__item"
-          activeClassName="pagin__active"
-          disabledClassName="pagin__disabled"
+          pageClassName={css.item}
+          activeClassName={css.active}
+          disabledClassName={css.disabled}
 
-          previousClassName="pagin__arrow"
-          previousLinkClassName="pagin__link"
+          previousClassName={css.arrow}
+          previousLinkClassName={css.link}
           previousLabel={(
             <span
               className="icomoon icon-chevron-left"
@@ -94,8 +94,8 @@ class Paginate extends React.Component {
             />
           )}
 
-          nextClassName="pagin__arrow"
-          nextLinkClassName="pagin__link"
+          nextClassName={css.arrow}
+          nextLinkClassName={css.link}
           nextLabel={(
             <span
               className="icomoon icon-chevron-right"
@@ -103,7 +103,7 @@ class Paginate extends React.Component {
             />
           )}
 
-          breakClassName="pagin__break"
+          breakClassName={css.break}
           breakLabel={(
             <span role="presentation">
               &hellip;
