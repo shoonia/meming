@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -12,8 +12,9 @@ import {
 import { getMemeById, clearMeme } from '../../actions/meme';
 import MemeView from './meme/MemeView';
 import MemeLoader from './meme/MemeLoader';
+import Loadable from '../Loadable';
 
-const NotFound = lazy(() => import('../not-found/NotFound' /* webpackChunkName: "NotFound" */));
+const NotFound = Loadable(() => import('../not-found/NotFound' /* webpackChunkName: "NotFound" */));
 const { PUBLIC_URL } = process.env;
 
 class Meme extends React.PureComponent {
@@ -70,11 +71,7 @@ class Meme extends React.PureComponent {
     }
 
     if (hasError) {
-      return (
-        <Suspense fallback={null}>
-          <NotFound />
-        </Suspense>
-      );
+      return <NotFound />;
     }
 
     return null;

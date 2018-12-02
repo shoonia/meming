@@ -1,20 +1,19 @@
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 
+import Loadable from './Loadable';
 import Navbar from './navbar/Navbar';
 import Router from './Router';
 import routes from './routes';
 
-const FlashMessenger = lazy(() => import('./aside/FlashMessenger' /* webpackChunkName: "FlashMessenger" */));
-const GoogleAnalytics = lazy(() => import('./GoogleAnalytics' /* webpackChunkName: "GoogleAnalytics" */));
+const FlashMessenger = Loadable(() => import('./aside/FlashMessenger' /* webpackChunkName: "FlashMessenger" */));
+const GoogleAnalytics = Loadable(() => import('./GoogleAnalytics' /* webpackChunkName: "GoogleAnalytics" */));
 
 const App = () => (
   <>
     <Navbar root="navbar" />
     <Router routes={routes} />
-    <Suspense fallback={null}>
-      <FlashMessenger />
-      <GoogleAnalytics trackingId="UA-128241641-1" />
-    </Suspense>
+    <FlashMessenger />
+    <GoogleAnalytics trackingId="UA-128241641-1" />
   </>
 );
 

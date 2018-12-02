@@ -19,7 +19,7 @@ const masonryOptions = {
 
 class Grid extends React.PureComponent {
   static propTypes = {
-    // items: PropTypes.arrayOf(PropTypes.object).isRequired,
+    items: PropTypes.arrayOf(PropTypes.object).isRequired, // eslint-disable-line
     getPage: PropTypes.func.isRequired,
     isLoading: PropTypes.bool.isRequired,
     pageCount: PropTypes.number.isRequired,

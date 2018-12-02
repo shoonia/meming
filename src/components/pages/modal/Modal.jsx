@@ -2,26 +2,29 @@ import React from 'react';
 import ReactModal from 'react-modal';
 import PropTypes from 'prop-types';
 
-import WrapperButton from '../helpers/WrapperButton';
-import { modalStyle, ModalImage } from './modal-styled';
+import css from './modal.module.scss';
+
+ReactModal.setAppElement('#root');
 
 const Modal = ({ isOpen, colseModal, src }) => (
   <ReactModal
     isOpen={isOpen}
-    style={modalStyle}
     onRequestClose={colseModal}
+    className={css.modal}
+    overlayClassName={css.overlay}
   >
-    <figure className="has-text-centered">
-      <WrapperButton
-        aria-label="close"
-        onClick={colseModal}
-      >
-        <ModalImage src={src} />
-      </WrapperButton>
+    <figure
+      className={css.wrapper}
+    >
+      <img
+        src={src}
+        alt="meme"
+        className={css.image}
+      />
     </figure>
     <button
       type="button"
-      className="modal-close is-large"
+      className={css.close}
       aria-label="close"
       onClick={colseModal}
     />
@@ -33,7 +36,5 @@ Modal.propTypes = {
   colseModal: PropTypes.func.isRequired,
   src: PropTypes.string.isRequired,
 };
-
-ReactModal.setAppElement('#root');
 
 export default Modal;
