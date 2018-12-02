@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-export default styled.article`
+.item {
   display: block;
   padding: 20px 15px;
   margin: 1%;
@@ -17,4 +15,13 @@ export default styled.article`
   @media screen and (max-width: 576px) {
     width: 99%;
   }
-`;
+}
+
+.title {
+  word-break: break-word;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.125;
+  margin-bottom: 1.5rem;
+}

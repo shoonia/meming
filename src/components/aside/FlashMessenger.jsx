@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Aside from './Aside';
 import Message from './Message';
 import { getMessages } from '../../selectors';
 import { removeMessage } from '../../actions/messages';
+import css from './messenger.module.scss';
 
 const FlashMessenger = ({ items, remove }) => (
-  <Aside>
+  <aside className={css.wrapper}>
     {items.map(item => (
       <Message
         {...item}
@@ -16,7 +16,7 @@ const FlashMessenger = ({ items, remove }) => (
         remove={remove}
       />
     ))}
-  </Aside>
+  </aside>
 );
 
 FlashMessenger.propTypes = {

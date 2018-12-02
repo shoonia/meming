@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import css from './messenger.module.scss';
+
 const Message = (props) => {
   const {
     id,
@@ -15,11 +17,11 @@ const Message = (props) => {
       role="alert"
     >
       <span>
-        {message}{' '}
+        {message}
       </span>
       <button
         type="button"
-        className="delete is-small"
+        className={css.delete}
         onClick={() => remove(id)}
         area-label="close"
       />

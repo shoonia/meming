@@ -1,20 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import GridItem from './GridItem';
+// import GridItem from './GridItem';
 import Time from '../helpers/Time';
+import css from './grid.module.scss';
 
 const GridList = ({ items }) => items.map(item => (
-  <GridItem key={item.id}>
-    <h3 className="title is-4 has-text-centered">
+  <article
+    key={item.id}
+    className={css.item}
+  >
+    <h2 className={css.title}>
       {item.title}
-    </h3>
+    </h2>
     <figure>
       <img {...item.image} alt={item.title} />
-      <p>{item.body}</p>
+      <figcaption>
+        {item.body}
+      </figcaption>
     </figure>
     <Time date={item.date} />
-  </GridItem>
+  </article>
 ));
 
 GridList.propTypes = {

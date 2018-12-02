@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Time from '../helpers/Time';
 import Button from '../helpers/Button';
 import ShareButtons from '../helpers/ShareButtons';
-import { Figure } from './meme-styled';
+import css from './meme.module.scss';
 
 const MemeView = (props) => {
   const {
@@ -17,13 +17,15 @@ const MemeView = (props) => {
   const desc = `${title.trim() || 'Meming'}.\n${body}`.trim();
 
   return (
-    <main className="has-text-centered">
-      <h1 className="title is-4">{title}</h1>
-      <Figure>
+    <main className={css.wrapper}>
+      <h1 className={css.title}>
+        {title}
+      </h1>
+      <figure className={css.content}>
         <img {...image} alt={title} />
-        <p>{body}</p>
+        <figcaption>{body}</figcaption>
         <Time date={date} />
-      </Figure>
+      </figure>
       <ShareButtons title={desc} />
       <Button onClick={onClick}>
         <span className="icomoon icon-arrow-back" role="presentation" />
