@@ -3,8 +3,7 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Time from '../helpers/Time';
-import WrapperButton from '../helpers/WrapperButton';
-import { ArticleFadeIn, ImgItem } from './list-styled';
+import css from './list.module.scss';
 
 const { PUBLIC_URL } = process.env;
 
@@ -17,26 +16,36 @@ const ListItem = (props) => {
     date,
     openModal,
   } = props;
-  const openFunc = () => openModal(image);
+
+  const onClick = () => openModal(image);
+  const label = title.trim() || '***';
+  const href = `${PUBLIC_URL}/post/${id}`;
 
   return (
-    <ArticleFadeIn>
-      <h3 className="title is-4 has-text-centered">
-        <NavLink to={`${PUBLIC_URL}/post/${id}`}>
-          {title.trim() || '***'}
+    <article className={css.item}>
+      <h2 className={css.title}>
+        <NavLink to={href}>
+          {label}
         </NavLink>
-      </h3>
-      <figure className="has-text-centered">
-        <WrapperButton
+      </h2>
+      <figure className={css.content}>
+        <button
+          type="button"
           aria-label="Show image"
-          onClick={openFunc}
+          tabIndex="0"
+          className={css.wrapper}
+          onClick={onClick}
         >
-          <ImgItem src={image.src} alt={title} />
-        </WrapperButton>
-        <p>{body}</p>
+          <img
+            src={image.src}
+            alt={title}
+            className={css.image}
+          />
+        </button>
+        <figcaption>{body}</figcaption>
       </figure>
       <Time date={date} />
-    </ArticleFadeIn>
+    </article>
   );
 };
 

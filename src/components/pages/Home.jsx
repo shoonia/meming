@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { getItems, isPageLoading } from '../../selectors';
+import { getItems, isPageLoading, getPageNumber } from '../../selectors';
 import { hideScroll } from '../../utils/home';
 import Paginate from './paginate/Paginate';
 import List from './list/List';
@@ -16,6 +16,7 @@ class Home extends React.PureComponent {
     }).isRequired,
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
     isLoading: PropTypes.bool.isRequired,
+    currentPage: PropTypes.number.isRequired,
   };
 
   state = {
@@ -60,7 +61,7 @@ class Home extends React.PureComponent {
   };
 
   render() {
-    const { items, isLoading } = this.props;
+    const { items, isLoading, currentPage } = this.props;
     const { src, showModal } = this.state;
 
     return (
@@ -70,6 +71,7 @@ class Home extends React.PureComponent {
           items={items}
           isLoading={isLoading}
           openModal={this.handleOpenModal}
+          currentPage={currentPage}
         />
         <NavigationBar />
         <Modal
@@ -85,6 +87,7 @@ class Home extends React.PureComponent {
 const mapStateToProps = state => ({
   items: getItems(state),
   isLoading: isPageLoading(state),
+  currentPage: getPageNumber(state),
 });
 
 export default connect(mapStateToProps)(Home);
