@@ -33,8 +33,6 @@ class Home extends React.PureComponent {
   }
 
   onPopstate = () => {
-    // Close modal window on `popstate` event
-    // ("back" button on the mobile)
     const { showModal } = this.state;
     if (showModal) {
       this.handleCloseModal();
