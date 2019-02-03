@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '../helpers/Button';
+import Button from '../lib/Button';
 
 const NavigationBarView = (props) => {
   const {

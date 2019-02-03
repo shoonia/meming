@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import ListItem from './ListItem';
 import ListLoader from './ListLoader';
-import css from './list.module.scss';
+import css from './List.module.scss';
 
 const List = (props) => {
   const {

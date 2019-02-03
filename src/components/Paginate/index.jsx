@@ -8,9 +8,9 @@ import {
   getItems,
   getNumberOfPage,
   getPageCount,
-} from '../../../selectors';
-import { getPageByNumber } from '../../../actions/page';
-import css from './paginate.module.scss';
+} from '../../selectors';
+import { getPageByNumber } from '../../actions/page';
+import css from './Paginate.module.scss';
 
 const { PUBLIC_URL } = process.env;
 

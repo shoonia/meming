@@ -8,8 +8,8 @@ import {
   getPageCount,
   getPageLength,
   isPageLoading,
-} from '../../../selectors';
-import { getPageByNumber } from '../../../actions/page';
+} from '../../selectors';
+import { getPageByNumber } from '../../actions/page';
 import NavigationBarView from './NavigationBarView';
 
 const { PUBLIC_URL } = process.env;

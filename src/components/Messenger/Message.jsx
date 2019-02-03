@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import css from './messenger.module.scss';
+import css from './Messenger.module.scss';
 
 const Message = (props) => {
   const {

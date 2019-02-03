@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 import { getItems, isPageLoading, getPageNumber } from '../../selectors';
 import { hideScroll } from '../../utils/home';
-import Paginate from './paginate/Paginate';
-import List from './list/List';
-import Modal from './modal/Modal';
-import NavigationBar from './navigation-bar/NavigationBar';
+import Paginate from '../Paginate';
+import List from './List';
+import Modal from '../lib/Modal';
+import NavigationBar from '../NavigationBar';
 
 class Home extends React.PureComponent {
   static propTypes = {

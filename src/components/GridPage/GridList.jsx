@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Time from '../helpers/Time';
-import css from './grid.module.scss';
+import Time from '../lib/Time';
+import css from './GridPage.module.scss';
 
 const GridList = ({ items }) => items.map(item => (
   <article

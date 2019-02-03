@@ -2,7 +2,7 @@ import React from 'react';
 import ReactModal from 'react-modal';
 import PropTypes from 'prop-types';
 
-import css from './modal.module.scss';
+import css from './Modal.module.scss';
 
 ReactModal.setAppElement('#root');
 

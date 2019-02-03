@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Message from './Message';
 import { getMessages } from '../../selectors';
 import { removeMessage } from '../../actions/messages';
-import css from './messenger.module.scss';
+import css from './Messenger.module.scss';
 
 const FlashMessenger = ({ items, remove }) => (
   <aside className={css.wrapper}>

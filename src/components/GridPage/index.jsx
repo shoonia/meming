@@ -10,8 +10,8 @@ import {
   isPageLoading,
 } from '../../selectors';
 import { getPageByNumber } from '../../actions/page';
-import GridList from './grid/GridList';
-import GridButton from './grid/GridButton';
+import GridList from './GridList';
+import GridButton from './GridButton';
 
 const masonryOptions = {
   gutter: 10,

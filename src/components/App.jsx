@@ -5,7 +5,7 @@ import Navbar from './Navbar';
 import Router from './Router';
 import routes from './routes';
 
-const Aside = Loadable(() => import('./aside' /* webpackChunkName: "Aside" */));
+const Aside = Loadable(() => import('./Aside' /* webpackChunkName: "Aside" */));
 
 const App = () => (
   <>

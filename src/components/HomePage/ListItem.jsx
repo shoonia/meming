@@ -2,8 +2,8 @@ import React, { memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import Time from '../helpers/Time';
-import css from './list.module.scss';
+import Time from '../lib/Time';
+import css from './List.module.scss';
 
 const { PUBLIC_URL } = process.env;
 

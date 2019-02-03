@@ -1,7 +1,7 @@
 import React from 'react';
 
-import GoogleAnalytics from './GoogleAnalytics';
-import FlashMessenger from '../messenger';
+import GoogleAnalytics from '../lib/GoogleAnalytics';
+import FlashMessenger from '../Messenger';
 
 const Aside = () => (
   <>

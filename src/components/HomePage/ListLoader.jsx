@@ -1,7 +1,7 @@
 import React from 'react';
 import ContentLoader from 'react-content-loader';
 
-import css from './list.module.scss';
+import css from './List.module.scss';
 
 const ListLoader = () => (
   <div
