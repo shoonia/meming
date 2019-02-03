@@ -6,7 +6,7 @@ import {
 } from 'redux-saga/effects';
 
 import { MEME_GET_PAGE_BY_ID } from '../constants';
-import { getCache } from '../selectors';
+import { selectCachePages } from '../selectors';
 import {
   receivePage,
   loadPageStart,
@@ -18,7 +18,7 @@ import { findMemeById } from '../utils/meme';
 import { errorMessage } from '../actions/messages';
 
 export function* getMemePageByIdSaga({ id }) {
-  const cache = yield select(getCache);
+  const cache = yield select(selectCachePages);
   const meme = findMemeById(cache, id);
 
   if (meme !== undefined) {

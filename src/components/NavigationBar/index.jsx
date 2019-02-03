@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import {
-  getPageNumber,
-  getPageCount,
-  getPageLength,
-  isPageLoading,
+  selectListPageNumber,
+  selectListPageCount,
+  selectListLength,
+  selectIsListLoading,
 } from '../../selectors';
 import { getPageByNumber } from '../../actions/list';
 import NavigationBarView from './NavigationBarView';
@@ -63,10 +63,10 @@ class NavigationBar extends React.PureComponent {
 }
 
 const mapStateToProps = state => ({
-  pageNumber: getPageNumber(state),
-  pageCount: getPageCount(state),
-  pageLength: getPageLength(state),
-  isLoading: isPageLoading(state),
+  pageNumber: selectListPageNumber(state),
+  pageCount: selectListPageCount(state),
+  pageLength: selectListLength(state),
+  isLoading: selectIsListLoading(state),
 });
 
 const mapDispatchToProps = {

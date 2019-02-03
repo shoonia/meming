@@ -5,9 +5,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import {
-  getItems,
   getNumberOfPage,
-  getPageCount,
+  selectListPageCount,
 } from '../../selectors';
 import { getPageByNumber } from '../../actions/list';
 import css from './Paginate.module.scss';
@@ -116,8 +115,7 @@ class Paginate extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  items: getItems(state),
-  pageCount: getPageCount(state),
+  pageCount: selectListPageCount(state),
   pageNumber: getNumberOfPage(ownProps),
 });
 

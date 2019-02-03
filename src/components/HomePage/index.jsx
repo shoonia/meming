@@ -2,7 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { getItems, isPageLoading, getPageNumber } from '../../selectors';
+import {
+  selectListItems,
+  selectIsListLoading,
+  selectListPageNumber,
+} from '../../selectors';
 import { hideScroll } from '../../utils/home';
 import Paginate from '../Paginate';
 import List from './List';
@@ -83,9 +87,9 @@ class Home extends React.PureComponent {
 }
 
 const mapStateToProps = state => ({
-  items: getItems(state),
-  isLoading: isPageLoading(state),
-  currentPage: getPageNumber(state),
+  items: selectListItems(state),
+  isLoading: selectIsListLoading(state),
+  currentPage: selectListPageNumber(state),
 });
 
 export default connect(mapStateToProps)(Home);

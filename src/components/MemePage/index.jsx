@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 import {
   getIdOfMeme,
-  isMemeExist,
-  getMeme,
-  isMemeLoading,
-  hasMemeError,
+  selectIsMemeExist,
+  selectMemePage,
+  selectIsMemeLoading,
+  selectHasMemeError,
 } from '../../selectors';
 import { getMemePageById, clearPage } from '../../actions/meme';
 import MemeView from './MemeView';
@@ -89,10 +89,10 @@ class Meme extends React.PureComponent {
 
 const mapStateToProps = (state, ownProps) => ({
   id: getIdOfMeme(ownProps),
-  item: getMeme(state),
-  isExist: isMemeExist(state),
-  isLoading: isMemeLoading(state),
-  hasError: hasMemeError(state),
+  item: selectMemePage(state),
+  isExist: selectIsMemeExist(state),
+  isLoading: selectIsMemeLoading(state),
+  hasError: selectHasMemeError(state),
 });
 
 const mapDispatchToProps = {

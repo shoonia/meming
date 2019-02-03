@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import {
-  getItems,
-  getPageNumber,
-  getPageCount,
-  isPageLoading,
+  selectListItems,
+  selectListPageNumber,
+  selectListPageCount,
+  selectIsListLoading,
 } from '../../selectors';
 import { getPageByNumber } from '../../actions/list';
 import GridList from './GridList';
@@ -84,10 +84,10 @@ class Grid extends React.PureComponent {
 }
 
 const mapStateToProps = state => ({
-  items: getItems(state),
-  pageNumber: getPageNumber(state),
-  pageCount: getPageCount(state),
-  isLoading: isPageLoading(state),
+  items: selectListItems(state),
+  pageNumber: selectListPageNumber(state),
+  pageCount: selectListPageCount(state),
+  isLoading: selectIsListLoading(state),
 });
 
 const mapDispatchToProps = {

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Message from './Message';
-import { getMessages } from '../../selectors';
+import { selectMessages } from '../../selectors';
 import { removeMessageById } from '../../actions/messages';
 import css from './Messenger.module.scss';
 
@@ -25,7 +25,7 @@ FlashMessenger.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  items: getMessages(state),
+  items: selectMessages(state),
 });
 
 const mapDispatchToProps = {
