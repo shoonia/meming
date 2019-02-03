@@ -9,7 +9,7 @@ import {
   isMemeLoading,
   hasMemeError,
 } from '../../selectors';
-import { getMemeById, clearMeme } from '../../actions/meme';
+import { getMemePageById, clearPage } from '../../actions/meme';
 import MemeView from './MemeView';
 import MemeLoader from './MemeLoader';
 import Loadable from '../lib/Loadable';
@@ -96,8 +96,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = {
-  pageMount: getMemeById,
-  pageUnmount: clearMeme,
+  pageMount: getMemePageById,
+  pageUnmount: clearPage,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Meme);

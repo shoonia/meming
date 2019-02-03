@@ -1,12 +1,15 @@
-import { ADD_MESSAGE, REMOVE_MESSAGE } from '../constants';
+import {
+  MESSAGE_ADD_ITEM,
+  MESSAGE_REMOVE_BY_ID,
+} from '../constants';
 
 export const addMessage = message => ({
-  type: ADD_MESSAGE,
+  type: MESSAGE_ADD_ITEM,
   message,
 });
 
-export const removeMessage = id => ({
-  type: REMOVE_MESSAGE,
+export const removeMessageById = id => ({
+  type: MESSAGE_REMOVE_BY_ID,
   id,
 });
 

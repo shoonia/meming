@@ -9,7 +9,7 @@ import {
   getPageLength,
   isPageLoading,
 } from '../../selectors';
-import { getPageByNumber } from '../../actions/page';
+import { getPageByNumber } from '../../actions/list';
 import NavigationBarView from './NavigationBarView';
 
 const { PUBLIC_URL } = process.env;

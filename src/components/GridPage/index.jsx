@@ -9,7 +9,7 @@ import {
   getPageCount,
   isPageLoading,
 } from '../../selectors';
-import { getPageByNumber } from '../../actions/page';
+import { getPageByNumber } from '../../actions/list';
 import GridList from './GridList';
 import GridButton from './GridButton';
 

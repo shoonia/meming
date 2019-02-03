@@ -1,4 +1,7 @@
-import { ADD_MESSAGE, REMOVE_MESSAGE } from '../constants';
+import {
+  MESSAGE_ADD_ITEM,
+  MESSAGE_REMOVE_BY_ID,
+} from '../constants';
 
 const initialState = {
   items: [],
@@ -6,18 +9,18 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case ADD_MESSAGE:
+    case MESSAGE_ADD_ITEM:
       return {
         ...state,
         items: [...state.items, action.message],
       };
 
-    case REMOVE_MESSAGE: {
+    case MESSAGE_REMOVE_BY_ID: {
       const { id } = action;
-      const items = state.items.filter(item => item.id !== id);
+
       return {
         ...state,
-        items,
+        items: state.items.filter(item => item.id !== id),
       };
     }
 

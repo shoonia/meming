@@ -9,7 +9,7 @@ import {
   getNumberOfPage,
   getPageCount,
 } from '../../selectors';
-import { getPageByNumber } from '../../actions/page';
+import { getPageByNumber } from '../../actions/list';
 import css from './Paginate.module.scss';
 
 const { PUBLIC_URL } = process.env;

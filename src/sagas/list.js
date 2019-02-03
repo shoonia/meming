@@ -5,11 +5,11 @@ import {
   put,
 } from 'redux-saga/effects';
 
-import { GET_PAGE_BY_NUMBER } from '../constants';
+import { LIST_GET_PAGE_BY_NUMBER } from '../constants';
 import { fetchPageByNumber } from '../api';
-import { receivePage, pageLoading } from '../actions/page';
+import { receivePage, pageLoading } from '../actions/list';
 import { getCachePage } from '../selectors';
-import { cachePage } from '../actions/cache';
+import { addPageToCache } from '../actions/cachePages';
 import { errorMessage } from '../actions/messages';
 
 export function* getPageByNumberSaga({ pageNumber }) {
@@ -20,16 +20,18 @@ export function* getPageByNumberSaga({ pageNumber }) {
     return;
   }
 
+  yield put(pageLoading());
+
   try {
-    yield put(pageLoading());
     const newPage = yield call(fetchPageByNumber, pageNumber);
+
     yield put(receivePage(newPage));
-    yield put(cachePage({ [newPage.pageNumber]: newPage }));
+    yield put(addPageToCache({ [pageNumber]: newPage }));
   } catch (error) {
     yield put(errorMessage(error));
   }
 }
 
 export default function* () {
-  yield takeLatest(GET_PAGE_BY_NUMBER, getPageByNumberSaga);
+  yield takeLatest(LIST_GET_PAGE_BY_NUMBER, getPageByNumberSaga);
 }

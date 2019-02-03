@@ -11,6 +11,8 @@ const Message = (props) => {
     remove,
   } = props;
 
+  const removeById = () => remove(id);
+
   return (
     <div
       className={`tag block is-${type || 'info'}`}
@@ -22,7 +24,7 @@ const Message = (props) => {
       <button
         type="button"
         className={css.delete}
-        onClick={() => remove(id)}
+        onClick={removeById}
         area-label="close"
       />
     </div>

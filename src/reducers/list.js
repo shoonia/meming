@@ -1,4 +1,7 @@
-import { RECEIVE_PAGE, PAGE_LOADING } from '../constants';
+import {
+  LIST_RECEIVE_PAGE,
+  LIST_PAGE_LOADING,
+} from '../constants';
 
 const initialState = {
   items: [],
@@ -12,14 +15,14 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case RECEIVE_PAGE:
+    case LIST_RECEIVE_PAGE:
       return {
         ...state,
         ...action.payload,
         isLoading: false,
       };
 
-    case PAGE_LOADING:
+    case LIST_PAGE_LOADING:
       return {
         ...state,
         isLoading: true,

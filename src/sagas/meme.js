@@ -5,39 +5,41 @@ import {
   put,
 } from 'redux-saga/effects';
 
-import { GET_MEME_BY_ID } from '../constants';
+import { MEME_GET_PAGE_BY_ID } from '../constants';
 import { getCache } from '../selectors';
 import {
-  receiveMeme,
-  memeLoading,
-  memeLoadEnd,
+  receivePage,
+  loadPageStart,
+  loadPageEnd,
   memeHasError,
 } from '../actions/meme';
 import { fetchMemeById } from '../api';
 import { findMemeById } from '../utils/meme';
 import { errorMessage } from '../actions/messages';
 
-export function* getMemeByIdSaga({ id }) {
+export function* getMemePageByIdSaga({ id }) {
   const cache = yield select(getCache);
   const meme = findMemeById(cache, id);
 
   if (meme !== undefined) {
-    yield put(receiveMeme(meme));
+    yield put(receivePage(meme));
     return;
   }
 
+  yield put(loadPageStart());
+
   try {
-    yield put(memeLoading());
     const newMeme = yield call(fetchMemeById, id);
-    yield put(receiveMeme(newMeme));
+
+    yield put(receivePage(newMeme));
   } catch (error) {
     yield put(memeHasError());
     yield put(errorMessage(error));
   } finally {
-    yield put(memeLoadEnd());
+    yield put(loadPageEnd());
   }
 }
 
 export default function* () {
-  yield takeLatest(GET_MEME_BY_ID, getMemeByIdSaga);
+  yield takeLatest(MEME_GET_PAGE_BY_ID, getMemePageByIdSaga);
 }

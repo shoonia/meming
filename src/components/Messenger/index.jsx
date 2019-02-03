@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Message from './Message';
 import { getMessages } from '../../selectors';
-import { removeMessage } from '../../actions/messages';
+import { removeMessageById } from '../../actions/messages';
 import css from './Messenger.module.scss';
 
 const FlashMessenger = ({ items, remove }) => (
@@ -29,7 +29,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  remove: removeMessage,
+  remove: removeMessageById,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FlashMessenger);
