@@ -1,7 +1,7 @@
 import React from 'react';
 import ContentLoader from 'react-content-loader';
 
-import css from './meme.module.scss';
+import css from './MemePage.module.scss';
 
 const MemeLoader = () => (
   <div

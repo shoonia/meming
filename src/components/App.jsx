@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Loadable from './Loadable';
-import Navbar from './navbar/Navbar';
+import Loadable from './lib/Loadable';
+import Navbar from './Navbar';
 import Router from './Router';
 import routes from './routes';
 

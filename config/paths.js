@@ -31,12 +31,9 @@ function getServedPath(appPackageJson) {
 }
 
 const moduleFileExtensions = [
-  'web.mjs',
   'mjs',
-  'web.js',
   'js',
   'json',
-  'web.jsx',
   'jsx',
 ];
 
@@ -53,6 +50,7 @@ const resolveModule = (resolveFn, filePath) => {
 };
 
 module.exports = {
+  appDirectory,
   appPath: resolveApp('.'),
   appBuild: resolveApp('build'),
   appPublic: resolveApp('public'),

@@ -1,11 +1,11 @@
-import Loadable from './Loadable';
+import Loadable from './lib/Loadable';
 
 const { PUBLIC_URL } = process.env;
 
 const Home = Loadable(() => import('./pages/Home' /* webpackChunkName: "Home" */));
-const Meme = Loadable(() => import('./pages/Meme' /* webpackChunkName: "Meme" */));
+const MemePage = Loadable(() => import('./MemePage' /* webpackChunkName: "MemePage" */));
 const Grid = Loadable(() => import('./pages/Grid' /* webpackChunkName: "Grid" */));
-const NotFound = Loadable(() => import('./not-found/NotFound' /* webpackChunkName: "NotFound" */));
+const NotFound = Loadable(() => import('./NotFound' /* webpackChunkName: "NotFound" */));
 
 export default [
   {
@@ -26,7 +26,7 @@ export default [
   {
     path: `${PUBLIC_URL}/post/:id`,
     exact: true,
-    component: Meme,
+    component: MemePage,
   },
   {
     path: `${PUBLIC_URL}/grid`,

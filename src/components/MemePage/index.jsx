@@ -10,11 +10,11 @@ import {
   hasMemeError,
 } from '../../selectors';
 import { getMemeById, clearMeme } from '../../actions/meme';
-import MemeView from './meme/MemeView';
-import MemeLoader from './meme/MemeLoader';
-import Loadable from '../Loadable';
+import MemeView from './MemeView';
+import MemeLoader from './MemeLoader';
+import Loadable from '../lib/Loadable';
 
-const NotFound = Loadable(() => import('../not-found/NotFound' /* webpackChunkName: "NotFound" */));
+const NotFound = Loadable(() => import('../NotFound' /* webpackChunkName: "NotFound" */));
 const { PUBLIC_URL } = process.env;
 
 class Meme extends React.PureComponent {
@@ -63,15 +63,24 @@ class Meme extends React.PureComponent {
     } = this.props;
 
     if (isLoading) {
-      return <MemeLoader />;
+      return (
+        <MemeLoader />
+      );
     }
 
     if (isExist) {
-      return <MemeView onClick={this.goBack} {...item} />;
+      return (
+        <MemeView
+          {...item}
+          onClick={this.goBack}
+        />
+      );
     }
 
     if (hasError) {
-      return <NotFound />;
+      return (
+        <NotFound />
+      );
     }
 
     return null;

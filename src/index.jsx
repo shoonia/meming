@@ -12,6 +12,7 @@ import rootReducer from './reducers';
 import rootSaga from './sagas';
 import './styles/index.scss';
 
+const appRoot = document.getElementById('root');
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
   rootReducer,
@@ -29,7 +30,7 @@ ReactDOM.render(
       <App />
     </Provider>
   </BrowserRouter>,
-  document.getElementById('root'),
+  appRoot,
 );
 
 serviceWorker.register();

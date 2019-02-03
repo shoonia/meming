@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Time from '../helpers/Time';
-import Button from '../helpers/Button';
-import ShareButtons from '../helpers/ShareButtons';
-import css from './meme.module.scss';
+import Time from '../pages/helpers/Time';
+import Button from '../pages/helpers/Button';
+import ShareButtons from '../pages/helpers/ShareButtons';
+import css from './MemePage.module.scss';
 
 const MemeView = (props) => {
   const {

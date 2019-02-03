@@ -2,7 +2,6 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const PnpWebpackPlugin = require('pnp-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -11,7 +10,6 @@ const safePostCssParser = require('postcss-safe-parser');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
-const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
@@ -152,15 +150,6 @@ module.exports = {
       process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
     ),
     extensions: paths.moduleFileExtensions.map(ext => `.${ext}`),
-    plugins: [
-      PnpWebpackPlugin,
-      new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
-    ],
-  },
-  resolveLoader: {
-    plugins: [
-      PnpWebpackPlugin.moduleLoader(module),
-    ],
   },
   module: {
     strictExportPresence: true,

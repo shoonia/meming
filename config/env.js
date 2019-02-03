@@ -1,16 +1,14 @@
 'use strict';
 
-const fs = require('fs');
 const path = require('path');
 const paths = require('./paths');
 
 delete require.cache[require.resolve('./paths')];
 
-const appDirectory = fs.realpathSync(process.cwd());
 process.env.NODE_PATH = (process.env.NODE_PATH || '')
   .split(path.delimiter)
   .filter(folder => folder && !path.isAbsolute(folder))
-  .map(folder => path.resolve(appDirectory, folder))
+  .map(folder => path.resolve(paths.appDirectory, folder))
   .join(path.delimiter);
 
 const REACT_APP = /^REACT_APP_/i;
