@@ -10,9 +10,6 @@ import {
   LinkedinShareButton,
   LinkedinIcon,
 
-  GooglePlusShareButton,
-  GooglePlusIcon,
-
 } from 'react-share';
 
 const ShareButtons = ({ title }) => {
@@ -47,12 +44,6 @@ const ShareButtons = ({ title }) => {
         >
           <LinkedinIcon size={32} round />
         </LinkedinShareButton>
-        <GooglePlusShareButton
-          url={href}
-          className="button is-text"
-        >
-          <GooglePlusIcon size={32} round />
-        </GooglePlusShareButton>
       </div>
     </div>
   );
