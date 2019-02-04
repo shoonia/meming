@@ -10,7 +10,7 @@ import {
 import { hideScroll } from '../../utils/home';
 import Paginate from '../Paginate';
 import List from './List';
-import Modal from '../lib/Modal';
+import HomeModal from './HomeModal';
 import NavigationBar from '../NavigationBar';
 
 class Home extends React.PureComponent {
@@ -76,9 +76,9 @@ class Home extends React.PureComponent {
           currentPage={currentPage}
         />
         <NavigationBar />
-        <Modal
+        <HomeModal
           isOpen={showModal}
-          colseModal={this.handleCloseModal}
+          close={this.handleCloseModal}
           src={src}
         />
       </>

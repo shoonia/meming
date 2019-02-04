@@ -12,7 +12,7 @@ const Button = ({ children, ...rest }) => (
 );
 
 Button.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
+  children: PropTypes.node.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
