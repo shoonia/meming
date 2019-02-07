@@ -13,7 +13,6 @@ const chalk = require('chalk');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const {
-  choosePort,
   createCompiler,
   prepareProxy,
   prepareUrls,
@@ -24,22 +23,16 @@ const createDevServerConfig = require('../config/webpackDevServer.config');
 
 const useYarn = true;
 const isInteractive = process.stdout.isTTY;
+const PROTOCOL = 'http';
 
-const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000;
-const HOST = process.env.HOST || '0.0.0.0';
+const PORT = 3000;
+const HOST = '0.0.0.0';
 
 const { checkBrowsers } = require('react-dev-utils/browsersHelper');
 checkBrowsers(paths.appPath, isInteractive)
   .then(() => {
-    return choosePort(HOST, DEFAULT_PORT);
-  })
-  .then(port => {
-    if (port == null) {
-      return;
-    }
-    const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
     const appName = require(paths.appPackageJson).name;
-    const urls = prepareUrls(protocol, HOST, port);
+    const urls = prepareUrls(PROTOCOL, HOST, PORT);
     const compiler = createCompiler(webpack, config, appName, urls, useYarn);
     const proxySetting = require(paths.appPackageJson).proxy;
     const proxyConfig = prepareProxy(proxySetting, paths.appPublic);
@@ -48,7 +41,7 @@ checkBrowsers(paths.appPath, isInteractive)
       urls.lanUrlForConfig
     );
     const devServer = new WebpackDevServer(compiler, serverConfig);
-    devServer.listen(port, HOST, err => {
+    devServer.listen(PORT, HOST, err => {
       if (err) {
         return console.log(err);
       }

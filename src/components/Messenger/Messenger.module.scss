@@ -1,3 +1,5 @@
+@import "~/../src/styles/variables";
+
 .wrapper {
   position: fixed;
   bottom: 15px;
@@ -26,7 +28,8 @@
   vertical-align: top;
   width: 16px;
   height: 16px;
-  margin-left: 10px;
+  margin: 0 0 0 10px;
+  padding: 0;
 
   &::before,
   &::after {
@@ -49,4 +52,31 @@
     height: 50%;
     width: 2px;
   }
+}
+
+.tag {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .75rem;
+  line-height: 1.5;
+  white-space: nowrap;
+  color: white;
+  border-radius: 4px;
+  padding-left: .75em;
+  padding-right: .75em;
+  height: 2em;
+  margin: .3em;
+}
+
+.info {
+  composes: tag;
+
+  background-color: $color-info;
+}
+
+.danger {
+  composes: tag;
+
+  background-color: $color-danger;
 }

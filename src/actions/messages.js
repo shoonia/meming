@@ -12,9 +12,3 @@ export const removeMessageById = id => ({
   type: MESSAGE_REMOVE_BY_ID,
   id,
 });
-
-export const errorMessage = error => addMessage({
-  id: Date.now(),
-  type: 'danger',
-  message: error.message || 'Something went wrong!',
-});

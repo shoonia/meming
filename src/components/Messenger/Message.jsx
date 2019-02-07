@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames/bind';
 
 import css from './Messenger.module.scss';
+
+const styles = classNames.bind(css);
 
 const Message = (props) => {
   const {
     id,
     type,
-    message,
+    text,
     remove,
   } = props;
 
@@ -15,11 +18,11 @@ const Message = (props) => {
 
   return (
     <div
-      className={`tag block is-${type || 'info'}`}
+      className={styles(type)}
       role="alert"
     >
       <span>
-        {message}
+        {text}
       </span>
       <button
         type="button"
@@ -34,7 +37,7 @@ const Message = (props) => {
 Message.propTypes = {
   id: PropTypes.number.isRequired,
   type: PropTypes.string.isRequired,
-  message: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
   remove: PropTypes.func.isRequired,
 };
 

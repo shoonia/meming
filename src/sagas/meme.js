@@ -15,7 +15,7 @@ import {
 } from '../actions/meme';
 import { fetchMemeById } from '../api';
 import { findMemeById } from '../utils/meme';
-import { errorMessage } from '../actions/messages';
+import { errorMessage } from '../utils/messages';
 
 export function* getMemePageByIdSaga({ id }) {
   const cache = yield select(selectCachePages);

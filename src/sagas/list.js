@@ -10,7 +10,7 @@ import { fetchPageByNumber } from '../api';
 import { receivePage, pageLoading } from '../actions/list';
 import { selectCachePageByNumber } from '../selectors';
 import { addPageToCache } from '../actions/cachePages';
-import { errorMessage } from '../actions/messages';
+import { errorMessage } from '../utils/messages';
 
 export function* getPageByNumberSaga({ pageNumber }) {
   const page = yield select(selectCachePageByNumber(pageNumber));
