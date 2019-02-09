@@ -1,4 +1,4 @@
-@import "variables";
+@import "~/../src/styles/variables";
 
 @font-face {
   font-family: '#{$icomoon-font-family}';
@@ -25,72 +25,74 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-arrow-back {
+.arrow-back {
+  composes: icomoon;
+
   &:before {
     content: $icon-arrow-back; 
   }
 }
-.icon-chevron-up {
+
+.chevron-up {
+  composes: icomoon;
+
   &:before {
     content: $icon-chevron-up; 
   }
 }
-.icon-chevron-left {
+
+.chevron-left {
+  composes: icomoon;
+
   &:before {
     content: $icon-chevron-left; 
   }
 }
-.icon-chevron-right {
+
+.chevron-right {
+  composes: icomoon;
+
   &:before {
     content: $icon-chevron-right; 
   }
 }
-.icon-refresh {
+
+.refresh {
+  composes: icomoon;
+
   &:before {
     content: $icon-refresh; 
   }
 }
-.icon-calendar {
+
+.calendar {
+  composes: icomoon;
+
   &:before {
     content: $icon-calendar; 
   }
 }
 
-.icon-twitter {
+.twitter {
+  composes: icomoon;
+
   &:before {
     content: $icon-twitter; 
   }
 }
-.icon-github {
+
+.github {
+  composes: icomoon;
+
   &:before {
     content: $icon-github; 
   }
 }
-.icon-linkedin {
+
+.linkedin {
+  composes: icomoon;
+
   &:before {
     content: $icon-linkedin; 
   }
-}
-
-.link {
-  color: $color-gray;
-  font-size: 18px;
-  display: inline-block;
-  padding: 10px 20px;
-  
-  &:hover {
-    text-decoration: none;
-  }
-}
-
-.link--github:hover {
-  color: #000;
-}
-
-.link--twitter:hover {
-  color: #4AB9FB;
-}
-
-.link--linkedin:hover {
-  color: #0073B2;
 }

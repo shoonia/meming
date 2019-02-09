@@ -9,6 +9,7 @@ import {
   selectListPageCount,
 } from '../../selectors';
 import { getPageByNumber } from '../../actions/list';
+import Icon from '../lib/Icon';
 import css from './Paginate.module.scss';
 
 const { PUBLIC_URL } = process.env;
@@ -87,8 +88,8 @@ class Paginate extends React.Component {
           previousClassName={css.arrow}
           previousLinkClassName={css.link}
           previousLabel={(
-            <span
-              className="icomoon icon-chevron-left"
+            <Icon
+              type="chevron-left"
               aria-label="previous page"
             />
           )}
@@ -96,8 +97,8 @@ class Paginate extends React.Component {
           nextClassName={css.arrow}
           nextLinkClassName={css.link}
           nextLabel={(
-            <span
-              className="icomoon icon-chevron-right"
+            <Icon
+              type="chevron-right"
               aria-label="next page"
             />
           )}

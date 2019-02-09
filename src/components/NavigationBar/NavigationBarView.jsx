@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '../lib/Button';
+import Icon from '../lib/Icon';
 
 const NavigationBarView = (props) => {
   const {
@@ -24,11 +25,11 @@ const NavigationBarView = (props) => {
         aria-label="previous page"
         aria-disabled={prevDisabled}
       >
-        <span className="icomoon icon-chevron-left" role="presentation" />
+        <Icon type="chevron-left" />
       </Button>
       &nbsp;&nbsp;
       <Button onClick={goTop} aria-label="Back to Top">
-        <span className="icomoon icon-chevron-up" role="presentation" />
+        <Icon type="chevron-up" />
       </Button>
       &nbsp;&nbsp;
       <Button
@@ -37,7 +38,7 @@ const NavigationBarView = (props) => {
         aria-label="next page"
         aria-disabled={nextDisabled}
       >
-        <span className="icomoon icon-chevron-right" role="presentation" />
+        <Icon type="chevron-right" />
       </Button>
     </nav>
   );

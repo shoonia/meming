@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Time from '../lib/Time';
 import Button from '../lib/Button';
 import ShareButtons from '../lib/ShareButtons';
+import Icon from '../lib/Icon';
 import css from './MemePage.module.scss';
 
 const MemeView = (props) => {
@@ -28,7 +29,7 @@ const MemeView = (props) => {
       </figure>
       <ShareButtons title={desc} />
       <Button onClick={onClick}>
-        <span className="icomoon icon-arrow-back" role="presentation" />
+        <Icon type="arrow-back" />
         &nbsp;Go Back
       </Button>
     </main>

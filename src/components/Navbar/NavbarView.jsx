@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import Icon from '../lib/Icon';
 import css from './Navbar.module.scss';
 
 const { PUBLIC_URL } = process.env;
@@ -17,7 +18,7 @@ const NavbarView = ({ isHomePage }) => (
       className={css.navItem}
       aria-label="refresh site"
     >
-      <span className="icomoon icon-refresh" role="presentation" />
+      <Icon type="refresh" />
     </a>
     <NavLink
       to={`${PUBLIC_URL}/`}
