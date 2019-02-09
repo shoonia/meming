@@ -1,9 +1,9 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const { PUBLIC_URL } = process.env;
+import NavbarView from './NavbarView';
+import css from './Navbar.module.scss';
 
 class Navbar extends React.Component {
   static propTypes = {
@@ -13,7 +13,9 @@ class Navbar extends React.Component {
   constructor(props) {
     super(props);
     const { root } = this.props;
+
     this.navbarRoot = document.getElementById(root);
+    this.navbarRoot.classList.add(css.container);
   }
 
   isHomePage = (_, location) => {
@@ -23,24 +25,7 @@ class Navbar extends React.Component {
 
   render() {
     return createPortal(
-      <>
-        <NavLink
-          to={`${PUBLIC_URL}/`}
-          className="navbar-item"
-          activeClassName="is-active"
-          isActive={this.isHomePage}
-        >
-          Home
-        </NavLink>
-        <NavLink
-          to={`${PUBLIC_URL}/grid`}
-          className="navbar-item"
-          activeClassName="is-active"
-          exact
-        >
-          Grid
-        </NavLink>
-      </>,
+      <NavbarView isHomePage={this.isHomePage} />,
       this.navbarRoot,
     );
   }

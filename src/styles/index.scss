@@ -17,12 +17,6 @@ $navbar-height: 3.25rem; // hot fix bulma bug
 @import "~bulma/sass/elements/title";
 @import "~bulma/sass/elements/other";
 
-@import "~bulma/sass/components/navbar";
-
-.app {
-  min-height: 70vh;
-}
-
 ::-webkit-scrollbar {
   width: 17px;
   height: 17px;
@@ -36,4 +30,32 @@ $navbar-height: 3.25rem; // hot fix bulma bug
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: darken($grey-light, 10%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+  background-color: whitesmoke;
+}
+
+body {
+  margin: $menu-height 0 0 0;
+  padding: 0;
+  font-family: $base-font;
+  background-color: whitesmoke;
+}
+
+.app {
+  min-height: 70vh;
 }
