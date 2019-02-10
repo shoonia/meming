@@ -35,18 +35,15 @@
   </header>
 
   <noscript>
-    <div class="hero">
-      <div class="hero-body" role="alert">
-        <div class="container">
-          <p class="title is-2 has-text-danger has-text-centered">
-            You need to enable JavaScript to run this app.<br> (Seriously it's not a joke)
-          </p>
-          <div class="has-text-centered">
-            <img src="https://static.wixstatic.com/media/fd206f_789f7340795b41ce9edbda1ff50a0f4d~mv2.jpg"
-              alt="Enable JavaScript" />
-          </div>
-        </div>
-      </div>
+    <link href="%PUBLIC_URL%/css/noscript.css" rel="stylesheet">
+    <div class="noscript" role="alert">
+      <figure class="noscript_box">
+        <figcaption class="noscript_message">
+          You need to enable JavaScript to run this app.
+        </figcaption>
+        <img class="noscript_image" alt="Enable JavaScript"
+          src="https://static.wixstatic.com/media/fd206f_789f7340795b41ce9edbda1ff50a0f4d~mv2.jpg" />
+      </figure>
     </div>
   </noscript>
 
