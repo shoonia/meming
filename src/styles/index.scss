@@ -2,19 +2,11 @@
 // my:
 @import "variables";
 
-// bulma:
-$link: $link-color;
-$info: $link-color;
-
 $navbar-height: 3.25rem; // hot fix bulma bug
 
 @import "~bulma/sass/utilities/all";
 @import "~bulma/sass/base/all";
 @import "~bulma/sass/layout/all";
-
-@import "~bulma/sass/elements/button";
-@import "~bulma/sass/elements/title";
-@import "~bulma/sass/elements/other";
 
 ::-webkit-scrollbar {
   width: 17px;

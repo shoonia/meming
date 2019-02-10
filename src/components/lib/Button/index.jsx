@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import css from './Button.module.scss';
+
 const Button = ({ children, ...rest }) => (
   <button
     {...rest}
     type="button"
-    className="button is-info is-rounded"
+    className={css.btn}
   >
     {children}
   </button>

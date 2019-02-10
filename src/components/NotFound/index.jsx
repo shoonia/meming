@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import image from './error-404.gif';
+import css from '../lib/Button/Button.module.scss';
 
 const { PUBLIC_URL } = process.env;
 
@@ -15,7 +16,7 @@ const NotFound = () => (
     </figure>
     <Link
       to={`${PUBLIC_URL}/`}
-      className="button is-info is-rounded"
+      className={css.btn}
     >
       Home
     </Link>

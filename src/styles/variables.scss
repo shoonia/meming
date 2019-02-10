@@ -10,6 +10,7 @@ $font-7: .75rem;
 $link-color: #005C99;
 
 $color-info: #005C99;
+$color-focus: #B7CEDD;
 $color-danger: #ff3860;
 $color-pink: #D7598B;
 $color-gray: #595959;
@@ -21,6 +22,8 @@ $disabled-color: lightgray;
 // navbar
 $menu-height: 55px;
 $space: 15px;
+
+$focus: 0 0 0 2px $color-focus;
 
 // icon footer
 $icomoon-font-family: "icomoon" !default;

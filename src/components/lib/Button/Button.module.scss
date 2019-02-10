@@ -1,0 +1,38 @@
+@import "~/../src/styles/variables";
+
+.btn {
+  border-radius: 100rem;
+  padding-left: 1em;
+  padding-right: 1em;
+  background-color: $color-info;
+  border-color: transparent;
+  color: $color-white;
+  cursor: pointer;
+  display: inline-block;
+  padding: ($space / 2) $space;
+  text-align: center;
+  white-space: nowrap;
+  outline: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color-white
+  }
+  
+  &:hover {
+    background-color: darken($color-info, 5%);
+  }
+
+  &:focus {
+    box-shadow: $focus;
+  }
+
+  &:disabled,
+  &[disabled]
+  &.disabled {
+    cursor: default;
+    pointer-events: none;
+    opacity: .5;
+  }
+}
