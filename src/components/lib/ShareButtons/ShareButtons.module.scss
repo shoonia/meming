@@ -1,0 +1,21 @@
+@import "~/../src/styles/variables";
+
+.group {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+}
+
+.button {
+  cursor: pointer;
+  justify-content: center;
+  padding: calc(.375em - 1px) $space;
+  text-align: center;
+  white-space: nowrap;
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+  }
+}

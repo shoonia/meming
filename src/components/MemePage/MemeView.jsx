@@ -15,7 +15,6 @@ const MemeView = (props) => {
     date,
     onClick,
   } = props;
-  const desc = `${title.trim() || 'Meming'}.\n${body}`.trim();
 
   return (
     <main className={css.wrapper}>
@@ -29,7 +28,13 @@ const MemeView = (props) => {
         </figcaption>
         <Time date={date} />
       </figure>
-      <ShareButtons title={desc} />
+      <div className={css.share}>
+        <ShareButtons
+          title={title}
+          body={body}
+          image={image.src}
+        />
+      </div>
       <Button onClick={onClick}>
         <Icon type="arrow-back" />
         &nbsp;Go Back
