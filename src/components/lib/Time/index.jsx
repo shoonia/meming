@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Icon from './Icon';
+import Icon from '../Icon';
+import css from './Time.module.scss';
 
-const options = {
+const toLocaleString = date => new Date(date).toLocaleString([], {
   year: 'numeric',
   month: 'short',
   weekday: 'short',
@@ -11,12 +12,16 @@ const options = {
   hour: 'numeric',
   minute: 'numeric',
   // second: 'numeric',
-};
+});
 
 const Time = ({ date }) => (
-  <time dateTime={date} className="has-text-grey-dark is-size-7">
+  <time
+    dateTime={date}
+    className={css.time}
+  >
     <Icon type="calendar" />
-    &nbsp;{new Date(date).toLocaleString([], options)}
+    &nbsp;
+    {toLocaleString(date)}
   </time>
 );
 

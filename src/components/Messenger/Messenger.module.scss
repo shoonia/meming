@@ -2,9 +2,9 @@
 
 .wrapper {
   position: fixed;
-  bottom: 15px;
-  right: 15px;
-  margin-left: 15px;
+  bottom: $space;
+  right: $space;
+  margin-left: $space;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

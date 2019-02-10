@@ -24,7 +24,9 @@ const MemeView = (props) => {
       </h1>
       <figure className={css.content}>
         <img {...image} alt={title} />
-        <figcaption>{body}</figcaption>
+        <figcaption className={css.caption}>
+          {body}
+        </figcaption>
         <Time date={date} />
       </figure>
       <ShareButtons title={desc} />
