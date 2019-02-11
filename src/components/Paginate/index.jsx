@@ -66,7 +66,10 @@ class Paginate extends React.Component {
     const initialPage = (pageNumber < 1) ? 0 : (pageNumber - 1);
 
     return (
-      <nav aria-label="page navigation">
+      <nav
+        aria-label="pagination"
+        role="navigation"
+      >
         <ReactPaginate
           pageCount={pageCount}
           forcePage={initialPage}
@@ -105,7 +108,10 @@ class Paginate extends React.Component {
 
           breakClassName={css.break}
           breakLabel={(
-            <span role="presentation">
+            <span
+              role="presentation"
+              aria-label="break"
+            >
               &hellip;
             </span>
           )}
