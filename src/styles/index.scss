@@ -1,32 +1,27 @@
 @charset "utf-8";
-// my:
 @import "variables";
-
-$navbar-height: 3.25rem; // hot fix bulma bug
-
-@import "~bulma/sass/utilities/all";
-@import "~bulma/sass/base/all";
-@import "~bulma/sass/layout/all";
 
 ::-webkit-scrollbar {
   width: 17px;
   height: 17px;
-  background-color: $grey-lighter;
+  background-color: $color-grey-lighter;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: $grey-light;
-  border: 1px solid $grey-lighter;
+  background-color: $color-grey-light;
+  border: 1px solid $color-grey-lighter;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: darken($grey-light, 10%);
+  background-color: darken($color-grey-light, 10%);
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 html {
@@ -49,8 +44,15 @@ body {
 
 a {
   color: $link-color;
+  text-decoration: none;
 }
 
-.app {
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+#root {
   min-height: 70vh;
+  padding: 3rem 1.5rem;
 }

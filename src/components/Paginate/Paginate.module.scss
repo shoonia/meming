@@ -17,6 +17,7 @@ $size-item: 38px;
 .arrow {
   margin-left: $margin-between;
   margin-right: $margin-between;
+  list-style-type: none;
 }
 
 .link,
@@ -48,6 +49,7 @@ $size-item: 38px;
   height: $size-item;
   line-height: $size-item;
   color: $color-gray;
+  list-style-type: none;
 }
 
 .arrow > .link {

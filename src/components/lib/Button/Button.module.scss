@@ -10,9 +10,19 @@
   cursor: pointer;
   display: inline-block;
   padding: ($space / 2) $space;
+  margin: 0;
   text-align: center;
+  text-rendering: auto;
+  text-transform: none;
+  text-indent: 0;
+  text-shadow: none;
   white-space: nowrap;
+  word-spacing: normal;
+  letter-spacing: normal;
+  vertical-align: center;
+  font-family: $base-font;
   outline: none;
+  user-select: none;
 
   &:hover,
   &:focus,
