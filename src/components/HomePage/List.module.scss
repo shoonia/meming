@@ -15,12 +15,12 @@
 }
 
 .loader {
-  @extend .box;
+  composes: box;
   background-color: whitesmoke;
 }
 
 .item {
-  @extend .box;
+  composes: box;
   animation: fadeIn .5s;
   background-color: white;
 }
@@ -32,7 +32,6 @@
 
 .image {
   max-height: 40vh;
-  object-fit: cover; 
 }
 
 .wrapper {

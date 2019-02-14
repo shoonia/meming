@@ -7,11 +7,6 @@
   font-weight: normal;
 }
 
-.image {
-  height: auto;
-  max-width: 100%;
-}
-
 .btn {
   composes: btn from '../lib/Button/Button.module.scss';
 }

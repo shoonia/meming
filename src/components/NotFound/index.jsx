@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import image from './error-404.gif';
+import Image from '../lib/Image';
+import imageSource from './error-404.gif';
 import css from './NotFound.module.scss';
 
 const { PUBLIC_URL } = process.env;
@@ -15,10 +16,9 @@ const NotFound = () => (
       <h1 className={css.title}>
         404 not found
       </h1>
-      <img
-        src={image}
+      <Image
+        src={imageSource}
         alt="404 not found"
-        className={css.image}
       />
     </figure>
     <Link

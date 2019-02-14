@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Modal from '../lib/Modal';
+import Image from '../lib/Image';
 import css from './Home.module.scss';
 
 const HomeModal = ({ isOpen, close, src }) => (
@@ -12,7 +13,7 @@ const HomeModal = ({ isOpen, close, src }) => (
     <figure
       className={css.wrapper}
     >
-      <img
+      <Image
         src={src}
         alt="meme"
         className={css.image}

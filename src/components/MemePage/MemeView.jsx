@@ -5,6 +5,7 @@ import Time from '../lib/Time';
 import Button from '../lib/Button';
 import ShareButtons from '../lib/ShareButtons';
 import Icon from '../lib/Icon';
+import Image from '../lib/Image';
 import css from './MemePage.module.scss';
 
 const MemeView = (props) => {
@@ -22,7 +23,10 @@ const MemeView = (props) => {
         {title}
       </h1>
       <figure className={css.content}>
-        <img {...image} alt={title} />
+        <Image
+          {...image}
+          alt={title}
+        />
         <figcaption className={css.caption}>
           {body}
         </figcaption>

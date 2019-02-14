@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Time from '../lib/Time';
+import Image from '../lib/Image';
 import css from './List.module.scss';
 
 const { PUBLIC_URL } = process.env;
@@ -36,7 +37,7 @@ const ListItem = (props) => {
           className={css.wrapper}
           onClick={onClick}
         >
-          <img
+          <Image
             src={image.src}
             alt={title}
             className={css.image}
