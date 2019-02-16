@@ -14,6 +14,7 @@ const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent')
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
+const PreloadWebpackPlugin = require('preload-webpack-plugin');
 
 const publicPath = paths.servedPath;
 const shouldUseRelativeAssetPaths = publicPath === './';
@@ -81,8 +82,8 @@ module.exports = {
   entry: [paths.appIndexJs],
   output: {
     path: paths.appBuild,
-    filename: 'static/js/[name].[chunkhash:8].js',
-    chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
+    filename: 'static/js/[name].[chunkhash:4].js',
+    chunkFilename: 'static/js/[name].[chunkhash:4].chunk.js',
     publicPath: publicPath,
     devtoolModuleFilenameTemplate: info =>
       path
@@ -176,7 +177,7 @@ module.exports = {
             loader: require.resolve('url-loader'),
             options: {
               limit: 10000,
-              name: 'static/media/[name].[hash:8].[ext]',
+              name: 'static/media/[name].[hash:4].[ext]',
             },
           },
           {
@@ -184,21 +185,7 @@ module.exports = {
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
             options: {
-              customize: require.resolve(
-                'babel-preset-react-app/webpack-overrides'
-              ),
-              plugins: [
-                [
-                  require.resolve('babel-plugin-named-asset-import'),
-                  {
-                    loaderMap: {
-                      svg: {
-                        ReactComponent: '@svgr/webpack?-prettier,-svgo![path]',
-                      },
-                    },
-                  },
-                ],
-              ],
+              customize: require.resolve('babel-preset-react-app/webpack-overrides'),
               cacheDirectory: true,
               cacheCompression: true,
               compact: true,
@@ -279,7 +266,7 @@ module.exports = {
             loader: require.resolve('file-loader'),
             exclude: [/\.(js|mjs|jsx)$/, /\.html$/, /\.json$/],
             options: {
-              name: 'static/media/[name].[hash:8].[ext]',
+              name: 'static/media/[name].[hash:4].[ext]',
             },
           },
           // ** STOP ** Are you adding a new loader?
@@ -305,12 +292,20 @@ module.exports = {
         minifyURLs: true,
       },
     }),
+    new PreloadWebpackPlugin({
+      rel: 'preload',
+      fileBlacklist: [
+        /\.map$/,
+        /(main|styles)\.\w{4}\.css$/,
+      ],
+      include: ['main', 'Aside'],
+    }),
     new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw),
     new ModuleNotFoundPlugin(paths.appPath),
     new webpack.DefinePlugin(env.stringified),
     new MiniCssExtractPlugin({
-      filename: 'static/css/[name].[contenthash:8].css',
-      chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
+      filename: 'static/css/styles.[contenthash:4].css',
+      chunkFilename: 'static/css/[name].[contenthash:4].chunk.css',
     }),
     new ManifestPlugin({
       fileName: 'asset-manifest.json',

@@ -103,7 +103,7 @@ module.exports = {
             loader: require.resolve('url-loader'),
             options: {
               limit: 10000,
-              name: 'static/media/[name].[hash:8].[ext]',
+              name: 'static/media/[name].[hash:4].[ext]',
             },
           },
           {
@@ -112,18 +112,6 @@ module.exports = {
             loader: require.resolve('babel-loader'),
             options: {
               customize: require.resolve('babel-preset-react-app/webpack-overrides'),
-              plugins: [
-                [
-                  require.resolve('babel-plugin-named-asset-import'),
-                  {
-                    loaderMap: {
-                      svg: {
-                        ReactComponent: '@svgr/webpack?-prettier,-svgo![path]',
-                      },
-                    },
-                  },
-                ],
-              ],
               cacheDirectory: true,
               cacheCompression: false,
             },
@@ -179,10 +167,20 @@ module.exports = {
             ),
           },
           {
+            test: /\.woff2?(\?v=\d+\.\d+\.\d+)?$/,
+            use: [{
+              loader: require.resolve('url-loader'),
+              options: {
+                mimetype: 'application/font-woff',
+                limit: 10000,
+              },
+            }],
+          },
+          {
             exclude: [/\.(js|mjs|jsx)$/, /\.html$/, /\.json$/],
             loader: require.resolve('file-loader'),
             options: {
-              name: 'static/media/[name].[hash:8].[ext]',
+              name: 'static/media/[name].[hash:4].[ext]',
             },
           },
         ],
