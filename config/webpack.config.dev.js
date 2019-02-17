@@ -3,7 +3,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
@@ -15,11 +14,6 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const publicPath = '/';
 const publicUrl = '';
 const env = getClientEnvironment(publicUrl);
-
-const cssRegex = /\.css$/;
-const cssModuleRegex = /\.module\.css$/;
-const sassRegex = /\.(scss|sass)$/;
-const sassModuleRegex = /\.module\.(scss|sass)$/;
 
 const getStyleLoaders = (cssOptions, preProcessor) => {
   const loaders = [
@@ -136,14 +130,14 @@ module.exports = {
             },
           },
           {
-            test: cssRegex,
-            exclude: cssModuleRegex,
+            test: /\.css$/,
+            exclude: /\.module\.css$/,
             use: getStyleLoaders({
               importLoaders: 1,
             }),
           },
           {
-            test: cssModuleRegex,
+            test: /\.module\.css$/,
             use: getStyleLoaders({
               importLoaders: 1,
               modules: true,
@@ -151,12 +145,12 @@ module.exports = {
             }),
           },
           {
-            test: sassRegex,
-            exclude: sassModuleRegex,
+            test: /\.(scss|sass)$/,
+            exclude: /\.module\.(scss|sass)$/,
             use: getStyleLoaders({ importLoaders: 2 }, 'sass-loader'),
           },
           {
-            test: sassModuleRegex,
+            test: /\.module\.(scss|sass)$/,
             use: getStyleLoaders(
               {
                 importLoaders: 2,
@@ -198,7 +192,6 @@ module.exports = {
     new ModuleNotFoundPlugin(paths.appPath),
     new webpack.DefinePlugin(env.stringified),
     new webpack.HotModuleReplacementPlugin(),
-    new CaseSensitivePathsPlugin(),
     new WatchMissingNodeModulesPlugin(paths.appNodeModules),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new ManifestPlugin({

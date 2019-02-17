@@ -19,7 +19,7 @@ const Message = (props) => {
   return (
     <div
       className={styles(type)}
-      role="alert"
+      role="status"
     >
       <span>
         {text}

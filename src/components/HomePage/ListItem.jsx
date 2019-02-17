@@ -43,7 +43,9 @@ const ListItem = (props) => {
             className={css.image}
           />
         </button>
-        <figcaption>{body}</figcaption>
+        <figcaption className={css.caption}>
+          {body}
+        </figcaption>
       </figure>
       <Time date={date} />
     </article>

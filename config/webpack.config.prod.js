@@ -17,28 +17,15 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 
 const publicPath = paths.servedPath;
-const shouldUseRelativeAssetPaths = publicPath === './';
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 const publicUrl = publicPath.slice(0, -1);
 const env = getClientEnvironment(publicUrl);
-
-if (env.stringified['process.env'].NODE_ENV !== '"production"') {
-  throw new Error('Production builds must have NODE_ENV=production.');
-}
-
-const cssRegex = /\.css$/;
-const cssModuleRegex = /\.module\.css$/;
-const sassRegex = /\.(scss|sass)$/;
-const sassModuleRegex = /\.module\.(scss|sass)$/;
 
 const getStyleLoaders = (cssOptions, preProcessor) => {
   const loaders = [
     {
       loader: MiniCssExtractPlugin.loader,
-      options: Object.assign(
-        {},
-        shouldUseRelativeAssetPaths ? { publicPath: '../../' } : undefined
-      ),
+      options: {},
     },
     {
       loader: require.resolve('css-loader'),
@@ -211,8 +198,8 @@ module.exports = {
             },
           },
           {
-            test: cssRegex,
-            exclude: cssModuleRegex,
+            test: /\.css$/,
+            exclude: /\.module\.css$/,
             loader: getStyleLoaders({
               importLoaders: 1,
               sourceMap: shouldUseSourceMap,
@@ -220,7 +207,7 @@ module.exports = {
             sideEffects: true,
           },
           {
-            test: cssModuleRegex,
+            test: /\.module\.css$/,
             loader: getStyleLoaders({
               importLoaders: 1,
               sourceMap: shouldUseSourceMap,
@@ -229,8 +216,8 @@ module.exports = {
             }),
           },
           {
-            test: sassRegex,
-            exclude: sassModuleRegex,
+            test: /\.(scss|sass)$/,
+            exclude: /\.module\.(scss|sass)$/,
             loader: getStyleLoaders(
               {
                 importLoaders: 2,
@@ -241,7 +228,7 @@ module.exports = {
             sideEffects: true,
           },
           {
-            test: sassModuleRegex,
+            test: /\.module\.(scss|sass)$/,
             loader: getStyleLoaders(
               {
                 importLoaders: 2,
@@ -294,10 +281,7 @@ module.exports = {
     }),
     new PreloadWebpackPlugin({
       rel: 'preload',
-      fileBlacklist: [
-        /\.map$/,
-        /(main|styles)\.\w{4}\.css$/,
-      ],
+      fileBlacklist: [/\.map$/],
       include: ['main', 'Aside'],
     }),
     new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw),

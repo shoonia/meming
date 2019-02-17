@@ -9,15 +9,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-top: 2px solid $disabled-color;
+  padding-top: 1.5rem;
 }
 
-.separator {
-  border: none;
-  display: block;
-  height: 2px;
-  margin: 1.5rem 0;
-  background-color: $disabled-color;
-  width: 100%;
+.copyright {
+  padding-top: .5rem;
 }
 
 .link {
@@ -34,7 +31,8 @@
 .github {
   composes: link;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: #000;
   }
 }
@@ -42,7 +40,8 @@
 .twitter {
   composes: link;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: #4AB9FB;
   }
 }
@@ -50,7 +49,8 @@
 .linkedin {
   composes: link;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: #0073B2;
   }
 }

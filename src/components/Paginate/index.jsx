@@ -46,6 +46,13 @@ class Paginate extends React.Component {
 
   hrefBuilder = pageNumber => `${PUBLIC_URL}/page/${pageNumber}`;
 
+  ariaLabelBuilder = (pageNumber, isActive) => {
+    if (isActive) {
+      return `page ${pageNumber} is your current page`;
+    }
+    return `page ${pageNumber}`;
+  }
+
   onPageChangeHandler = ({ selected }) => {
     const { history, onPageChange, pageCount } = this.props;
     const nextPage = this.calculateNextPage((selected + 1), pageCount);
@@ -54,11 +61,11 @@ class Paginate extends React.Component {
     history.push(this.hrefBuilder(nextPage));
   }
 
-  calculateNextPage = (selected, count) => {
-    if (count > 0) {
-      return (selected > count) ? count : selected;
+  calculateNextPage = (currentPage, pageCount) => {
+    if (pageCount > 0) {
+      return (currentPage > pageCount) ? pageCount : currentPage;
     }
-    return selected;
+    return currentPage;
   }
 
   render() {
@@ -74,12 +81,14 @@ class Paginate extends React.Component {
           pageCount={pageCount}
           forcePage={initialPage}
           initialPage={initialPage}
+
           onPageChange={this.onPageChangeHandler}
           hrefBuilder={this.hrefBuilder}
+          ariaLabelBuilder={this.ariaLabelBuilder}
 
           pageRangeDisplayed={2}
           marginPagesDisplayed={1}
-          // extraAriaContext={`of ${pageCount}`}
+          // disableInitialCallback={false}
 
           containerClassName={css.list}
           pageLinkClassName={css.link}
