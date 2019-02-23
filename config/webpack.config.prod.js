@@ -10,7 +10,7 @@ const safePostCssParser = require('postcss-safe-parser');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
-const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
+const miniCSSClassName = require('mini-css-class-name/css-loader');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
@@ -20,6 +20,7 @@ const publicPath = paths.servedPath;
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 const publicUrl = publicPath.slice(0, -1);
 const env = getClientEnvironment(publicUrl);
+const createLocalIdent = miniCSSClassName({ prefix: 'x-' });
 
 const getStyleLoaders = (cssOptions, preProcessor) => {
   const loaders = [
@@ -212,7 +213,7 @@ module.exports = {
               importLoaders: 1,
               sourceMap: shouldUseSourceMap,
               modules: true,
-              getLocalIdent: getCSSModuleLocalIdent,
+              getLocalIdent: createLocalIdent,
             }),
           },
           {
@@ -234,7 +235,7 @@ module.exports = {
                 importLoaders: 2,
                 sourceMap: shouldUseSourceMap,
                 modules: true,
-                getLocalIdent: getCSSModuleLocalIdent,
+                getLocalIdent: createLocalIdent,
               },
               'sass-loader'
             ),
