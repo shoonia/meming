@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 
 import Time from '../lib/Time';
 import Button from '../lib/Button';
-import ShareButtons from '../lib/ShareButtons';
+import Loadable from '../lib/Loadable';
 import Icon from '../lib/Icon';
 import Image from '../lib/Image';
 import css from './MemePage.module.scss';
+
+const ShareButtons = Loadable(() => import('../lib/ShareButtons' /* webpackChunkName: "ShareButtons" */));
 
 const MemeView = (props) => {
   const {

@@ -18,7 +18,7 @@ const ListItem = (props) => {
     openModal,
   } = props;
 
-  const onClick = () => openModal(image);
+  const onClick = () => openModal(id);
   const label = title.trim() || '***';
   const href = `${PUBLIC_URL}/post/${id}`;
 

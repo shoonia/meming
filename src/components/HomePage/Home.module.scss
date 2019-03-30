@@ -1,3 +1,5 @@
+@import "~/../src/styles/animation";
+
 .wrapper {
   border: none;
   outline: none;
@@ -9,6 +11,15 @@
 }
 
 .image {
-  max-height: 90vh;
+  max-height: 85vh;
   background-color: white;
+  margin: 0;
+}
+
+.share {
+  background-color: rgba(255,255,255, .8);
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeInDown .3s .5s normal forwards ease;
 }

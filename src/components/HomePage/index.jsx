@@ -23,9 +23,17 @@ class Home extends React.PureComponent {
     currentPage: PropTypes.number.isRequired,
   };
 
+  defaultItem = {
+    title: '',
+    body: '',
+    src: '',
+  };
+
   state = {
     showModal: false,
-    src: '',
+    item: {
+      ...this.defaultItem,
+    },
   };
 
   componentDidMount() {
@@ -47,24 +55,35 @@ class Home extends React.PureComponent {
     hideScroll(false);
     this.setState({
       showModal: false,
-      src: '',
+      item: {
+        ...this.defaultItem,
+      },
     });
   };
 
-  handleOpenModal = ({ src }) => {
-    const { history } = this.props;
+  handleOpenModal = (id) => {
+    const { history, items } = this.props;
+    const item = items.find(e => e.id === id);
+
+    if (item === undefined) {
+      return;
+    }
 
     history.push(1);
     hideScroll(true);
     this.setState({
       showModal: true,
-      src,
+      item: {
+        title: item.title,
+        body: item.body,
+        src: item.image.src,
+      },
     });
   };
 
   render() {
     const { items, isLoading, currentPage } = this.props;
-    const { src, showModal } = this.state;
+    const { item, showModal } = this.state;
 
     return (
       <>
@@ -79,7 +98,7 @@ class Home extends React.PureComponent {
         <HomeModal
           isOpen={showModal}
           close={this.handleCloseModal}
-          src={src}
+          item={item}
         />
       </>
     );

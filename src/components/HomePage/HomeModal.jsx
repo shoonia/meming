@@ -3,9 +3,12 @@ import PropTypes from 'prop-types';
 
 import Modal from '../lib/Modal';
 import Image from '../lib/Image';
+import Loadable from '../lib/Loadable';
 import css from './Home.module.scss';
 
-const HomeModal = ({ isOpen, close, src }) => (
+const ShareButtons = Loadable(() => import('../lib/ShareButtons' /* webpackChunkName: "ShareButtons" */));
+
+const HomeModal = ({ isOpen, close, item }) => (
   <Modal
     isOpen={isOpen}
     close={close}
@@ -14,18 +17,29 @@ const HomeModal = ({ isOpen, close, src }) => (
       className={css.wrapper}
     >
       <Image
-        src={src}
+        src={item.src}
         alt="meme"
         className={css.image}
       />
     </figure>
+    <div className={css.share}>
+      <ShareButtons
+        title={item.title}
+        body={item.body}
+        image={item.src}
+      />
+    </div>
   </Modal>
 );
 
 HomeModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   close: PropTypes.func.isRequired,
-  src: PropTypes.string.isRequired,
+  item: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default HomeModal;
