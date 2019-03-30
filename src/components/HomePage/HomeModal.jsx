@@ -27,6 +27,7 @@ const HomeModal = ({ isOpen, close, item }) => (
         title={item.title}
         body={item.body}
         image={item.src}
+        url={`${document.location.origin}/post/${item.id}`}
       />
     </div>
   </Modal>
@@ -39,6 +40,7 @@ HomeModal.propTypes = {
     title: PropTypes.string.isRequired,
     body: PropTypes.string.isRequired,
     src: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
   }).isRequired,
 };
 

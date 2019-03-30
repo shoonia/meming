@@ -27,6 +27,7 @@ class Home extends React.PureComponent {
     title: '',
     body: '',
     src: '',
+    id: '',
   };
 
   state = {
@@ -77,6 +78,7 @@ class Home extends React.PureComponent {
         title: item.title,
         body: item.body,
         src: item.image.src,
+        id: item.id,
       },
     });
   };

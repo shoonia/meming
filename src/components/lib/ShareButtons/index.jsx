@@ -16,8 +16,14 @@ import {
 
 import css from './ShareButtons.module.scss';
 
-const ShareButtons = ({ title, body, image }) => {
-  const { href } = document.location;
+const ShareButtons = (props) => {
+  const {
+    title,
+    body,
+    image,
+    url,
+  } = props;
+
   const defaultTitle = 'Memes about programming';
   const description = `${title.trim() || defaultTitle}\n${body}`.trim();
   const SIZE = 32;
@@ -25,7 +31,7 @@ const ShareButtons = ({ title, body, image }) => {
   return (
     <div className={css.group}>
       <TwitterShareButton
-        url={href}
+        url={url}
         title={description}
         via="_shoonia"
         className={css.button}
@@ -33,14 +39,14 @@ const ShareButtons = ({ title, body, image }) => {
         <TwitterIcon size={SIZE} round />
       </TwitterShareButton>
       <TelegramShareButton
-        url={href}
+        url={url}
         title={description}
         className={css.button}
       >
         <TelegramIcon size={SIZE} round />
       </TelegramShareButton>
       <LinkedinShareButton
-        url={href}
+        url={url}
         title={title || defaultTitle}
         description={body || ''}
         windowWidth={750}
@@ -51,7 +57,7 @@ const ShareButtons = ({ title, body, image }) => {
       </LinkedinShareButton>
       <PinterestShareButton
         media={image}
-        url={href}
+        url={url}
         description={description}
         className={css.button}
       >
@@ -65,6 +71,7 @@ ShareButtons.propTypes = {
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
 };
 
 export default ShareButtons;

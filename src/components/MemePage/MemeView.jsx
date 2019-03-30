@@ -19,6 +19,8 @@ const MemeView = (props) => {
     onClick,
   } = props;
 
+  const url = document.location.href;
+
   return (
     <main className={css.wrapper}>
       <h1 className={css.title}>
@@ -39,6 +41,7 @@ const MemeView = (props) => {
           title={title}
           body={body}
           image={image.src}
+          url={url}
         />
       </div>
       <Button onClick={onClick}>
