@@ -1,8 +1,4 @@
-const buildApiUrl = (path) => {
-  const w = window.outerWidth;
-  const h = window.outerHeight;
-  return `https://shoonia.wixsite.com/meme-api/_functions${path}?w=${w}&h=${h}`;
-};
+const buildApiUrl = path => `https://shoonia.wixsite.com/meme-api/_functions${path}`;
 
 const init = {
   method: 'GET',
