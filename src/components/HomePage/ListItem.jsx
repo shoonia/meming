@@ -16,6 +16,7 @@ const ListItem = (props) => {
     image,
     date,
     openModal,
+    isLazy,
   } = props;
 
   const onClick = () => openModal(id);
@@ -41,6 +42,7 @@ const ListItem = (props) => {
             src={image.src}
             alt={title}
             className={css.image}
+            loading={isLazy ? 'lazy' : 'auto'}
           />
         </button>
         <figcaption className={css.caption}>
@@ -61,6 +63,7 @@ ListItem.propTypes = {
   }).isRequired,
   date: PropTypes.string.isRequired,
   openModal: PropTypes.func.isRequired,
+  isLazy: PropTypes.bool.isRequired,
 };
 
 export default memo(ListItem);

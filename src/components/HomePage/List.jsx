@@ -26,11 +26,12 @@ const List = (props) => {
       <h1 className={css.srOnly}>
         {`List of memes. Page ${currentPage}`}
       </h1>
-      {items.map(meme => (
+      {items.map((meme, i) => (
         <ListItem
           {...meme}
           key={meme.id}
           openModal={openModal}
+          isLazy={i > 2}
         />
       ))}
     </main>

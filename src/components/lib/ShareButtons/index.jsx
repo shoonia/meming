@@ -29,7 +29,10 @@ const ShareButtons = (props) => {
   const SIZE = 32;
 
   return (
-    <div className={css.group}>
+    <div
+      className={css.group}
+      aria-label="share on your networks"
+    >
       <TwitterShareButton
         url={url}
         title={description}
