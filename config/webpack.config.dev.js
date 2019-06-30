@@ -5,7 +5,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
-const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 const ManifestPlugin = require('webpack-manifest-plugin');
@@ -140,8 +139,9 @@ module.exports = {
             test: /\.module\.css$/,
             use: getStyleLoaders({
               importLoaders: 1,
-              modules: true,
-              getLocalIdent: getCSSModuleLocalIdent,
+              modules: {
+                localIdentName: '[name]__[local]--[hash:base64:4]',
+              },
             }),
           },
           {
@@ -155,7 +155,9 @@ module.exports = {
               {
                 importLoaders: 2,
                 modules: true,
-                getLocalIdent: getCSSModuleLocalIdent,
+                modules: {
+                  localIdentName: '[name]__[local]--[hash:base64:4]',
+                },
               },
               'sass-loader'
             ),

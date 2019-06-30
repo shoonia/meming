@@ -20,7 +20,7 @@ const publicPath = paths.servedPath;
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 const publicUrl = publicPath.slice(0, -1);
 const env = getClientEnvironment(publicUrl);
-const createLocalIdent = miniCSSClassName({ prefix: 'x-' });
+const localIdent = miniCSSClassName();
 
 const getStyleLoaders = (cssOptions, preProcessor) => {
   const loaders = [
@@ -212,8 +212,9 @@ module.exports = {
             loader: getStyleLoaders({
               importLoaders: 1,
               sourceMap: shouldUseSourceMap,
-              modules: true,
-              getLocalIdent: createLocalIdent,
+              modules: {
+                getLocalIdent: localIdent,
+              },
             }),
           },
           {
@@ -234,8 +235,9 @@ module.exports = {
               {
                 importLoaders: 2,
                 sourceMap: shouldUseSourceMap,
-                modules: true,
-                getLocalIdent: createLocalIdent,
+                modules: {
+                  getLocalIdent: localIdent,
+                },
               },
               'sass-loader'
             ),
