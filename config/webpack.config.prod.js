@@ -17,7 +17,6 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 
 const publicPath = paths.servedPath;
-const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 const publicUrl = publicPath.slice(0, -1);
 const env = getClientEnvironment(publicUrl);
 const localIdent = miniCSSClassName();
@@ -48,7 +47,7 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
             sort: true,
           }),
         ],
-        sourceMap: shouldUseSourceMap,
+        sourceMap: false,
       },
     },
   ];
@@ -56,7 +55,7 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
     loaders.push({
       loader: require.resolve(preProcessor),
       options: {
-        sourceMap: shouldUseSourceMap,
+        sourceMap: false,
       },
     });
   }
@@ -66,7 +65,7 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
 module.exports = {
   mode: 'production',
   bail: true,
-  devtool: shouldUseSourceMap ? 'source-map' : false,
+  devtool: false,
   entry: [paths.appIndexJs],
   output: {
     path: paths.appBuild,
@@ -91,6 +90,7 @@ module.exports = {
             comparisons: false,
             inline: 2,
             drop_console: true,
+            passes: 3,
           },
           mangle: {
             safari10: true,
@@ -103,17 +103,12 @@ module.exports = {
         },
         parallel: true,
         cache: true,
-        sourceMap: shouldUseSourceMap,
+        sourceMap: false,
       }),
       new OptimizeCSSAssetsPlugin({
         cssProcessorOptions: {
           parser: safePostCssParser,
-          map: shouldUseSourceMap
-            ? {
-              inline: false,
-              annotation: true,
-            }
-            : false,
+          map: false,
         },
         cssProcessorPluginOptions: {
           preset: [
@@ -203,7 +198,7 @@ module.exports = {
             exclude: /\.module\.css$/,
             loader: getStyleLoaders({
               importLoaders: 1,
-              sourceMap: shouldUseSourceMap,
+              sourceMap: false,
             }),
             sideEffects: true,
           },
@@ -211,7 +206,7 @@ module.exports = {
             test: /\.module\.css$/,
             loader: getStyleLoaders({
               importLoaders: 1,
-              sourceMap: shouldUseSourceMap,
+              sourceMap: false,
               modules: {
                 getLocalIdent: localIdent,
               },
@@ -223,7 +218,7 @@ module.exports = {
             loader: getStyleLoaders(
               {
                 importLoaders: 2,
-                sourceMap: shouldUseSourceMap,
+                sourceMap: false,
               },
               'sass-loader'
             ),
@@ -234,7 +229,7 @@ module.exports = {
             loader: getStyleLoaders(
               {
                 importLoaders: 2,
-                sourceMap: shouldUseSourceMap,
+                sourceMap: false,
                 modules: {
                   getLocalIdent: localIdent,
                 },
