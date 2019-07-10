@@ -1,29 +1,22 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { selectMessages } from '../../selectors';
 import { removeMessageById } from '../../actions/messages';
 import MessageList from './MessageList';
 
-const FlashMessenger = ({ items, remove }) => (
-  <MessageList
-    items={items}
-    remove={remove}
-  />
-);
+function FlashMessenger() {
+  const dispatch = useDispatch();
+  const items = useSelector(selectMessages);
 
-FlashMessenger.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.object).isRequired,
-  remove: PropTypes.func.isRequired,
-};
+  const remove = id => dispatch(removeMessageById(id));
 
-const mapStateToProps = state => ({
-  items: selectMessages(state),
-});
+  return (
+    <MessageList
+      items={items}
+      remove={remove}
+    />
+  );
+}
 
-const mapDispatchToProps = {
-  remove: removeMessageById,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(FlashMessenger);
+export default FlashMessenger;
