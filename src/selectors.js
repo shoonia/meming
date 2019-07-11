@@ -20,4 +20,3 @@ export const selectMessages = state => state.messages.items;
 
 // react-router:
 export const getNumberOfPage = props => (parseInt(props.match.params.number, 10) || 1);
-export const getIdOfMeme = props => props.match.params.id;
