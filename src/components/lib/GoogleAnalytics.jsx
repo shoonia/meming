@@ -14,9 +14,13 @@ class GoogleAnalytics extends React.PureComponent {
     }).isRequired,
   };
 
-  state = {
-    pathname: '',
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      pathname: '',
+    };
+  }
 
   componentDidMount() {
     const { trackingId, history, location } = this.props;

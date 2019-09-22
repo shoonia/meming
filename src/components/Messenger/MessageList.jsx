@@ -6,7 +6,7 @@ import css from './Messenger.module.scss';
 
 const MessageList = ({ items, remove }) => (
   <aside className={css.wrapper}>
-    {items.map(item => (
+    {items.map((item) => (
       <Message
         {...item}
         key={item.id}

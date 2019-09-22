@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const Router = ({ routes }) => (
   <Switch>
-    {routes.map(route => (
+    {routes.map((route) => (
       <Route key={route.path} {...route} />
     ))}
   </Switch>

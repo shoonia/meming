@@ -7,12 +7,12 @@ import {
   MEME_HAS_ERROR,
 } from '../constants';
 
-export const getMemePageById = id => ({
+export const getMemePageById = (id) => ({
   type: MEME_GET_PAGE_BY_ID,
   id,
 });
 
-export const receivePage = meme => ({
+export const receivePage = (meme) => ({
   type: MEME_RECEIVE_PAGE,
   meme,
 });

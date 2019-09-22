@@ -6,7 +6,7 @@ export const findMemeById = (cache, id) => {
   for (const key in cache) {
     if (hasOwnProperty.call(cache, key)) {
       const { items } = cache[key];
-      const meme = items.find(item => item.id === id);
+      const meme = items.find((item) => item.id === id);
 
       if (meme !== undefined) {
         return meme;
@@ -16,4 +16,4 @@ export const findMemeById = (cache, id) => {
   return undefined;
 };
 
-export default undefined;
+export default null;

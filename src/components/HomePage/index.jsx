@@ -30,12 +30,16 @@ class Home extends React.PureComponent {
     id: '',
   };
 
-  state = {
-    showModal: false,
-    item: {
-      ...this.defaultItem,
-    },
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showModal: false,
+      item: {
+        ...this.defaultItem,
+      },
+    };
+  }
 
   componentDidMount() {
     window.addEventListener('popstate', this.onPopstate);
@@ -64,7 +68,7 @@ class Home extends React.PureComponent {
 
   handleOpenModal = (id) => {
     const { history, items } = this.props;
-    const item = items.find(e => e.id === id);
+    const item = items.find((e) => e.id === id);
 
     if (item === undefined) {
       return;
@@ -107,7 +111,7 @@ class Home extends React.PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   items: selectListItems(state),
   isLoading: selectIsListLoading(state),
   currentPage: selectListPageNumber(state),

@@ -5,7 +5,7 @@ import Time from '../lib/Time';
 import Image from '../lib/Image';
 import css from './GridPage.module.scss';
 
-const GridList = ({ items }) => items.map(item => (
+const GridList = ({ items }) => items.map((item) => (
   <article
     key={item.id}
     className={css.item}

@@ -9,7 +9,7 @@ function FlashMessenger() {
   const dispatch = useDispatch();
   const items = useSelector(selectMessages);
 
-  const remove = id => dispatch(removeMessageById(id));
+  const remove = (id) => dispatch(removeMessageById(id));
 
   return (
     <MessageList

@@ -28,7 +28,7 @@ const Message = (props) => {
         type="button"
         className={css.delete}
         onClick={removeById}
-        area-label="close"
+        aria-label="close"
       />
     </div>
   );

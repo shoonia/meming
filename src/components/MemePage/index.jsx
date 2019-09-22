@@ -16,7 +16,7 @@ import Loadable from '../lib/Loadable';
 const NotFound = Loadable(() => import('../NotFound' /* webpackChunkName: "NotFound" */));
 const { PUBLIC_URL } = process.env;
 
-const selectors = state => ({
+const selectors = (state) => ({
   item: selectMemePage(state),
   isExist: selectIsMemeExist(state),
   isLoading: selectIsMemeLoading(state),

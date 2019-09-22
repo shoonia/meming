@@ -14,7 +14,7 @@ import NavigationBarView from './NavigationBarView';
 
 const { PUBLIC_URL } = process.env;
 
-const selectors = state => ({
+const selectors = (state) => ({
   pageNumber: selectListPageNumber(state),
   pageCount: selectListPageCount(state),
   pageLength: selectListLength(state),
@@ -30,7 +30,7 @@ function NavigationBar({ history }) {
     isLoading,
   } = useSelector(selectors);
 
-  const goNextPage = page => () => {
+  const goNextPage = (page) => () => {
     const nextPage = pageNumber + page;
 
     dispatch(getPageByNumber(nextPage));

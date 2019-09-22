@@ -20,7 +20,7 @@ export default (state = initialState, action) => {
 
       return {
         ...state,
-        items: state.items.filter(item => item.id !== id),
+        items: state.items.filter((item) => item.id !== id),
       };
     }
 

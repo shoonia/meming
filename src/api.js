@@ -1,4 +1,4 @@
-const buildApiUrl = path => `https://shoonia.wixsite.com/meme-api/_functions${path}`;
+const buildApiUrl = (path) => `https://shoonia.wixsite.com/meme-api/_functions${path}`;
 
 const init = {
   method: 'GET',
@@ -15,14 +15,14 @@ const handleErrors = (response) => {
   return response;
 };
 
-const request = url => fetch(url, init)
+const request = (url) => fetch(url, init)
   .then(handleErrors)
-  .then(response => response.json());
+  .then((response) => response.json());
 
-export const fetchPageByNumber = pageNumber => request(
+export const fetchPageByNumber = (pageNumber) => request(
   buildApiUrl(`/page/${pageNumber}`),
 );
 
-export const fetchMemeById = id => request(
+export const fetchMemeById = (id) => request(
   buildApiUrl(`/meme/${id}`),
 );

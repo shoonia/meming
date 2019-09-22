@@ -44,7 +44,7 @@ class Paginate extends React.Component {
     onPageChange(pageNumber);
   };
 
-  hrefBuilder = pageNumber => `${PUBLIC_URL}/page/${pageNumber}`;
+  hrefBuilder = (pageNumber) => `${PUBLIC_URL}/page/${pageNumber}`;
 
   ariaLabelBuilder = (pageNumber, isActive) => {
     if (isActive) {

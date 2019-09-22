@@ -4,12 +4,12 @@ import {
   LIST_PAGE_LOADING,
 } from '../constants';
 
-export const getPageByNumber = pageNumber => ({
+export const getPageByNumber = (pageNumber) => ({
   type: LIST_GET_PAGE_BY_NUMBER,
   pageNumber,
 });
 
-export const receivePage = payload => ({
+export const receivePage = (payload) => ({
   type: LIST_RECEIVE_PAGE,
   payload,
 });

@@ -36,10 +36,14 @@ class Grid extends React.PureComponent {
     };
   }
 
-  state = {
-    isFirst: true, // eslint-disable-line
-    items: [],
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isFirst: true,
+      items: [],
+    };
+  }
 
   componentDidMount() {
     const { getPage } = this.props;
@@ -83,7 +87,7 @@ class Grid extends React.PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   items: selectListItems(state),
   pageNumber: selectListPageNumber(state),
   pageCount: selectListPageCount(state),

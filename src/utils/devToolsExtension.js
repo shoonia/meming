@@ -5,5 +5,5 @@ export default () => {
       return window.__REDUX_DEVTOOLS_EXTENSION__();
     }
   }
-  return f => f;
+  return (f) => f;
 };
