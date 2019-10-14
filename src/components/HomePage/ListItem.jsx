@@ -5,10 +5,9 @@ import PropTypes from 'prop-types';
 import Time from '../lib/Time';
 import Image from '../lib/Image';
 import css from './List.module.scss';
+import { PUBLIC_URL } from '../../constants';
 
-const { PUBLIC_URL } = process.env;
-
-const ListItem = (props) => {
+function ListItem(props) {
   const {
     id,
     title,
@@ -42,7 +41,7 @@ const ListItem = (props) => {
             src={image.src}
             alt={title}
             className={css.image}
-            loading={isLazy ? 'lazy' : 'auto'}
+            loading={isLazy ? 'lazy' : 'eager'}
           />
         </button>
         <figcaption className={css.caption}>
@@ -52,7 +51,7 @@ const ListItem = (props) => {
       <Time date={date} />
     </article>
   );
-};
+}
 
 ListItem.propTypes = {
   id: PropTypes.string.isRequired,

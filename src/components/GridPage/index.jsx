@@ -18,14 +18,6 @@ const masonryOptions = {
 };
 
 class Grid extends React.PureComponent {
-  static propTypes = {
-    items: PropTypes.arrayOf(PropTypes.object).isRequired, // eslint-disable-line
-    getPage: PropTypes.func.isRequired,
-    isLoading: PropTypes.bool.isRequired,
-    pageCount: PropTypes.number.isRequired,
-    pageNumber: PropTypes.number.isRequired,
-  };
-
   static getDerivedStateFromProps(props, state) {
     if (props.isLoading || state.isFirst) {
       return null;
@@ -86,6 +78,14 @@ class Grid extends React.PureComponent {
     );
   }
 }
+
+Grid.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  getPage: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  pageCount: PropTypes.number.isRequired,
+  pageNumber: PropTypes.number.isRequired,
+};
 
 const mapStateToProps = (state) => ({
   items: selectListItems(state),

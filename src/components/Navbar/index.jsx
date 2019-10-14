@@ -6,10 +6,6 @@ import NavbarView from './NavbarView';
 import css from './Navbar.module.scss';
 
 class Navbar extends React.Component {
-  static propTypes = {
-    root: PropTypes.string.isRequired,
-  };
-
   constructor(props) {
     super(props);
     const { root } = this.props;
@@ -30,5 +26,9 @@ class Navbar extends React.Component {
     );
   }
 }
+
+Navbar.propTypes = {
+  root: PropTypes.string.isRequired,
+};
 
 export default Navbar;

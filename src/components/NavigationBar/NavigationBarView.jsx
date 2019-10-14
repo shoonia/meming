@@ -5,7 +5,7 @@ import Button from '../lib/Button';
 import Icon from '../lib/Icon';
 import css from './NavigationBar.module.scss';
 
-const NavigationBarView = (props) => {
+function NavigationBarView(props) {
   const {
     goTop,
     goNextPage,
@@ -48,7 +48,7 @@ const NavigationBarView = (props) => {
       </Button>
     </nav>
   );
-};
+}
 
 NavigationBarView.propTypes = {
   goTop: PropTypes.func.isRequired,

@@ -5,26 +5,28 @@ import Time from '../lib/Time';
 import Image from '../lib/Image';
 import css from './GridPage.module.scss';
 
-const GridList = ({ items }) => items.map((item) => (
-  <article
-    key={item.id}
-    className={css.item}
-  >
-    <h2 className={css.title}>
-      {item.title}
-    </h2>
-    <figure>
-      <Image
-        {...item.image}
-        alt={item.title}
-      />
-      <figcaption>
-        {item.body}
-      </figcaption>
-    </figure>
-    <Time date={item.date} />
-  </article>
-));
+function GridList({ items }) {
+  return items.map((item) => (
+    <article
+      key={item.id}
+      className={css.item}
+    >
+      <h2 className={css.title}>
+        {item.title}
+      </h2>
+      <figure>
+        <Image
+          {...item.image}
+          alt={item.title}
+        />
+        <figcaption>
+          {item.body}
+        </figcaption>
+      </figure>
+      <Time date={item.date} />
+    </article>
+  ));
+}
 
 GridList.propTypes = {
   items: PropTypes.arrayOf(

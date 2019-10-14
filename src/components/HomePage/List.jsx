@@ -5,7 +5,7 @@ import ListItem from './ListItem';
 import ListLoader from './ListLoader';
 import css from './List.module.scss';
 
-const List = (props) => {
+function List(props) {
   const {
     items,
     isLoading,
@@ -21,22 +21,25 @@ const List = (props) => {
     );
   }
 
+  const title = `List of memes. Page ${currentPage}`;
+  const list = items.map((meme, i) => (
+    <ListItem
+      {...meme}
+      key={meme.id}
+      openModal={openModal}
+      isLazy={i > 1}
+    />
+  ));
+
   return (
     <main className={css.section}>
       <h1 className={css.srOnly}>
-        {`List of memes. Page ${currentPage}`}
+        {title}
       </h1>
-      {items.map((meme, i) => (
-        <ListItem
-          {...meme}
-          key={meme.id}
-          openModal={openModal}
-          isLazy={i > 2}
-        />
-      ))}
+      {list}
     </main>
   );
-};
+}
 
 List.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,

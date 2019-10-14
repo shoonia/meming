@@ -14,15 +14,6 @@ import HomeModal from './HomeModal';
 import NavigationBar from '../NavigationBar';
 
 class Home extends React.PureComponent {
-  static propTypes = {
-    history: PropTypes.shape({
-      push: PropTypes.func.isRequired,
-    }).isRequired,
-    items: PropTypes.arrayOf(PropTypes.object).isRequired,
-    isLoading: PropTypes.bool.isRequired,
-    currentPage: PropTypes.number.isRequired,
-  };
-
   defaultItem = {
     title: '',
     body: '',
@@ -110,6 +101,15 @@ class Home extends React.PureComponent {
     );
   }
 }
+
+Home.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  currentPage: PropTypes.number.isRequired,
+};
 
 const mapStateToProps = (state) => ({
   items: selectListItems(state),

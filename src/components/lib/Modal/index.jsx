@@ -6,22 +6,24 @@ import css from './Modal.module.scss';
 
 ReactModal.setAppElement('#root');
 
-const Modal = ({ isOpen, close, children }) => (
-  <ReactModal
-    isOpen={isOpen}
-    onRequestClose={close}
-    className={css.modal}
-    overlayClassName={css.overlay}
-  >
-    {children}
-    <button
-      type="button"
-      className={css.close}
-      aria-label="close"
-      onClick={close}
-    />
-  </ReactModal>
-);
+function Modal({ isOpen, close, children }) {
+  return (
+    <ReactModal
+      isOpen={isOpen}
+      onRequestClose={close}
+      className={css.modal}
+      overlayClassName={css.overlay}
+    >
+      {children}
+      <button
+        type="button"
+        className={css.close}
+        aria-label="close"
+        onClick={close}
+      />
+    </ReactModal>
+  );
+}
 
 Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,

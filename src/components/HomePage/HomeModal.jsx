@@ -8,30 +8,34 @@ import css from './Home.module.scss';
 
 const ShareButtons = Loadable(() => import('../lib/ShareButtons' /* webpackChunkName: "ShareButtons" */));
 
-const HomeModal = ({ isOpen, close, item }) => (
-  <Modal
-    isOpen={isOpen}
-    close={close}
-  >
-    <figure
-      className={css.wrapper}
+function HomeModal({ isOpen, close, item }) {
+  const url = `${document.location.origin}/post/${item.id}`;
+
+  return (
+    <Modal
+      isOpen={isOpen}
+      close={close}
     >
-      <Image
-        src={item.src}
-        alt="meme"
-        className={css.image}
-      />
-    </figure>
-    <div className={css.share}>
-      <ShareButtons
-        title={item.title}
-        body={item.body}
-        image={item.src}
-        url={`${document.location.origin}/post/${item.id}`}
-      />
-    </div>
-  </Modal>
-);
+      <figure
+        className={css.wrapper}
+      >
+        <Image
+          src={item.src}
+          alt="meme"
+          className={css.image}
+        />
+      </figure>
+      <div className={css.share}>
+        <ShareButtons
+          title={item.title}
+          body={item.body}
+          image={item.src}
+          url={url}
+        />
+      </div>
+    </Modal>
+  );
+}
 
 HomeModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,

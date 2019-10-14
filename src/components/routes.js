@@ -1,6 +1,5 @@
 import Loadable from './lib/Loadable';
-
-const { PUBLIC_URL } = process.env;
+import { PUBLIC_URL } from '../constants';
 
 const HomePage = Loadable(() => import('./HomePage' /* webpackChunkName: "HomePage" */));
 const MemePage = Loadable(() => import('./MemePage' /* webpackChunkName: "MemePage" */));

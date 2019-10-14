@@ -16,7 +16,7 @@ import {
 
 import css from './ShareButtons.module.scss';
 
-const ShareButtons = (props) => {
+function ShareButtons(props) {
   const {
     title,
     body,
@@ -68,7 +68,7 @@ const ShareButtons = (props) => {
       </PinterestShareButton>
     </div>
   );
-};
+}
 
 ShareButtons.propTypes = {
   title: PropTypes.string.isRequired,

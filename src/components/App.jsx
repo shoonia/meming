@@ -7,12 +7,14 @@ import routes from './routes';
 
 const Aside = Loadable(() => import('./Aside' /* webpackChunkName: "Aside" */));
 
-const App = () => (
-  <>
-    <Navbar root="navbar" />
-    <Router routes={routes} />
-    <Aside />
-  </>
-);
+function App() {
+  return (
+    <>
+      <Navbar root="navbar" />
+      <Router routes={routes} />
+      <Aside />
+    </>
+  );
+}
 
 export default App;

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import css from './Image.module.scss';
 
-const Image = (props) => {
+function Image(props) {
   const {
     src,
     alt,
@@ -23,7 +23,7 @@ const Image = (props) => {
       crossOrigin="anonymous"
     />
   );
-};
+}
 
 Image.defaultProps = {
   className: '',

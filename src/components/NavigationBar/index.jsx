@@ -11,8 +11,7 @@ import {
 } from '../../selectors';
 import { getPageByNumber } from '../../actions/list';
 import NavigationBarView from './NavigationBarView';
-
-const { PUBLIC_URL } = process.env;
+import { PUBLIC_URL } from '../../constants';
 
 const selectors = (state) => ({
   pageNumber: selectListPageNumber(state),

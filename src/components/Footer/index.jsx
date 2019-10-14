@@ -6,10 +6,6 @@ import FooterView from './FooterView';
 import css from './Footer.module.scss';
 
 class Footer extends React.PureComponent {
-  static propTypes = {
-    root: PropTypes.string.isRequired,
-  };
-
   constructor(props) {
     super(props);
     const { root } = this.props;
@@ -25,5 +21,9 @@ class Footer extends React.PureComponent {
     );
   }
 }
+
+Footer.propTypes = {
+  root: PropTypes.string.isRequired,
+};
 
 export default Footer;

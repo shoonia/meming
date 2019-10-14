@@ -4,16 +4,6 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class GoogleAnalytics extends React.PureComponent {
-  static propTypes = {
-    trackingId: PropTypes.string.isRequired,
-    history: PropTypes.shape({
-      listen: PropTypes.func.isRequired,
-    }).isRequired,
-    location: PropTypes.shape({
-      pathname: PropTypes.string.isRequired,
-    }).isRequired,
-  };
-
   constructor(props) {
     super(props);
 
@@ -47,5 +37,15 @@ class GoogleAnalytics extends React.PureComponent {
     return null;
   }
 }
+
+GoogleAnalytics.propTypes = {
+  trackingId: PropTypes.string.isRequired,
+  history: PropTypes.shape({
+    listen: PropTypes.func.isRequired,
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default withRouter(GoogleAnalytics);

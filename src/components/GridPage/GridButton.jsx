@@ -4,16 +4,18 @@ import PropTypes from 'prop-types';
 import Button from '../lib/Button';
 import css from './GridPage.module.scss';
 
-const GridButton = ({ onClick, disabled }) => (
-  <div className={css.section}>
-    <Button
-      onClick={onClick}
-      disabled={disabled}
-    >
-      See More
-    </Button>
-  </div>
-);
+function GridButton({ onClick, disabled }) {
+  return (
+    <div className={css.section}>
+      <Button
+        onClick={onClick}
+        disabled={disabled}
+      >
+        See More
+      </Button>
+    </div>
+  );
+}
 
 GridButton.propTypes = {
   onClick: PropTypes.func.isRequired,

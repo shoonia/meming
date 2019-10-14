@@ -1,18 +1,20 @@
 import React from 'react';
-import classNames from 'classnames/bind';
+import cn from 'classnames/bind';
 import PropTypes from 'prop-types';
 
 import css from './Icon.module.scss';
 
-const styles = classNames.bind(css);
+const styles = cn.bind(css);
 
-const Icon = ({ type, ...rest }) => (
-  <span
-    className={styles(type)}
-    role="presentation"
-    {...rest}
-  />
-);
+function Icon({ type, ...rest }) {
+  return (
+    <span
+      className={styles(type)}
+      role="presentation"
+      {...rest}
+    />
+  );
+}
 
 Icon.propTypes = {
   type: PropTypes.string.isRequired,

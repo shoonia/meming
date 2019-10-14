@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -40,13 +40,13 @@ function Meme({ match: { params }, history }) {
     };
   }, [params.id]);
 
-  const goBack = () => {
+  const goBack = useCallback(() => {
     if (history.action === 'PUSH') {
       history.goBack();
     } else {
       history.push(`${PUBLIC_URL}/`);
     }
-  };
+  }, []);
 
   if (isLoading) {
     return (

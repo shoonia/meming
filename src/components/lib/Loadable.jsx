@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 
-export default (loader) => {
+export default function (loader) {
   const Component = lazy(loader);
 
   return function Loadable(props) {
@@ -10,4 +10,4 @@ export default (loader) => {
       </Suspense>
     );
   };
-};
+}

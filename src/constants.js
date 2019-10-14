@@ -1,3 +1,5 @@
+export const { PUBLIC_URL } = process.env;
+
 export const LIST_GET_PAGE_BY_NUMBER = 'LIST_GET_PAGE_BY_NUMBER';
 export const LIST_RECEIVE_PAGE = 'RECEIVE_PAGE';
 export const LIST_PAGE_LOADING = 'PAGE_LOADING';

@@ -11,19 +11,9 @@ import {
 import { getPageByNumber } from '../../actions/list';
 import Icon from '../lib/Icon';
 import css from './Paginate.module.scss';
-
-const { PUBLIC_URL } = process.env;
+import { PUBLIC_URL } from '../../constants';
 
 class Paginate extends React.Component {
-  static propTypes = {
-    pageCount: PropTypes.number.isRequired,
-    pageNumber: PropTypes.number.isRequired,
-    history: PropTypes.shape({
-      push: PropTypes.func.isRequired,
-    }).isRequired,
-    onPageChange: PropTypes.func.isRequired,
-  };
-
   componentDidMount() {
     window.addEventListener('popstate', this.goNextPage);
   }
@@ -129,6 +119,15 @@ class Paginate extends React.Component {
     );
   }
 }
+
+Paginate.propTypes = {
+  pageCount: PropTypes.number.isRequired,
+  pageNumber: PropTypes.number.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+  onPageChange: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = (state, ownProps) => ({
   pageCount: selectListPageCount(state),

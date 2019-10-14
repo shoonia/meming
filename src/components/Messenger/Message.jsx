@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
+import cn from 'classnames/bind';
 
 import css from './Messenger.module.scss';
 
-const styles = classNames.bind(css);
+const styles = cn.bind(css);
 
-const Message = (props) => {
+function Message(props) {
   const {
     id,
     type,
@@ -32,7 +32,7 @@ const Message = (props) => {
       />
     </div>
   );
-};
+}
 
 Message.propTypes = {
   id: PropTypes.number.isRequired,

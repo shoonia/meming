@@ -10,7 +10,7 @@ import css from './MemePage.module.scss';
 
 const ShareButtons = Loadable(() => import('../lib/ShareButtons' /* webpackChunkName: "ShareButtons" */));
 
-const MemeView = (props) => {
+function MemeView(props) {
   const {
     title,
     image,
@@ -50,7 +50,7 @@ const MemeView = (props) => {
       </Button>
     </main>
   );
-};
+}
 
 MemeView.propTypes = {
   title: PropTypes.string.isRequired,
