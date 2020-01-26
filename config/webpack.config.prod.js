@@ -81,22 +81,27 @@ module.exports = {
     minimizer: [
       new TerserPlugin({
         terserOptions: {
+          module: true,
+          toplevel: true,
           parse: {
             ecma: 8,
           },
           compress: {
-            ecma: 5,
+            ecma: 8,
             warnings: false,
             comparisons: false,
             inline: 2,
             drop_console: true,
             passes: 3,
-          },
-          mangle: {
-            safari10: true,
+            unsafe_methods: true,
+            module: true,
+            toplevel: true,
+            pure_getters: true,
+            unsafe: true,
+            unsafe_math: true,
           },
           output: {
-            ecma: 5,
+            ecma: 8,
             comments: false,
             ascii_only: true,
           },
