@@ -1,6 +1,8 @@
 node_modules/
 coverage/
 build/
+.DS_Store
+yarn.lock
 
 *.log
 *.map

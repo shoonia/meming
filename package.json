@@ -1,13 +1,12 @@
 {
   "name": "meming",
-  "version": "0.17.0",
+  "version": "0.18.0",
   "description": "Memes about programming",
   "main": "src/index.js",
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "gh-pages": "gh-pages -d ./build",
-    "deploy": "node scripts/predeploy.js && yarn gh-pages",
+    "predeploy": "node scripts/predeploy.js",
     "lint": "eslint **/*.{js,jsx}"
   },
   "dependencies": {
@@ -44,7 +43,6 @@
     "eslint-plugin-react-hooks": "^2.3.0",
     "file-loader": "^5.0.2",
     "fs-extra": "^8.1.0",
-    "gh-pages": "^2.1.1",
     "html-webpack-plugin": "4.0.0-beta.11",
     "husky": "^4.2.1",
     "mini-css-class-name": "^0.9.1",

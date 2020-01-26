@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
-const { minify } = require('html-minifier');
 const chalk = require('chalk');
 
 const api = 'https://shoonia.wixsite.com/meme-api/_functions/sitemap';
@@ -34,9 +33,7 @@ const getDate = (res) => {
       throw new Error('Empty response data');
     }
 
-    const xmlMin = minify(xml, { collapseWhitespace: true });
-
-    fs.writeFile(sitemap, xmlMin, (error) => {
+    fs.writeFile(sitemap, xml, (error) => {
       if (error) {
         errorLog('sitemap.xml file could not be created!');
         throw error;
