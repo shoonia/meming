@@ -8,7 +8,7 @@
 
 .button {
   cursor: pointer;
-  padding: ($space / 2) $space;
+  padding: ($space / 2) $space !important;
   text-align: center;
   white-space: nowrap;
   background-color: transparent;
