@@ -15,8 +15,5 @@ export const selectIsMemeExist = (state) => state.meme.isExist;
 export const selectIsMemeLoading = (state) => state.meme.isLoading;
 export const selectHasMemeError = (state) => state.meme.hasError;
 
-// redux store: messages
-export const selectMessages = (state) => state.messages.items;
-
 // react-router:
 export const getNumberOfPage = (props) => (parseInt(props.match.params.number, 10) || 1);
