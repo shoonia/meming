@@ -1,29 +1,25 @@
-import React from 'react';
+import React, { useRef, useEffect, memo } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 
 import FooterView from './FooterView';
 import css from './Footer.module.scss';
 
-class Footer extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    const { root } = this.props;
+function Footer({ root }) {
+  const { current } = useRef(document.getElementById(root));
 
-    this.node = document.getElementById(root);
-    this.node.classList.add(css.section);
-  }
+  useEffect(() => {
+    current.classList.add(css.section);
+  }, []);
 
-  render() {
-    return createPortal(
-      <FooterView />,
-      this.node,
-    );
-  }
+  return createPortal(
+    <FooterView />,
+    current,
+  );
 }
 
 Footer.propTypes = {
   root: PropTypes.string.isRequired,
 };
 
-export default Footer;
+export default memo(Footer);

@@ -13,6 +13,13 @@ import { getPageByNumber } from '../../actions/list';
 import NavigationBarView from './NavigationBarView';
 import { PUBLIC_URL } from '../../constants';
 
+const goTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+};
+
 const selectors = (state) => ({
   pageNumber: selectListPageNumber(state),
   pageCount: selectListPageCount(state),
@@ -35,13 +42,6 @@ function NavigationBar({ history }) {
     dispatch(getPageByNumber(nextPage));
     window.scrollTo({ top: 0 });
     history.push(`${PUBLIC_URL}/page/${nextPage}`);
-  };
-
-  const goTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
   };
 
   return (

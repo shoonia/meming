@@ -1,30 +1,26 @@
-import React from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 
 import NavbarView from './NavbarView';
 import css from './Navbar.module.scss';
 
-class Navbar extends React.Component {
-  constructor(props) {
-    super(props);
-    const { root } = this.props;
+function Navbar({ root }) {
+  const { current } = useRef(document.getElementById(root));
 
-    this.navbarRoot = document.getElementById(root);
-    this.navbarRoot.classList.add(css.container);
-  }
-
-  isHomePage = (_, location) => {
+  const isHomePage = useCallback((_, location) => {
     const [, first] = location.pathname.split('/');
     return first === 'page' || first === '';
-  };
+  });
 
-  render() {
-    return createPortal(
-      <NavbarView isHomePage={this.isHomePage} />,
-      this.navbarRoot,
-    );
-  }
+  useEffect(() => {
+    current.classList.add(css.container);
+  }, []);
+
+  return createPortal(
+    <NavbarView isHomePage={isHomePage} />,
+    current,
+  );
 }
 
 Navbar.propTypes = {
