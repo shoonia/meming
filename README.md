@@ -1,7 +1,7 @@
 # Meming
 Memes about programming
 
-* Site: https://meming.netlify.com
+* Site: https://meming.netlify.app
 * API: https://shoonia.wixsite.com/meme-api
 
 ## License
