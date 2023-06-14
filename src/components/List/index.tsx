@@ -1,12 +1,15 @@
 import s from './styles.css';
 import { connect } from '../../store';
+import { Post } from '../Post';
 
 export const List: JSX.FC = () => {
   const ready = (node: HTMLUListElement) => {
     connect('items', ({ items }) => {
-      const list = /*__PURE__*/ items.map((i) => {
+      const list = items.map((i) => {
         return (
-          <li>{i.date}</li>
+          <li class={s.item}>
+            <Post item={i} />
+          </li>
         );
       });
 
