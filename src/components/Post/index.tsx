@@ -7,11 +7,11 @@ interface Props {
 }
 
 export const Post: JSX.FC<Props> = ({ item }) => (
-  <article itemScope>
-    <h2>
+  <article itemScope class={s.post}>
+    <h2 class={s.title}>
       {item.title || '***'}
     </h2>
-    <figure>
+    <figure class={s.box}>
       <img
         src={item.image.src}
         class={s.img}
