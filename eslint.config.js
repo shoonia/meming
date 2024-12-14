@@ -5,7 +5,7 @@ export default ts.config(
   {
     ignores: [
       'dist',
-      'public'
+      'static',
     ],
   },
   js.configs.recommended,
