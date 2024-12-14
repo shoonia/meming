@@ -9,10 +9,14 @@ export const app: StoreonModule<State, Events> = async (store) => {
   store.on('@init', () => {
     return {
       items: [],
+      allItems: [],
     };
   });
 
   const { items } = await apiPromise;
 
-  store.set({ items });
+  store.set({
+    items,
+    allItems: items,
+  });
 };

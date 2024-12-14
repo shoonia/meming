@@ -21,7 +21,7 @@ export interface IReponse {
   readonly totalCount: number;
 }
 
-export const getPage = async (page: number): Promise<IReponse> => {
-  const response = await fetch(`https://shoonia.wixsite.com/meme-api/_functions/page/${page}`);
+export const getPage = async (pageNumber: number): Promise<IReponse> => {
+  const response = await fetch(`https://shoonia.wixsite.com/meme-api/_functions/page/${pageNumber}`);
   return response.json();
 };
