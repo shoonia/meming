@@ -1,15 +1,20 @@
 import { connect } from '../../store';
+import { Post } from '../Post';
 
 export const List: JSX.FC = () => {
   const ready: JSX.Ref<HTMLUListElement> = (node) => {
     connect('items', ({ items }) => {
       if (items.length > 0) {
-        const children = items.reduce<JSX.Element>((elem, item) => {
-          elem.append(<li>{item.id}</li>);
-          return elem;
-        }, <></>);
-
-        node.append(children);
+        node.append(
+          items.reduce((elem, item, index) => {
+            elem.append(
+              <li>
+                <Post lazy={index > 2} {...item} />
+              </li>,
+            );
+            return elem;
+          }, <></>),
+        );
       }
     });
   };
