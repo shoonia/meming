@@ -1,0 +1,10 @@
+.box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  display: inline-flex;
+  gap: 1em;
+}

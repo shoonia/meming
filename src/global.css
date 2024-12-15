@@ -21,4 +21,14 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  margin: 0;
+}
+
+a {
+  color: #116dff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }

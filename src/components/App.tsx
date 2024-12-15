@@ -1,15 +1,13 @@
 import { readyStore } from '../store';
-import { Footer } from './Footer';
+import { Header } from './Header';
 import { List } from './List';
+import { Footer } from './Footer';
 
-export const App: JSX.FC = () => (
+export const App: JSX.FC = () =>
   <>
-    <header>
-
-    </header>
+    <Header />
     <main ref={readyStore}>
       <List />
     </main>
     <Footer />
-  </>
-);
+  </>;
