@@ -3,20 +3,30 @@ import type { StoreonModule } from 'storeon-velo';
 import type { Events, State } from './types';
 import { getPage } from '../api';
 
-const apiPromise = getPage(1);
-
 export const app: StoreonModule<State, Events> = async (store) => {
   store.on('@init', () => {
     return {
+      loading: false,
       items: [],
       allItems: [],
+      pageCount: 0,
+      pageNumber: 0,
     };
   });
 
-  const { items } = await apiPromise;
+  store.on('scroll', async (state) => {
+    if (state.pageNumber <= state.pageCount) {
+      store.set({ loading: true });
 
-  store.set({
-    items,
-    allItems: items,
+      const { items, pageCount, pageNumber } = await getPage(state.pageNumber + 1);
+
+      store.set({
+        loading: false,
+        items,
+        allItems: [...state.allItems, ...items],
+        pageCount,
+        pageNumber,
+      });
+    }
   });
 };

@@ -1,4 +1,5 @@
 import { readyStore } from '../store';
+import { Footer } from './Footer';
 import { List } from './List';
 
 export const App: JSX.FC = () => (
@@ -9,8 +10,6 @@ export const App: JSX.FC = () => (
     <main ref={readyStore}>
       <List />
     </main>
-    <footer>
-
-    </footer>
+    <Footer />
   </>
 );
