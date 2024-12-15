@@ -15,6 +15,7 @@
     Content-Security-Policy = """
       default-src 'self';
       font-src 'self' data: 'self';
+      style-src 'unsafe-inline';
       connect-src 'self' https://shoonia.wixsite.com;
       img-src 'self' https://static.wixstatic.com;
       """
