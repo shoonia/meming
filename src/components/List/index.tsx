@@ -1,3 +1,4 @@
+import s from './styles.css';
 import { connect } from '../../store';
 import { Post } from '../Post';
 
@@ -8,8 +9,8 @@ export const List: JSX.FC = () => {
         node.append(
           items.reduce((elem, item, index) => {
             elem.append(
-              <li>
-                <Post lazy={index > 2} {...item} />
+              <li class={s.item}>
+                <Post lazy={index > 1} {...item} />
               </li>,
             );
             return elem;
@@ -21,6 +22,6 @@ export const List: JSX.FC = () => {
 
 
   return (
-    <ul ref={ready} />
+    <ul ref={ready} class={s.list} />
   );
 };

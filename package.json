@@ -39,7 +39,6 @@
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.2.0"
   },
-  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/shoonia/meming.git"

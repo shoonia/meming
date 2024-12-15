@@ -9,7 +9,7 @@ export const Post: JSX.FC<Props> = ({ title, body, image, date, lazy }) => {
 
   return (
     <article itemScope class={s.post}>
-      <h2>
+      <h2 class={s.title}>
         {title
           ? title
           : <span role="presentation">***</span>

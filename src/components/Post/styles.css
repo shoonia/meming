@@ -1,17 +1,24 @@
 .post {
   max-width: 600px;
-  min-height: 200px;
+  border-radius: 6px;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .1);
+  color: var(--c-text);
+  padding: 1.25em;
 }
 
 .box {
   text-align: center;
   margin: 0;
+  padding-bottom: 1em;
+}
+
+.title {
+  text-align: center;
 }
 
 .image {
-  height: auto;
   max-width: 100%;
-  object-fit: cover;
-  object-position: 50% 50%;
+  max-height: 50vh;
+  object-fit: contain;
   content-visibility: auto;
 }

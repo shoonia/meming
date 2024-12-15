@@ -4,7 +4,7 @@
 }
 
 .loader {
-  color: #1c4c5b
+  color: var(--c-text);
 }
 
 .loader,
