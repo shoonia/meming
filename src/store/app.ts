@@ -7,6 +7,8 @@ export const app: StoreonModule<State, Events> = async (store) => {
   store.on('@init', () => {
     return {
       loading: false,
+      open: false,
+      currentItem: null,
       items: [],
       allItems: [],
       pageCount: 0,
@@ -28,5 +30,12 @@ export const app: StoreonModule<State, Events> = async (store) => {
         pageNumber,
       });
     }
+  });
+
+  store.on('openModal', (_, item) => {
+    return {
+      open: item != null,
+      currentItem: item,
+    };
   });
 };
