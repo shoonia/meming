@@ -16,6 +16,5 @@
       default-src 'self';
       font-src 'self' data: 'self';
       connect-src 'self' https://shoonia.wixsite.com;
-      script-src 'self' https://www.google-analytics.com https://storage.googleapis.com;
-      img-src 'self' https://static.wixstatic.com https://www.google-analytics.com;
+      img-src 'self' https://static.wixstatic.com;
       """

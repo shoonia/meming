@@ -1,25 +1,24 @@
 {
+  "name": "Meming",
   "short_name": "Meming",
-  "name": "Memes about programming",
+  "description": "Memes about programming",
+  "start_url": "/",
+  "scope": "https://meming.netlify.app",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "lang": "en",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "/logo/android-chrome-192x192.png",
+      "src": "/logo/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/logo/android-chrome-512x512.png",
+      "src": "/logo/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "start_url": "./index.html",
-  "display": "standalone",
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff"
+  ]
 }

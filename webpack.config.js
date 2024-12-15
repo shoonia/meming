@@ -13,7 +13,7 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 
-import pkg from './package.json' with { type: 'json' };
+import manifest from './static/manifest.json' with { type: 'json' };
 
 const appDirectory = realpathSync(process.cwd());
 const resolveApp = (relativePath) => resolve(appDirectory, relativePath);
@@ -22,6 +22,8 @@ const srcDir = resolveApp('src');
 const staticDir = resolveApp('static');
 const distDir = resolveApp('dist');
 const nodeModulesDir = resolveApp('node_modules');
+
+const PORT = 3000;
 
 /**
  * @param {NodeJS.ProcessEnv} env
@@ -182,7 +184,10 @@ export default ({ NODE_ENV }) => {
           useShortDoctype: true,
         },
         templateParameters: {
-          homepage: pkg.homepage,
+          title: manifest.name,
+          description: manifest.description,
+          homepage: isProd ? manifest.scope : `http://localhost:${PORT}`,
+          manifest,
           isProd,
         },
       }),
@@ -218,8 +223,8 @@ export default ({ NODE_ENV }) => {
     devServer: {
       hot: false,
       compress: false,
-      static: srcDir,
-      port: 3000,
+      static: staticDir,
+      port: PORT,
     },
   };
 };
