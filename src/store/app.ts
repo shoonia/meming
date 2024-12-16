@@ -7,8 +7,7 @@ export const app: StoreonModule<State, Events> = async (store) => {
   store.on('@init', () => {
     return {
       loading: false,
-      open: false,
-      currentItem: null,
+      openItem: null,
       items: [],
       allItems: [],
       pageCount: 0,
@@ -17,9 +16,16 @@ export const app: StoreonModule<State, Events> = async (store) => {
   });
 
   store.on('scroll', async (state) => {
-    if (state.pageNumber <= state.pageCount) {
-      store.set({ loading: true });
+    if (
+      state.loading ||
+      state.pageNumber > state.pageCount
+    ) {
+      return;
+    }
 
+    store.set({ loading: true });
+
+    try {
       const { items, pageCount, pageNumber } = await getPage(state.pageNumber + 1);
 
       store.set({
@@ -29,13 +35,8 @@ export const app: StoreonModule<State, Events> = async (store) => {
         pageCount,
         pageNumber,
       });
+    } catch {
+      store.set({ loading: false });
     }
-  });
-
-  store.on('openModal', (_, item) => {
-    return {
-      open: item != null,
-      currentItem: item,
-    };
   });
 };

@@ -1,8 +1,8 @@
 import s from './Modal.css';
-import { connect, dispatch } from '../../store';
+import { connect, setState } from '../../store';
 import { Content } from './Content';
 
-const close = () => dispatch('openModal', null);
+const close = () => setState({ openItem: null });
 
 export const Modal: JSX.FC = () => {
   const closeModal: JSX.EventListener<HTMLDialogElement> = (event) => {
@@ -12,11 +12,11 @@ export const Modal: JSX.FC = () => {
   };
 
   const ready: JSX.Ref<HTMLDialogElement> = (node) =>
-    connect('open', ({ open, currentItem }) => {
-      if (open && currentItem) {
+    connect('openItem', ({ openItem }) => {
+      if (openItem) {
         node.append(
           <Content
-            image={currentItem.image}
+            image={openItem.image}
             close={close}
           />,
         );

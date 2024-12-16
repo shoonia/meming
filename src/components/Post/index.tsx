@@ -1,16 +1,17 @@
 import s from './styles.css';
 import type { IItem } from '../../api';
-import { dispatch } from '../../store';
+import { setState } from '../../store';
 
-interface Props extends IItem {
+interface Props {
+  item: IItem;
   lazy: boolean;
 }
 
-export const Post: JSX.FC<Props> = (props) => {
-  const { title, body, image, date, lazy } = props;
+export const Post: JSX.FC<Props> = ({ item, lazy }) => {
+  const { title, body, image, date } = item;
 
   const click: JSX.EventListener<HTMLButtonElement> = () =>
-    dispatch('openModal', props);
+    setState({ openItem: item });
 
   return (
     <article itemScope class={s.post}>
@@ -37,7 +38,7 @@ export const Post: JSX.FC<Props> = (props) => {
           />
         </button>
         <figcaption>
-          {body}
+          {body && <p>{body}</p>}
         </figcaption>
       </figure>
       <time dateTime={date}>
