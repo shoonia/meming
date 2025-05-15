@@ -7,13 +7,11 @@ export const List: JSX.FC = () => {
     connect('items', ({ items }) => {
       if (items.length > 0) {
         node.append(
-          <>
-            {items.map((item, index) =>
-              <li class={s.item}>
-                <Post lazy={index > 1} item={item} />
-              </li>,
-            )}
-          </>,
+          ...items.map((item, index) =>
+            <li class={s.item}>
+              <Post lazy={index > 1} item={item} />
+            </li>,
+          ),
         );
       }
     });

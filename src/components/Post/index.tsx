@@ -9,6 +9,7 @@ interface Props {
 
 export const Post: JSX.FC<Props> = ({ item, lazy }) => {
   const { title, body, image, date } = item;
+  const d = new Date(date);
 
   const click: JSX.EventListener<HTMLButtonElement> = () =>
     setState({ openItem: item });
@@ -28,7 +29,9 @@ export const Post: JSX.FC<Props> = ({ item, lazy }) => {
           on:click={click}
         >
           <img
-            {...image}
+            src={image.src}
+            width={image.width}
+            height={image.height}
             class={s.image}
             crossOrigin="anonymous"
             fetchPriority={lazy ? 'low' : undefined}
@@ -37,12 +40,18 @@ export const Post: JSX.FC<Props> = ({ item, lazy }) => {
             alt=""
           />
         </button>
-        <figcaption>
-          {body && <p>{body}</p>}
-        </figcaption>
+        {body && (
+          <figcaption>
+            <p>{body}</p>
+          </figcaption>
+        )}
       </figure>
       <time dateTime={date}>
-        {new Date(date).toLocaleDateString()}
+        {d.toLocaleDateString('en', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+        })}
       </time>
     </article>
   );
